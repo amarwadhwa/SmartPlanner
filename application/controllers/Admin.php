@@ -5,7 +5,6 @@ class Admin extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
-	 *
 	 * Maps to the following URL Hello
 	 * 		http://example.com/index.php/welcome
 	 *	- or -
