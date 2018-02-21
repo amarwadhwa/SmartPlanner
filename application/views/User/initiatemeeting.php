@@ -88,7 +88,7 @@
                                     </script>
                                 </div>
 
-                                <hr>
+                                <hr><br>
                                         <!-- <div class="form-group">
                                             <label>Inline Checkboxes</label>
                                             <label class="checkbox-inline">
