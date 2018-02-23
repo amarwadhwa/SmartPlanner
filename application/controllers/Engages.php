@@ -20,7 +20,9 @@ class Engages extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('welcome_message');
+		$this->load->view('User/Partial/header');
+		$this->load->view('Engages/PermanentEngages');
+		$this->load->view('User/Partial/footer');
 	}
 		public function new()
 	{

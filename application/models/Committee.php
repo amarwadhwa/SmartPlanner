@@ -49,12 +49,33 @@
 		
 	}
 	   
-	  public function update($prev_name,$name,$des)
+	  public function update($prev_name,$name="",$des="")
 	{
-		$data = array( 
-  		 'name' => "$name", 
-  		 'description' => "$des" 
-		); 
+	
+
+			if ($name!="" && $des!="")
+		{
+			
+			$data = array( 
+  		 	'name' => "$name", 
+  		 	'description' => "$des" 
+			);
+		}
+		elseif ($name!="") {
+			
+			$data = array( 
+  			 'name' => "$name", 
+  			);
+
+		}
+		elseif ($des!="") {
+			
+			$data = array( 
+  		 	'description' => "$des" 
+			);
+		}
+
+
 
 			$this->db->set($data); 
 			$this->db->where("name", "$prev_name"); 

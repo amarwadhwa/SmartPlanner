@@ -34,6 +34,15 @@ class User extends CI_Controller {
 	}
 	public function initiateMeeting()
 	{
+
+		
+		//update($prev_name,$name="",$des="");
+		//$this->load->model("Committee");
+		//$this->Committee->update("Karan","Karann","abc");
+		//$this->Committee->save("Senate","for Departement");
+		//$this->Committee->save("Higher Level","for CS");
+		//$this->Committee->save("lower","for EE");
+		//$this->Committee->update("lower","h","");
 		$this->session_check();
 		$this->load->view('User/Partial/header');
 		$this->load->view('User/Partial/timedateheader');

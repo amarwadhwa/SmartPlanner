@@ -6,7 +6,7 @@
       } 
 	
 	
-	 public function search($id,$name)
+	 public function searchById($id,$name)
 	{
 		
 		$this->db->select('*');
