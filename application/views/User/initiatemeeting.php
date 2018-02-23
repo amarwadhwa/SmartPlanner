@@ -23,7 +23,7 @@
                             <div class="row">
 
                                 <div class="col-lg-6">
-                                    <form role="form">
+                                    <form action="<?php echo base_url('User/initiateMeetingPage2')?>" method="post"role="form">
                                         <div class="form-group">
                                             <label>Meeting Tittle</label>
                                             <input class="form-control">
@@ -180,7 +180,7 @@
 
 
                                         <br>
-                                        <button type="submit" class="btn btn-default">Submit Button</button>
+                                        <button type="submit" name="submit" value="meeting "class="btn btn-default">Submit Button</button>
                                         <button type="reset" class="btn btn-default">Reset Button</button>
                                     </form>
                                 </div>
