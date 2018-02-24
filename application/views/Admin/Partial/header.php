@@ -243,7 +243,10 @@
                         <li>
                             <a href="<?php echo base_url('Admin/settings')?>"><i class="fa fa-edit fa-fw"></i> Settings</a>
                         </li>
-                        
+                        <li>
+                            <a href="<?php echo base_url('Login/logout')?>"><i class="fa fa-edit fa-fw"></i> Logout</a>
+                        </li>
+
                         
                         
                     </ul>

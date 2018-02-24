@@ -253,8 +253,7 @@
 
                         <li>
                             <a href="<?php echo base_url('Engages/index')?>"><i class="fa fa-table fa-fw"></i>Engages</a>
-                        </li>
-                        
+                        </li>              
 
                         <li>
                             <a href="<?php echo base_url('User/initiateMeeting')?>"><i class="fa fa-table fa-fw"></i> Initiate Meeting</a>
