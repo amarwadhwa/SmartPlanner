@@ -6,8 +6,9 @@
       } 
 	
 	
-	 public function searchById($id,$name)
+	 public function search($id="",$name="")
 	{
+
 		
 		$this->db->select('*');
     	$this->db->from('users');
@@ -30,7 +31,7 @@
 
 	}
 	
-	public function save($id,$password,$name,$designation,$commitee_id)
+	public function save($id,$name,$password,$designation,$commitee_id="")
 	{
 		$data = array(
 		'id' => "$id",
