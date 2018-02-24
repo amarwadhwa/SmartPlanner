@@ -248,16 +248,26 @@
                         </li>
                         
                         <li>
-                            <a href="<?php echo base_url('User/initiateMeeting')?>"><i class="fa fa-table fa-fw"></i> Initiate Meeting</a>
-                        </li>
-                         <li>
-                            <a href="<?php echo base_url('Engages/index')?>"><i class="fa fa-table fa-fw"></i>Engages</a>
-                        </li>
-                        <li>
                             <a href="<?php echo base_url('User/showMeeting')?>"><i class="fa fa-edit fa-fw"></i> My Meetings</a>
                         </li>
+
+                        <li>
+                            <a href="<?php echo base_url('Engages/index')?>"><i class="fa fa-table fa-fw"></i>Engages</a>
+                        </li>
                         
-                        
+
+                        <li>
+                            <a href="<?php echo base_url('User/initiateMeeting')?>"><i class="fa fa-table fa-fw"></i> Initiate Meeting</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url('User/initiateMeeting')?>"><i class="fa fa-table fa-fw"></i> Scheduled Meetings</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url('User/initiateMeeting')?>"><i class="fa fa-table fa-fw"></i> Settings</a>
+                        </li>
+                        <li>
+                            <a href="<?php echo base_url('User/initiateMeeting')?>"><i class="fa fa-table fa-fw"></i> Logout</a>
+                        </li>
                         
                     </ul>
                 </div>

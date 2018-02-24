@@ -231,6 +231,9 @@
                             <!-- /input-group -->
                         </li>
                         <li>
+                            <a href="<?php echo base_url('Admin/users')?>"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
+                        </li>
+                        <li>
                             <a href="<?php echo base_url('Admin/users')?>"><i class="fa fa-dashboard fa-fw"></i> Users</a>
                         </li>
                         
