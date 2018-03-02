@@ -11,7 +11,25 @@
     <!-- Custom Fonts -->
     <link href="<?php echo base_url(); ?>application_resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+<!-- Calender -->
+<link href='<?php echo base_url(); ?>application_resources/CalenderFiles/css/fullcalendar.min.css' rel='stylesheet' />
+<link href='<?php echo base_url(); ?>application_resources/CalenderFiles/css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
 
+<style>
+
+  body {
+    margin: 0px 0px;
+    padding: 0;
+    font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
+    font-size: 14px;
+  }
+
+  #calendar {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+</style>
 
 <!-- Jquery Token Input -->
     
@@ -265,7 +283,7 @@
                             <a href="<?php echo base_url('User/initiateMeeting')?>"><i class="fa fa-table fa-fw"></i> Settings</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url('User/initiateMeeting')?>"><i class="fa fa-table fa-fw"></i> Logout</a>
+                            <a href="<?php echo base_url('Login/logout')?>"><i class="fa fa-table fa-fw"></i> Logout</a>
                         </li>
                         
                     </ul>
