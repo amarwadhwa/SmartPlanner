@@ -27,39 +27,11 @@ class User extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('User/Partial/header');
-		$this->load->view('User/home');
+		$this->load->view('User/DashBoard/home');
 		$this->load->view('User/Partial/footer');
 		$this->session_check();
 
 	}
-	public function initiateMeeting()
-	{
-
-		$this->session_check();
-		$this->load->view('User/Partial/header');
-		$this->load->view('User/Partial/timedateheader');
-		$this->load->view('User/initiatemeeting');
-		$this->load->view('User/Partial/footer');
-		
-	}
-	public function initiateMeetingPage2()
-	{
-		$this->session_check();
-		$this->load->view('User/Partial/header');
-		$this->load->view('User/Partial/timedateheader');
-		$this->load->view('User/initiatemeetingPage2');
-		$this->load->view('User/Partial/footer');
-		
-	}
 	
-	
-	public function showMeeting()
-	{
-		$this->session_check();
-		$this->load->view('User/Partial/header');
-		$this->load->view('User/showmeetings');
-		$this->load->view('User/Partial/footer');
-		
-	}
 
 }

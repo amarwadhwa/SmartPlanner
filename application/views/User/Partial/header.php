@@ -324,7 +324,7 @@ Label the data
                         </li>
                         
                         <li>
-                            <a href="<?php echo base_url('User/showMeeting')?>"><i class="fa fa-edit fa-fw"></i> My Meetings</a>
+                            <a href="<?php echo base_url('My_Meeting/index')?>"><i class="fa fa-edit fa-fw"></i> My Meetings</a>
                         </li>
 
                         <li>
@@ -332,13 +332,13 @@ Label the data
                         </li>              
 
                         <li>
-                            <a href="<?php echo base_url('User/initiateMeeting')?>"><i class="fa fa-table fa-fw"></i> Initiate Meeting</a>
+                            <a href="<?php echo base_url('initiateMeeting/index')?>"><i class="fa fa-table fa-fw"></i> Initiate Meeting</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url('User/initiateMeeting')?>"><i class="fa fa-table fa-fw"></i> Scheduled Meetings</a>
+                            <a href="<?php echo base_url('SchduleMeeting/index')?>"><i class="fa fa-table fa-fw"></i> Scheduled Meetings</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url('User/initiateMeeting')?>"><i class="fa fa-table fa-fw"></i> Settings</a>
+                            <a href="<?php echo base_url('User_Profile/index')?>"><i class="fa fa-table fa-fw"></i> Settings</a>
                         </li>
                         <li>
                             <a href="<?php echo base_url('Login/logout')?>"><i class="fa fa-table fa-fw"></i> Logout</a>

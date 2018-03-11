@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class My_Meeting extends CI_Controller {
+class initiateMeeting extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -23,13 +23,24 @@ class My_Meeting extends CI_Controller {
 	if(!isset($_SESSION["user-type"]) && $_SESSION["user-type"] != "user"){
 		redirect("Login");
 	}
-	}
+}
 	public function index()
 	{
 		$this->session_check();
 		$this->load->view('User/Partial/header');
-		$this->load->view('User/MyMeetings/showmeetings');
+		$this->load->view('User/Partial/timedateheader');
+		$this->load->view('User/InitiateMeeting/initiatemeeting');
 		$this->load->view('User/Partial/footer');
+	}
+
+		public function initiateMeetingPage2()
+	{
+		$this->session_check();
+		$this->load->view('User/Partial/header');
+		$this->load->view('User/Partial/timedateheader');
+		$this->load->view('User/InitiateMeeting/initiatemeetingPage2');
+		$this->load->view('User/Partial/footer');
+		
 	}
 		public function new()
 	{

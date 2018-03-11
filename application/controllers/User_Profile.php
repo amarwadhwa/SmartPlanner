@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class My_Meeting extends CI_Controller {
+class user_profile extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -18,19 +18,13 @@ class My_Meeting extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-	public function session_check(){
-
-	if(!isset($_SESSION["user-type"]) && $_SESSION["user-type"] != "user"){
-		redirect("Login");
-	}
-	}
 	public function index()
 	{
-		$this->session_check();
 		$this->load->view('User/Partial/header');
-		$this->load->view('User/MyMeetings/showmeetings');
+		$this->load->view('User/User_profile/user_profile');
 		$this->load->view('User/Partial/footer');
 	}
+	
 		public function new()
 	{
 		$this->load->view('welcome_message');

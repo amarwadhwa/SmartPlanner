@@ -23,7 +23,7 @@
                             <div class="row">
 
                                 <div class="col-lg-6">
-                                    <form action="<?php echo base_url('User/initiateMeetingPage2')?>" method="post"role="form">
+                                    <form action="<?php echo base_url('initiateMeeting/initiateMeetingPage2')?>" method="post"role="form">
                                         <div class="form-group">
                                             <label>Meeting Tittle</label>
                                             <input class="form-control">

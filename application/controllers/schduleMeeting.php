@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class My_Meeting extends CI_Controller {
+class schduleMeeting extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -26,22 +26,12 @@ class My_Meeting extends CI_Controller {
 	}
 	public function index()
 	{
-		$this->session_check();
 		$this->load->view('User/Partial/header');
-		$this->load->view('User/MyMeetings/showmeetings');
+		$this->load->view('User/SchduleMeeting/schdulemeeting');
 		$this->load->view('User/Partial/footer');
+		$this->session_check();
+
 	}
-		public function new()
-	{
-		$this->load->view('welcome_message');
-	}
-	public function edit()
-	{
-		$this->load->view('welcome_message');
-	}
-	public function save()
-	{
-		$this->load->view('welcome_message');
-	}
+	
 
 }
