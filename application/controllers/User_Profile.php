@@ -21,13 +21,17 @@ class user_profile extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('User/Partial/header');
+
+		
 		$this->load->view('User/User_profile/user_profile');
 		$this->load->view('User/Partial/footer');
 	}
 	
-		public function new()
+		public function changePassword()
 	{
-		$this->load->view('welcome_message');
+		$this->load->view('User/Partial/header');
+		$this->load->view('User/User_profile/ChangePassword');
+		$this->load->view('User/Partial/footer');
 	}
 	public function edit()
 	{

@@ -16,6 +16,10 @@
     <!-- Custom Theme JavaScript -->
     <script src="<?php echo base_url(); ?>application_resources/dist/js/sb-admin-2.js"></script>
 
+<!-- For profile page  -->
+    <script src="//netdna.bootstrapcdn.com/twitter-bootstrap/2.3.2/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
 
     <!-- Jquery Token Input -->
     <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.min.js"></script>

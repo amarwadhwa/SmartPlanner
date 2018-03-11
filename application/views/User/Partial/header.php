@@ -11,6 +11,8 @@
     <!-- Custom Fonts -->
     <link href="<?php echo base_url(); ?>application_resources/vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+
+
 <!-- Calender -->
 <link href='<?php echo base_url(); ?>application_resources/CalenderFiles/css/fullcalendar.min.css' rel='stylesheet' />
 <link href='<?php echo base_url(); ?>application_resources/CalenderFiles/css/fullcalendar.print.min.css' rel='stylesheet' media='print' />
@@ -338,7 +340,7 @@ Label the data
                             <a href="<?php echo base_url('SchduleMeeting/index')?>"><i class="fa fa-table fa-fw"></i> Scheduled Meetings</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url('User_Profile/index')?>"><i class="fa fa-table fa-fw"></i> Settings</a>
+                            <a href="<?php echo base_url('User_Profile/index')?>"><i class="fa fa-table fa-fw"></i> User Profile </a>
                         </li>
                         <li>
                             <a href="<?php echo base_url('Login/logout')?>"><i class="fa fa-table fa-fw"></i> Logout</a>
