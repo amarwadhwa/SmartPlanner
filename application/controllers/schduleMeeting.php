@@ -32,6 +32,23 @@ class schduleMeeting extends CI_Controller {
 		$this->session_check();
 
 	}
+	public function edit()
+	{
+		$this->load->view('User/Partial/header');
+		$this->load->view('User/SchduleMeeting/editMeeting');
+		$this->load->view('User/Partial/footer');
+		$this->session_check();
+
+	}
+	public function editConform()
+	{
+		$this->load->view('User/Partial/header');
+		$this->load->view('User/Partial/timedateheader');
+		$this->load->view('User/SchduleMeeting/editMeeting2');
+		$this->load->view('User/Partial/footer');
+		$this->session_check();
+
+	}
 	
 
 }
