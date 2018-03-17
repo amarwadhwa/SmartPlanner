@@ -23,7 +23,7 @@
 	{
 		$query = $this->db->get("committees"); 
         $data['records'] = $query->result(); 
-      	return $data;
+      	print_r($data);
 
         
 	}
