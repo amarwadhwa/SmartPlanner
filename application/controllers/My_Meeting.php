@@ -24,13 +24,57 @@ class My_Meeting extends CI_Controller {
 		redirect("Login");
 	}
 	}
+
 	public function index()
 	{
 		$this->session_check();
 		$this->load->view('User/Partial/header');
 		$this->load->view('User/MyMeetings/showmeetings');
 		$this->load->view('User/Partial/footer');
+		
+
+		/*
+
+		$this->load->model('Meetings');
+		
+
+
+		$data['meetings'] = $this->Meetings->view_all();
+		
+		//print_r($data['meetings']['records']['0']);	
+
+		print_r($data['meetings']['records']);
+
+
+
+
+			
+			foreach($data['meetings']['records'] as $records) {
+  			 $title = $records->title;
+  			 $start = $records->start_time;
+  			 $end  =  $records->end_time;
+
+			
+
+			}
+
+		
+		echo "<br>";
+		echo "<br>";
+		echo json_encode($data['meetings']['records']);  
+
+		*/
+
+
+		//$this->Meetings->initiate('a','b','c','d','e','f','g'); 
+		//$data['meetings'] = $this->Committee->view_all(); 
+		//print_r($data['meetings']['records']['0']);
+		//initiate($title, $status="pending", $initiater_id, $guest_id, $time , $start_time, $end_time, $description )
+
+
 	}
+
+
 		public function new()
 	{
 		$this->load->view('welcome_message');
