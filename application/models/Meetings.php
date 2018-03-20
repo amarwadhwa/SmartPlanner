@@ -80,11 +80,15 @@
 		
 	{
 
-		$query = $this->db->get("meeting_logs"); 
+		//$query = $this->db->get("meeting_logs");
+
+	     $query_str= "SELECT * FROM meetings ";
+		 $query= $this->db->query($query_str);
         $data['records'] = $query->result(); 
       	return $data;
 
-        
+
+
 	}
 	
 		/*
