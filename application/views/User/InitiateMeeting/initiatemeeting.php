@@ -88,7 +88,7 @@
                                     </script>
                                 </div>
 
-                                <hr><br>
+                                
                                         <!-- <div class="form-group">
                                             <label>Inline Checkboxes</label>
                                             <label class="checkbox-inline">
@@ -101,30 +101,7 @@
                                                 <input type="checkbox">3
                                             </label>
                                         </div> -->
-                                        <article>
-            <div class="demo">
-                <h2>Date and Time </h2>
-                    <p id="datepairExample">
-                        <input type="text" class="date start" placeholder="Enter Starting Date" />
-                        <input type="text" class="time start" placeholder="Enter Starting Time"/> to
-                        <input type="text" class="time end" placeholder="Enter Ending Date"/>
-                        <input type="text" class="date end" placeholder="Enter Ending Time"/>
-                    </p>
-            </div>
-            <script>
-            $('#datepairExample .time').timepicker({
-                'showDuration': true,
-                'timeFormat': 'g:ia'
-            });
-
-            $('#datepairExample .date').datepicker({
-                'format': 'm/d/yyyy',
-                'autoclose': true
-            });
-
-            $('#datepairExample').datepair();
-            </script>
-        </article>
+                             
                    
 
                                         <!--<div class="form-group">
