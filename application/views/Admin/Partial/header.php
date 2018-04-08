@@ -231,17 +231,17 @@
                             <!-- /input-group -->
                         </li>
                         <li>
-                            <a href="<?php echo base_url('Admin/users')?>"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
+                            <a href="<?php echo base_url('Admin/index')?>"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url('Admin/users')?>"><i class="fa fa-dashboard fa-fw"></i> Users</a>
+                            <a href="<?php echo base_url('AddUsers/index')?>"><i class="fa fa-dashboard fa-fw"></i> Users</a>
                         </li>
                         
                         <li>
-                            <a href="<?php echo base_url('Admin/committies')?>"><i class="fa fa-table fa-fw"></i> Committies</a>
+                            <a href="<?php echo base_url('AddCommitties/index')?>"><i class="fa fa-table fa-fw"></i> Committies</a>
                         </li>
                         <li>
-                            <a href="<?php echo base_url('Admin/settings')?>"><i class="fa fa-edit fa-fw"></i> Settings</a>
+                            <a href="<?php echo base_url('AdminSettings/index')?>"><i class="fa fa-edit fa-fw"></i> Settings</a>
                         </li>
                         <li>
                             <a href="<?php echo base_url('Login/logout')?>"><i class="fa fa-edit fa-fw"></i> Logout</a>

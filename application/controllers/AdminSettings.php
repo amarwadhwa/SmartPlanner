@@ -1,11 +1,12 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin extends CI_Controller {
+class AdminSettings extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
-	 * Maps to the following URL Hello
+	 *
+	 * Maps to the following URL
 	 * 		http://example.com/index.php/welcome
 	 *	- or -
 	 * 		http://example.com/index.php/welcome/index
@@ -17,22 +18,12 @@ class Admin extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
-
-	public function session_check(){
-
-	if(!isset($_SESSION["user-type"]) && $_SESSION["user-type"] != "admin"){
-		redirect("Login");
-	}
-	}
 	public function index()
 	{
-		
 		$this->load->view('Admin/Partial/header');
-		$this->load->view('Admin/DashBoard/home');
+		$this->load->view('Admin/Settings/Settings');
 		$this->load->view('Admin/Partial/footer');
-		$this->session_check();
+	
 	}
-	
-	
-	
+
 }

@@ -3,20 +3,17 @@
 
 <head>
 
-    
-
-   
 
 </head>
 
 <body>
 
-    
+   
 
-         <div id="page-wrapper">
+        <div id="page-wrapper">
             <div class="row">
                 <div class="col-lg-12">
-                    <h1 class="page-header">Change Password</h1>
+                    <h1 class="page-header">Committies</h1>
                 </div>
                 <!-- /.col-lg-12 -->
             </div>
@@ -25,40 +22,47 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Details
+                            Add Committie
                         </div>
                         <div class="panel-body">
                             <div class="row">
-
+                                 <form action="<?php echo base_url('User_Profile/changePassword')?>" method="post"role="form">
+                                   
                                 <div class="col-lg-6">
-                                    <form >
-                                        <div class="form-group">
-                                            <label>Old Password</label>
-                                            <input class="form-control" >
-
-                                        </div>
-                                         <div class="form-group">
-                                            <label>New Password</label>
-                                            <input class="form-control" >
-
-                                        </div>
-                                         <div class="form-group">
-                                            <label>Retype New Password</label>
-                                            <input class="form-control" >
-
-                                        </div>
-                                        
-                                        
+                                    <form role="form">
                                     
-
-                                        <br>
-                                        <button type="submit" name="submit" value="meeting "class="btn btn-default">Submit Button</button>
+                                     
                                         
-                                    </form>
+                                         <div class="form-group">
+                                            <label>Committie</label>
+                                            <input class="form-control" >
+
+                                        </div>
+                                         <div class="form-group">
+                                            <label>Committie Id</label>
+                                            <input class="form-control" >
+
+                                        </div>
+                                         <div class="form-group">
+                                            <label>Committie Description</label>
+                                            <textarea class="form-control" rows="7" ></textarea> 
+                                        </div>
+
+                                         
+                                        <div>
+                                        <button type="submit" name="submit" value="meeting "class="btn btn-default">Submit Button</button>
+                                        <button type="reset" class="btn btn-default">Reset Button</button>
+                                    </div> 
+                                    </div>
+                                    
+                                
+                                       
                                 </div>
-
-
-                          
+                                    </form>
+                                
+                                <!-- /.col-lg-6 (nested) -->
+                            </div>
+                                <!-- /.col-lg-6 (nested) -->
                             <!-- /.row (nested) -->
                         </div>
                         <!-- /.panel-body -->
@@ -73,10 +77,6 @@
 
     </div>
     <!-- /#wrapper -->
-
-
-
-
 
 
 </body>
