@@ -47,22 +47,22 @@
                                             <label>Committies</label>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Senate 
+                                                    <input type="checkbox" value="Authorities">Authorities 
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Departmental
+                                                    <input type="checkbox" value="Senate">Senate
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Senate 
+                                                    <input type="checkbox" value="Syndicate">Syndicate 
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Departmental
+                                                    <input type="checkbox" value="Departmental">Departmental
                                                 </label>
                                             </div>
                                             <!-- <div class="checkbox">
