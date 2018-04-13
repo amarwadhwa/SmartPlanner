@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin extends CI_Controller {
+class AddCommitties extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -28,7 +28,7 @@ class Admin extends CI_Controller {
 	{
 		
 		$this->load->view('Admin/Partial/header');
-		$this->load->view('Admin/DashBoard/home');
+		$this->load->view('Admin/Committies/committies');
 		$this->load->view('Admin/Partial/footer');
 		$this->session_check();
 	}

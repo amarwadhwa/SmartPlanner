@@ -188,7 +188,22 @@ echo $_POST["description"];
 
         $totalUsers  = count($users["records"]);
 
+
+
+        for($i=0; $i  < $totalUsers; $i++)
+            {
+            
+                $users_com_id[$users["records"][$i]->id] = explode(",",$users["records"][$i]->commitee_id);     
+            }
+
+            
+                
         
+
+        
+
+        print_r($users_com_id);
+        //print_r (explode(",",$users["records"][0]->commitee_id));
         
 
         

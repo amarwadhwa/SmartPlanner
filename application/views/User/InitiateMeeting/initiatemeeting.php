@@ -52,13 +52,8 @@
                                                     <?php 
 
 
-                                 print_r($Committies["records"][0]->name);
-
-                            print_r($Committies["records"][0]->id);
-
-                             $count = count($Committies["records"]);
-                                print_r($count);
-
+                                $count = count($Committies["records"]);
+                           
 
 
                                                 for($i=0; $i < $count; $i++)
@@ -109,6 +104,7 @@
 
                                             <div class="checkbox">
                                                 <label>
+<<<<<<< HEAD
                                                    <input type="checkbox" name="Committee[]" value="B" />Departmental
                                                 </label>
                                             </div>
@@ -137,21 +133,24 @@
                                         <div class="checkbox" >
                                                 <label>
                                                     <input type="checkbox" value="" name="senate">Senate 
+=======
+                                                    <input type="checkbox" value="Authorities">Authorities 
+>>>>>>> 89c4f836375f2fb429468ad754200c758ca057e3
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Departmental
+                                                    <input type="checkbox" value="Senate">Senate
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Senate 
+                                                    <input type="checkbox" value="Syndicate">Syndicate 
                                                 </label>
                                             </div>
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Departmental
+                                                    <input type="checkbox" value="Departmental">Departmental
                                                 </label>
                                             </div>
                                            -->     

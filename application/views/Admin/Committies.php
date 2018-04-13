@@ -22,7 +22,7 @@
                 <div class="col-lg-12">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            Basic Form Elements
+                            Add Committie
                         </div>
                         <div class="panel-body">
                             <div class="row">
