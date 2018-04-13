@@ -27,7 +27,8 @@
 	
 		$query = $this->db->get("users"); 
         $data['records'] = $query->result(); 
-      	print_r($data);
+      	return $data;
+      	
 
 	}
 	

@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,7 +27,7 @@
                                     <form action="<?php echo base_url('initiateMeeting/initiateMeetingPage2')?>" method="post"role="form">
                                         <div class="form-group">
                                             <label>Meeting Tittle</label>
-                                            <input class="form-control">
+                                            <input class="form-control" name="title">
 
                                             <!-- <p class="help-block">Example block-level help text here.</p> -->
                                         </div>
@@ -45,9 +46,97 @@
                                         </div>
                                         --> <div class="form-group">
                                             <label>Committies</label>
+                                            
+                                        
+
+                                                    <?php 
+
+
+                                 print_r($Committies["records"][0]->name);
+
+                            print_r($Committies["records"][0]->id);
+
+                             $count = count($Committies["records"]);
+                                print_r($count);
+
+
+
+                                                for($i=0; $i < $count; $i++)
+                                                 {
+                                                    ?>
+
+                                                        <div class="checkbox" >
+                                                        <label>
+
+
+                                                        <input type="checkbox" name="Committee[]" value= <?php echo $Committies["records"][$i]->id ?> />  
+
+                                                             <?php   echo $Committies["records"][$i]->name ; 
+
+
+                                                             ?>
+
+
+
+                                                         
+                                                        
+                                                        </label>
+                                                        
+                                                        </div>
+
+
+                                                <?php
+
+                                                 }
+                                            ?>   
+
+
+
+
+
+
+                                     <!--   
+
+                                            This code is working perfectly fine but it is static and will only send 4 commetis data
+
+
+                                      <div class="checkbox" >
+                                            <label>
+
+                                                    <input type="checkbox" name="Committee[]" value="A" />Senate
+                                                </label>
+                                            </div>
+
                                             <div class="checkbox">
                                                 <label>
-                                                    <input type="checkbox" value="">Senate 
+                                                   <input type="checkbox" name="Committee[]" value="B" />Departmental
+                                                </label>
+                                            </div>
+
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="Committee[]" value="C" />Student Body
+                                                </label>
+                                            </div>
+                                            <div class="checkbox">
+                                                <label>
+                                                    <input type="checkbox" name="Committee[]" value="D" />Faculty
+                                                </label>
+                                            </div>
+
+
+
+                                        -->
+
+
+                                           
+
+
+<!--
+
+                                        <div class="checkbox" >
+                                                <label>
+                                                    <input type="checkbox" value="" name="senate">Senate 
                                                 </label>
                                             </div>
                                             <div class="checkbox">
@@ -65,6 +154,10 @@
                                                     <input type="checkbox" value="">Departmental
                                                 </label>
                                             </div>
+                                           -->     
+
+                                
+
                                             <!-- <div class="checkbox">
                                                 <label>
                                                     <input type="checkbox" value="">Checkbox 3
@@ -77,7 +170,7 @@
                             <div class="form-group">
                                 <label>Faculty</label>
                                
-                                    <input class="form-control" id="demo-input-facebook-theme" name="blah2" />
+                                    <input class="form-control" id="demo-input-facebook-theme" name="Faculty" >
                                     
                                     <script type="text/javascript">
                                     $(document).ready(function() {
@@ -156,9 +249,32 @@
                                         </div> -->
 
 
+`
+                                         <div class="col-lg-6">
+                                        
+                                        <div class="form-group">
+                                            <label>Meeting Description</label>
+
+                                            
+                                            <textarea class="form-control" rows="7"  name="description" ></textarea> 
+                                             <br>
+
+                                             
+                                       
+                                   
+                                        </div>
+
+
                                         <br>
-                                        <button type="submit" name="submit" value="meeting "class="btn btn-default">Submit Button</button>
+                                        <button type="submit" name="submit" value="meeting"class="btn btn-default">Submit Button</button>
                                         <button type="reset" class="btn btn-default">Reset Button</button>
+                                    
+                                    
+
+
+
+
+
                                     </form>
                                 </div>
 
@@ -232,15 +348,32 @@
                                 </div> -->
                                 <!-- /.col-lg-6 (nested) -->
                           
+
+
+
+<!--Separate form
+
+
                             <div class="col-lg-6">
-                                    <form role="form">
+                                    <form role="form" >
                                         <div class="form-group">
                                             <label>Meeting Description</label>
-                                            <textarea class="form-control" rows="7" ></textarea> 
+
+                                            
+                                            <textarea class="form-control" rows="7"  ></textarea> 
                                              <br>
+
+
                                        
-                                    </form>
+                                   </form>
                                 </div>
+
+-->
+
+
+                          
+
+
                                 <!-- /.col-lg-6 (nested) -->
                                 <!-- <div class="col-lg-6">
                                     <h1>Disabled Form States</h1>

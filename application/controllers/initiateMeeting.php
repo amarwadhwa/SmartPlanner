@@ -27,18 +27,31 @@ class initiateMeeting extends CI_Controller {
 	public function index()
 	{
 		$this->session_check();
+
+		$this->load->model('Committee');
+		$data['Committies'] = $this->Committee->view_all();
+		
+
+
+
+
+
+
 		$this->load->view('User/Partial/header');
 		$this->load->view('User/Partial/timedateheader');
-		$this->load->view('User/InitiateMeeting/initiatemeeting');
+		$this->load->view('User/InitiateMeeting/initiatemeeting',$data);
 		$this->load->view('User/Partial/footer');
 	}
 
 		public function initiateMeetingPage2()
 	{
 		$this->session_check();
+		$this->load->model('User');
+		$data2['users'] = $this->User->view_all();
+		
 		$this->load->view('User/Partial/header');
 		$this->load->view('User/Partial/timedateheader');
-		$this->load->view('User/InitiateMeeting/initiatemeetingPage2');
+		$this->load->view('User/InitiateMeeting/initiatemeetingPage2',$data2);
 		$this->load->view('User/Partial/footer');
 		
 	}

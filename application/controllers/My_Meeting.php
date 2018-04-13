@@ -29,11 +29,15 @@ class My_Meeting extends CI_Controller {
 	{
 		$this->session_check();
 
-		/*
+		
 	  	$this->load->model('Meetings');
 
 		$data['meetings'] = $this->Meetings->view_all();
 		
+		
+
+
+
 		//print_r($data);
 
 		//echo "<br>";
@@ -41,12 +45,12 @@ class My_Meeting extends CI_Controller {
 
 		//echo json_encode($data['meetings']['records']); 
 		$a['json'] =  json_encode($data['meetings']['records']); 
-		*/
+		
 
 
 		$data['json'] = "[{
           title: 'All of Event',
-          start: '2018-02-01'
+          start: '2018-02-01',
           	
         },
         {

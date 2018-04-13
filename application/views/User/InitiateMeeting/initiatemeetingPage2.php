@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -136,3 +139,61 @@
 </body>
 
 </html>
+
+<?php
+
+
+
+
+
+echo $_POST["title"];
+echo $_POST["Faculty"];
+echo $_POST["description"];
+
+
+
+
+
+
+
+    if(empty($_POST['Committee'])) 
+    {
+        echo("You didn't invited any commettie.");
+
+    } 
+  else
+  {
+    $commetties = $_POST['Committee'];
+    $N = count($commetties);
+
+    echo("You Invited $N Commetties: ");
+    for($i=0; $i < $N; $i++)
+    {
+      echo($commetties[$i] . " ");
+    }
+  }
+
+?>
+<br>
+
+
+
+<?php
+        
+        print_r($users);
+
+        
+
+        print_r($users["records"][0]->name);
+
+        $totalUsers  = count($users["records"]);
+
+        
+        
+
+        
+
+        
+       
+
+?>

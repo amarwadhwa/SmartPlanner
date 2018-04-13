@@ -27,8 +27,9 @@
 	
 		$query = $this->db->get("users"); 
         $data['records'] = $query->result(); 
-      	print_r($data);
-
+      
+      	return $data;
+      	
 	}
 	
 	public function save($id,$name,$password,$designation,$commitee_id="")
