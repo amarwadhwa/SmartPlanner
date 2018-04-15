@@ -18,15 +18,17 @@
                   <div class="panel-body">
                      <div class="row">
                         <div class="col-lg-6">
-                           <form action="<?php echo base_url('User/initiateMeetingPage2')?>" method="post"role="form">
+                           <form action="<?php echo base_url('initiateMeeting/initiateMeetingPage2')?>" method="post"role="form">
                               <article>
                                  <div class="demo">
                                     <h2>Date and Time </h2>
                                     <p id="datepairExample">
-                                       <input type="text" class="date start" placeholder="Enter Starting Date" />
-                                       <input type="text" class="time start" placeholder="Enter Starting Time"/> to
-                                       <input type="text" class="time end" placeholder="Enter Ending Date"/>
-                                       <input type="text" class="date end" placeholder="Enter Ending Time"/>
+                                       <input type="text" class="date start" placeholder="Date"  name="start_date" />
+                                       <input type="text" class="time start" placeholder="Time" name="start_time"/> to
+                                       <input type="text" class="time end" placeholder="Date"   name="end_date" />
+                                       <input type="text" class="date end" placeholder="Time" name="end_time" />
+                                       <input type="hidden" value="test" name="f" />
+
                                     </p>
                                  </div>
                                  <script>
@@ -43,12 +45,13 @@
                                     $('#datepairExample').datepair();
                                  </script>
                               </article>
+                              <div class="col-lg-3">
+                              <button type="submit" name="submit" value="meeting "class="btn btn-default">Check Time </button>
+                           </div>              
                            </form>
                         </div>
                         <div class="col-lg-12">
-                           <div class="col-lg-3">
-                              <button type="submit" name="submit" value="meeting "class="btn btn-default">Check Time </button>
-                           </div>
+                           
                            <br>
                            <div class="progress" class="col-lg-9">
                               <div class="progress-bar" style="width:70%">70%</div>
@@ -104,7 +107,30 @@
       <!-- /#wrapper -->
    </body>
 </html>
+
+
+
 <?php
+
+
+
+$start_time =  strtotime($_POST["start_date"] . " ". $_POST["start_time"]);
+$start_timestamp =  date('Y-m-d H:i:s', $start_time);
+$end_time =  strtotime($_POST["end_date"] . " ". $_POST["end_time"]);
+$end_timestamp =  date('Y-m-d H:i:s', $end_time);
+
+
+echo $start_timestamp;
+echo "<br>";
+echo $end_timestamp;
+echo "<br>";
+
+echo ($_POST['f']);
+
+
+
+echo "<br>";
+
    echo $_POST["title"];
    echo $_POST["Faculty"];
    echo $_POST["description"];
@@ -140,5 +166,59 @@
    
    print_r($users_com_id);
    //print_r (explode(",",$users["records"][0]->commitee_id));
+
+
+//New Changes
+
+if(isset($_POST["start_time"])) {
+
+            echo $_POST["start_time"];
+            //echo('<br /><br />'.$_POST['f']);
+        }
+        else{
+
+            echo "not setcookie";
+
+        }
+
+
+
+ echo "<br>";
+echo "<br>";
+
+        foreach ($commetties as $commettie) {
+            foreach ($users["records"] as $user) {
+                 $user_commetties = explode(",",$user->commitee_id);    
+                foreach ($user_commetties as $user_commettie) {
+                   if ($commettie == $user_commettie) {
+                       $invited_Users[] = $user;
+                   }
+                }
+
+            }
+        }
+          
+        print_r(array_map("unserialize", array_unique(array_map("serialize", $invited_Users))));
+
+       // $_SESSION["title"] = $title;
+            
+
+
    
+   ?>
+
+
+   <?php
+        
+        
+        
+
+        
+
+
+        
+
+        
+
+       
    ?>
