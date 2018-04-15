@@ -31,9 +31,6 @@
       	
 
 	}
-	public function insert_data($data){
-		$this->db->insert("users" ,$data);
-	}
 	
 	public function save($id,$name,$password,$designation,$commitee_id="")
 	{
