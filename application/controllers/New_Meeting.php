@@ -22,10 +22,7 @@ class New_Meeting extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
-		public function new()
-	{
-		$this->load->view('welcome_message');
-	}
+	
 	public function edit()
 	{
 		$this->load->view('welcome_message');

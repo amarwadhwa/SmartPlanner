@@ -126,10 +126,6 @@ class My_Meeting extends CI_Controller {
 	}
 
 
-		public function new()
-	{
-		$this->load->view('welcome_message');
-	}
 	public function edit()
 	{
 		$this->load->view('welcome_message');

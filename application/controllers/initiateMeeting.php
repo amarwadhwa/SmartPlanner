@@ -55,10 +55,7 @@ class initiateMeeting extends CI_Controller {
 		$this->load->view('User/Partial/footer');
 		
 	}
-		public function new()
-	{
-		$this->load->view('welcome_message');
-	}
+
 	public function edit()
 	{
 		$this->load->view('welcome_message');
