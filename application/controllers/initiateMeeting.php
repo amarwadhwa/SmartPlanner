@@ -55,6 +55,21 @@ class initiateMeeting extends CI_Controller {
 		$this->load->view('User/Partial/footer');
 		
 	}
+
+		public function meetingScheduled()
+	
+	{
+		$this->session_check();
+		
+		
+		$this->load->view('User/InitiateMeeting/MeetingScheduled');
+		
+		
+		
+	}
+
+
+
 		public function new()
 	{
 		$this->load->view('welcome_message');

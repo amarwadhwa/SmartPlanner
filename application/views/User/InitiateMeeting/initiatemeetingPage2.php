@@ -1,3 +1,10 @@
+
+<?php 
+
+$abc = $_POST["title"];
+  
+
+?>
 <!DOCTYPE html>
 <html lang="en">
    <body>
@@ -18,7 +25,7 @@
                   <div class="panel-body">
                      <div class="row">
                         <div class="col-lg-6">
-                           <form action="<?php echo base_url('initiateMeeting/initiateMeetingPage2')?>" method="post"role="form">
+                           <form action="<?php echo base_url('initiateMeeting/meetingScheduled')?>" method="post"role="form">
                               <article>
                                  <div class="demo">
                                     <h2>Date and Time </h2>
@@ -27,7 +34,7 @@
                                        <input type="text" class="time start" placeholder="Time" name="start_time"/> to
                                        <input type="text" class="time end" placeholder="Date"   name="end_date" />
                                        <input type="text" class="date end" placeholder="Time" name="end_time" />
-                                       <input type="hidden" value="test" name="f" />
+                                       <input type="hidden" value="<?php echo $abc; ?>" name="title" />
 
                                     </p>
                                  </div>
