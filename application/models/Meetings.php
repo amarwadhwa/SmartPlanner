@@ -26,6 +26,15 @@
 	}
 
 
+	 public function view_users()
+	{
+	
+		$query = $this->db->get("users"); 
+        $data['records'] = $query->result(); 
+      	return $data;
+      	
+
+	}
 
 		//$success = FALSE;
 
