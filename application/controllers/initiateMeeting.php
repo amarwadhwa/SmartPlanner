@@ -56,7 +56,7 @@ class initiateMeeting extends CI_Controller {
 		
 	}
 
-<<<<<<< HEAD
+
 		public function meetingScheduled()
 	
 	{
@@ -75,8 +75,7 @@ class initiateMeeting extends CI_Controller {
 	{
 		$this->load->view('welcome_message');
 	}
-=======
->>>>>>> 2f5c766e26765e5540a5e90da6a76f9b278070c5
+
 	public function edit()
 	{
 		$this->load->view('welcome_message');

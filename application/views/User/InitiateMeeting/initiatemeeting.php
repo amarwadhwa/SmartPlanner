@@ -106,7 +106,7 @@
                               <br>
                               <div class="form-group">
                                  <label>Faculty</label>
-                                 <input class="form-control" id="faculty" name="Faculty" >
+                                 <input class="form-control"  name="faculty" >
                               </div>
                               <div class="col-lg-6">
                                  <div class="form-group">

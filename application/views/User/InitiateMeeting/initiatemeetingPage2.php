@@ -1,10 +1,3 @@
-
-<?php 
-
-$abc = $_POST["title"];
-  
-
-?>
 <!DOCTYPE html>
 <html lang="en">
    <body>
@@ -34,7 +27,12 @@ $abc = $_POST["title"];
                                        <input type="text" class="time start" placeholder="Time" name="start_time"/> to
                                        <input type="text" class="time end" placeholder="Date"   name="end_date" />
                                        <input type="text" class="date end" placeholder="Time" name="end_time" />
-                                       <input type="hidden" value="<?php echo $abc; ?>" name="title" />
+                                       <input type="hidden" value="<?php echo $_POST["title"]; ?>" name="title" />
+                                       <input type="hidden" value="<?php echo $_POST["faculty"]; ?>" name="faculty" />
+                                       <input type="hidden" value="<?php echo $_POST["description"]; ?>" name="description" />
+                                       
+
+
 
                                     </p>
                                  </div>
@@ -120,27 +118,6 @@ $abc = $_POST["title"];
 <?php
 
 
-
-$start_time =  strtotime($_POST["start_date"] . " ". $_POST["start_time"]);
-$start_timestamp =  date('Y-m-d H:i:s', $start_time);
-$end_time =  strtotime($_POST["end_date"] . " ". $_POST["end_time"]);
-$end_timestamp =  date('Y-m-d H:i:s', $end_time);
-
-
-echo $start_timestamp;
-echo "<br>";
-echo $end_timestamp;
-echo "<br>";
-
-echo ($_POST['f']);
-
-
-
-echo "<br>";
-
-   echo $_POST["title"];
-   echo $_POST["Faculty"];
-   echo $_POST["description"];
    
        if(empty($_POST['Committee'])) 
        {
@@ -204,8 +181,22 @@ echo "<br>";
 
             }
         }
-          
+        
+        echo "<br>";
+        echo "<br>";
+        
+        $invited_Users2 = array_map("unserialize", array_unique(array_map("serialize", $invited_Users)));
+        print_r($invited_Users2);
+
+
+        echo "<br>";
+        echo "<br>";
+
         print_r(array_map("unserialize", array_unique(array_map("serialize", $invited_Users))));
+
+
+
+
 
        // $_SESSION["title"] = $title;
             
