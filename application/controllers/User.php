@@ -32,6 +32,13 @@ class User extends CI_Controller {
 		$this->session_check();
 
 	}
+
+	public function getUsers()
+	{
+		$this->load->model('Meetings');
+		$data = $this->Meetings->view_users();
+		echo  json_encode($data["records"]);
+	}
 	
 	
 
