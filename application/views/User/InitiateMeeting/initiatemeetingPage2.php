@@ -197,10 +197,8 @@ echo "<br>";
 
 
 
-
-       // $_SESSION["title"] = $title;
-            
-
+        $_SESSION["users"] = array_map("unserialize", array_unique(array_map("serialize", $invited_Users)));
+        $_SESSION["commetties"] = $commetties;
 
    
    ?>
