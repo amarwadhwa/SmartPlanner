@@ -1,11 +1,20 @@
 <?php 
    Class Committee extends CI_Model {
 	
-      Public function __construct() { 
+     Public function __construct() { 
          parent::__construct(); 
-      } 
+     } 
 	
-	 public function search($name)
+	//Amar
+    //Committoie Insertion
+     public function insert_data($data){
+	$this->db->insert("committees" ,$data);
+	}
+
+
+
+
+	public function search($name)
 	{
 	
 	$this->db->select('*');

@@ -34,33 +34,40 @@ class AddUsers extends CI_Controller {
 
 		
 	}
-	public function form_validation(){
+	public function register(){
 		$this->load->library('form_validation');
-		$this->form_validation->set_rules("first_name", "First Name" , 'required|alpha');
 		$this->form_validation->set_rules("last_name", "Last Name" , 'required|alpha');
 		$this->form_validation->set_rules("email", "Email" , 'required');
 		$this->form_validation->set_rules("id", "Id" , 'required');
 		$this->form_validation->set_rules("committe_id", "Committie Id" , 'required');
 		$this->form_validation->set_rules("designation", "Designation" , 'required');
+		$this->form_validation->set_rules("password", "Password" , 'required');
+
 
 					
-
-		$data = array("name" =>$this->input->post("first_name"),
+		/*if($this->form_validation->run()==FALSE){
+			
+		}	
+		
+		else{*/
+$data = array("name" =>$this->input->post("first_name"),
 						  "email" =>$this->input->post("email"),
 						  "id" =>$this->input->post("id"),
-						  "password" =>$this->input->post("last_name"),
+						  "last_name" =>$this->input->post("last_name"),
 						  "commitee_id" =>$this->input->post("committie_id"),
 						  "designation" =>$this->input->post("designation"),
+						  "password" =>$this->input->post("password")
 						  
 						);
 
 				$this->load->model("User");
 				$this ->User->insert_data($data);
+				echo "Data Inserted Succesfully";
+		
+		
+		//}			
 
 
-
-	echo "Data Inserted Succesfully";			
-			
 	}		
 	
 	

@@ -32,6 +32,36 @@ class AddCommitties extends CI_Controller {
 		$this->load->view('Admin/Partial/footer');
 		$this->session_check();
 	}
+	public function register(){
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules("committie", "Committies" , 'required|alpha');
+		$this->form_validation->set_rules("committie_id", "Committies Id" , 'required');
+		$this->form_validation->set_rules("committie_description", "Committies Description" , 'required');
+		
+
+
+					
+		/*if($this->form_validation->run()==FALSE){
+			
+		}	
+		
+		else{*/
+		$data = array("name" =>$this->input->post("committie"),
+						  "id" =>$this->input->post("committie_id"),
+						  "description" =>$this->input->post("committie_description")
+						  
+						);
+
+				$this->load->model("Committee");
+				$this ->Committee->insert_data($data);
+				echo "Data Inserted Succesfully";
+		
+		
+		//}			
+
+
+	}		
+	
 	
 	
 	

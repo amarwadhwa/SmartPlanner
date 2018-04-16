@@ -18,7 +18,7 @@
                   </div>
                   <div class="panel-body">
                      <div class="row">
-                        <form action="<?php echo base_url('AddUsers/form_validation')?>" method="post" role="form">
+                        <form action="<?php echo base_url('AddUsers/register')?>" method="post" role="form">
                            <div class="col-lg-6">
                         <form role="form">
                         <div class="form-group">
@@ -33,15 +33,18 @@
                         </div>
                         <div class="form-group">
                         <label>Email</label>
-                        <input class="form-control" type="text" name="email_name" >
+                        <input class="form-control" type="text" name="email" >
+                        <span class="text-danger"><?php echo form_error("email");?></span>
                         </div>
                         <div class="form-group">
                         <label>Instructor Id</label>
                         <input class="form-control" type="text" name="id" >
+                        <span class="text-danger"><?php echo form_error("id");?></span>
                         </div>
                         <div class="form-group">
                         <label>Committie Id</label>
                         <input class="form-control" type="text" name="committie_id" >
+                        <span class="text-danger"><?php echo form_error("committie_id");?></span>
                         </div>
                         <div>
                         <button type="submit" name="insert" value="Insert "class="btn btn-default">Submit Button</button>
@@ -53,10 +56,12 @@
                         <div class="form-group">
                         <label>Designation</label>
                         <input class="form-control" type="text" name="designation">
+                        <span class="text-danger"><?php echo form_error("designation");?></span>
                         </div>
                         <div class="form-group">
-                        <label>Description</label>
-                        <textarea class="form-control" rows="7" ></textarea> 
+                        <label>Password</label>
+                        <input class="form-control" type="text" name="password">
+                        <span class="text-danger"><?php echo form_error("password");?></span>
                         <br>
                         </div>
                         </div>
