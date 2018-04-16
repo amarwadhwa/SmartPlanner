@@ -30,13 +30,6 @@ class initiateMeeting extends CI_Controller {
 
 		$this->load->model('Committee');
 		$data['Committies'] = $this->Committee->view_all();
-		
-
-
-
-
-
-
 		$this->load->view('User/Partial/header');
 		$this->load->view('User/Partial/timedateheader');
 		$this->load->view('User/InitiateMeeting/initiatemeeting',$data);
@@ -57,20 +50,9 @@ class initiateMeeting extends CI_Controller {
 	}
 
 
-		public function meetingScheduled()
-	{
+		public function meetingScheduled(){
 		$this->session_check();	
-		$this->load->view('User/InitiateMeeting/MeetingScheduled');
-		
-		
-		
-	}
-
-
-
-	public function new()
-	{
-		$this->load->view('welcome_message');
+		$this->load->view('User/InitiateMeeting/MeetingScheduled');		
 	}
 
 	public function edit()
