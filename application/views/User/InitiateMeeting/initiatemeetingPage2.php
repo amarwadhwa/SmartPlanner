@@ -51,7 +51,7 @@
                                  </script>
                               </article>
                               <div class="col-lg-3">
-                              <button type="submit" name="submit" value="meeting "class="btn btn-default">Check Time </button>
+                              <button type="submit" name="submit" value="meeting "class="btn btn-default">Check Availabilty</button>
                            </div>              
                            </form>
                         </div>
@@ -167,7 +167,7 @@ if(isset($_POST["start_time"])) {
 
 
 
- echo "<br>";
+echo "<br>";
 echo "<br>";
 
         foreach ($commetties as $commettie) {
