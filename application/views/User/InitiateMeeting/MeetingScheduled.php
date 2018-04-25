@@ -27,7 +27,23 @@ echo $_POST["description"];
 echo "<br>";
 
 print_r($_SESSION["users"]);
+$users = $_SESSION["users"];
+
 
 print_r($_SESSION["commetties"]);
 
+echo "<br>";
+echo "<br>";
+echo "<br>";
+
+$busyUsers = array();
+foreach ($users as $user) {
+	$id =$user->id;
+	$query = $this->db->query("SELECT * FROM temporary_engages WHERE user_id = '".$id."' AND (start_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."' OR end_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."' )");
+
+	if($query->num_rows() >0){
+	$busyUsers[] = $user;	
+	}
+}
+print_r($busyUsers);
 ?>

@@ -25,6 +25,34 @@ class My_Meeting extends CI_Controller {
 	}
 	}
 
+		public function checkConflict()
+	{
+
+		$start_time =  strtotime($_GET["start_date"] . " ". $_GET["start_time"]);
+		$start_timestamp =  date('Y-m-d H:i:s', $start_time);
+		$end_time =  strtotime($_GET["end_date"] . " ". $_GET["end_time"]);
+		$end_timestamp =  date('Y-m-d H:i:s', $end_time);
+
+		$users = $_SESSION["users"];
+		print_r($users);
+		echo "<br>";
+		echo $start_timestamp .",". $end_timestamp;
+
+		$busyUsers = array();
+		foreach ($users as $user) {
+		$id =$user->id;
+		$query = $this->db->query("SELECT * FROM temporary_engages WHERE user_id = '".$id."' AND (start_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."' OR end_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."' )");
+
+			echo "<br> SELECT * FROM temporary_engages WHERE user_id = '".$id."' AND (start_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."' OR end_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."' )";
+			if($query->num_rows() >0){
+			$busyUsers[] = $user->name;
+			}
+		}
+		print_r($busyUsers);
+		return json_encode($busyUsers);
+}
+
+
 	public function index()
 	{
 		$this->session_check();

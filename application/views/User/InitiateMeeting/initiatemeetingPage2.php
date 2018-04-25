@@ -1,5 +1,21 @@
 <!DOCTYPE html>
 <html lang="en">
+<head>
+<script type="text/javascript">
+  function showHint() {
+    document.getElementById("txtHint").innerHTML = "Hello";
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+            }
+        };
+        xmlhttp.open("GET", "gethint.php?q=" + str, true);
+        xmlhttp.send();
+
+  }
+</script>
+</head>
    <body>
       <div id="page-wrapper">
          <div class="row">
@@ -17,24 +33,22 @@
                   </div>
                   <div class="panel-body">
                      <div class="row">
-                        <div class="col-lg-6">
-                           <form action="<?php echo base_url('initiateMeeting/meetingScheduled')?>" method="post"role="form">
+                        <div class="col-lg-8">
+                           <form action="<?php echo base_url('initiateMeeting/meetingScheduled')?>" method="post" role="form">
                               <article>
                                  <div class="demo">
                                     <h2>Date and Time </h2>
                                     <p id="datepairExample">
                                        <input type="text" class="date start" placeholder="Date"  name="start_date" />
                                        <input type="text" class="time start" placeholder="Time" name="start_time"/> to
-                                       <input type="text" class="time end" placeholder="Date"   name="end_date" />
-                                       <input type="text" class="date end" placeholder="Time" name="end_time" />
+                                       <input type="text" class="time end" placeholder="Time"   name="end_date" />
+                                       <input type="text" class="date end" placeholder="Date" name="end_time" />
                                        <input type="hidden" value="<?php echo $_POST["title"]; ?>" name="title" />
                                        <input type="hidden" value="<?php echo $_POST["faculty"]; ?>" name="faculty" />
                                        <input type="hidden" value="<?php echo $_POST["description"]; ?>" name="description" />
-                                       
-
-
-
-                                    </p>
+                                        </form>
+                                       <input type="button" onclick="showHint()" value="Check Availabilty" "class="btn btn-default"/>
+                                      </p>
                                  </div>
                                  <script>
                                     $('#datepairExample .time').timepicker({
@@ -50,11 +64,10 @@
                                     $('#datepairExample').datepair();
                                  </script>
                               </article>
-                              <div class="col-lg-3">
-                              <button type="submit" name="submit" value="meeting "class="btn btn-default">Check Availabilty</button>
-                           </div>              
-                           </form>
-                        </div>
+                              <div class="col-lg-8">
+                              <p><h3>Busy Users:</h3> <br> <span id="txtHint">sgvrejnkj</span></p>  
+                               </div>              
+                         </div>
                         <div class="col-lg-12">
                            
                            <br>
@@ -195,26 +208,8 @@ echo "<br>";
         print_r(array_map("unserialize", array_unique(array_map("serialize", $invited_Users))));
 
 
-
-
         $_SESSION["users"] = array_map("unserialize", array_unique(array_map("serialize", $invited_Users)));
         $_SESSION["commetties"] = $commetties;
 
    
-   ?>
-
-
-   <?php
-        
-        
-        
-
-        
-
-
-        
-
-        
-
-       
    ?>
