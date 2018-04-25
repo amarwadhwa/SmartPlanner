@@ -2,17 +2,20 @@
 <html lang="en">
 <head>
 <script type="text/javascript">
-  function showHint() {
-    document.getElementById("txtHint").innerHTML = "Hello";
+  function showHint(oFormElement) {
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
+              if (this.responseText.trim() != "")
                 document.getElementById("txtHint").innerHTML = this.responseText;
-            }
+              else {
+                document.getElementById("form1").submit();
+              }
+              }
         };
-        xmlhttp.open("GET", "gethint.php?q=" + str, true);
-        xmlhttp.send();
-
+        xmlhttp.open("POST", "http://localhost/SmartPlanner/My_Meeting/checkConflict", true);
+        xmlhttp.send(new FormData (oFormElement));
+        return false;
   }
 </script>
 </head>
@@ -34,20 +37,20 @@
                   <div class="panel-body">
                      <div class="row">
                         <div class="col-lg-8">
-                           <form action="<?php echo base_url('initiateMeeting/meetingScheduled')?>" method="post" role="form">
+                           <form action="<?php echo base_url('initiateMeeting/meetingScheduled')?>" method="post" id="form1" onSubmit="return showHint(this);">
                               <article>
                                  <div class="demo">
                                     <h2>Date and Time </h2>
                                     <p id="datepairExample">
-                                       <input type="text" class="date start" placeholder="Date"  name="start_date" />
-                                       <input type="text" class="time start" placeholder="Time" name="start_time"/> to
-                                       <input type="text" class="time end" placeholder="Time"   name="end_date" />
-                                       <input type="text" class="date end" placeholder="Date" name="end_time" />
+                                       <input type="text" class="date start" placeholder="Date"  name="start_date" required />
+                                       <input type="text" class="time start" placeholder="Time" name="start_time" required /> to
+                                       <input type="text" class="time end" placeholder="Time"   name="end_date" required />
+                                       <input type="text" class="date end" placeholder="Date" name="end_time" required />
                                        <input type="hidden" value="<?php echo $_POST["title"]; ?>" name="title" />
                                        <input type="hidden" value="<?php echo $_POST["faculty"]; ?>" name="faculty" />
                                        <input type="hidden" value="<?php echo $_POST["description"]; ?>" name="description" />
+                                       <input type="submit" value="Check Availabilty" class="btn btn-default"/>
                                         </form>
-                                       <input type="button" onclick="showHint()" value="Check Availabilty" "class="btn btn-default"/>
                                       </p>
                                  </div>
                                  <script>
@@ -65,7 +68,7 @@
                                  </script>
                               </article>
                               <div class="col-lg-8">
-                              <p><h3>Busy Users:</h3> <br> <span id="txtHint">sgvrejnkj</span></p>  
+                              <p><span id="txtHint"></span></p>  
                                </div>              
                          </div>
                         <div class="col-lg-12">
