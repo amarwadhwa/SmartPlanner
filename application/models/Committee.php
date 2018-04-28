@@ -27,6 +27,10 @@
     	}
 
 	}
+
+
+
+
 	
 	 public function view_all()
 	{
@@ -49,6 +53,9 @@
 		$this->db->insert("committees", $data);	
 	}
 	
+
+
+
 	public function delete($committee_name)
 	{
 
@@ -92,6 +99,13 @@
 	
 
 	}
+
+
+
+
+
+
+
 	
 	
 
