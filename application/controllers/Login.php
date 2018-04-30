@@ -29,12 +29,18 @@ class Login extends CI_Controller {
 	{
 	$user = $this ->input->post('email');
 	$password = $this ->input->post('password');
-	
-	if ($user=='user@gmail.com' && $password=='user')   
-        {  
-            //declaring session  
+
+		$query = $this->db->query("SELECT * FROM users WHERE email = '".$user."' AND password = '" .$password. "'");
+
+	if($query->num_rows() >0){
+	     
+	        foreach ($query->result() as $row) {
             $_SESSION["user-type"] = "user";
-            		redirect("User");
+            $_SESSION["user-name"]= $row->name;
+            $_SESSION["gmail"]= $row->email;
+            $_SESSION["id"] = $row->id;
+            }
+      		redirect("User");
 
         }  
 
@@ -44,7 +50,6 @@ class Login extends CI_Controller {
             		$_SESSION["user-type"] = "admin";
             		redirect("Admin");
             		
-
         } 
         else{  
             $data['error'] = 'Your Account is Invalid';  

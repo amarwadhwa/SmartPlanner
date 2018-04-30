@@ -25,6 +25,7 @@ class My_Meeting extends CI_Controller {
 	}
 	}
 
+
 	public function checkConflict()
 	{
 		$first = true;
@@ -44,6 +45,12 @@ class My_Meeting extends CI_Controller {
 				echo "<h2> Busy Users:</h2>";
 				$first = false; }
 				echo "<h3 style='color:red'> $user->name </h2>";
+		        $row = $query->result();
+				foreach ($query->result() as $row)
+				{
+        		echo "<h5>". $row->description . "<h5>";
+        		}
+
 			}
 		}
 		echo "";

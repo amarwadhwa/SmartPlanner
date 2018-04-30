@@ -6,17 +6,19 @@
         var xmlhttp = new XMLHttpRequest();
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
-              if (this.responseText.trim() != "")
                 document.getElementById("txtHint").innerHTML = this.responseText;
-              else {
-                document.getElementById("form1").submit();
-              }
+                if (this.responseText == "") { document.getElementById("ScheduleAnyway").disabled = false;}
               }
         };
         xmlhttp.open("POST", "http://localhost/SmartPlanner/My_Meeting/checkConflict", true);
         xmlhttp.send(new FormData (oFormElement));
         return false;
   }
+
+function submitClick(){
+  document.getElementById("form1").submit();
+  return true;
+}
 </script>
 </head>
    <body>
@@ -36,8 +38,9 @@
                   </div>
                   <div class="panel-body">
                      <div class="row">
-                        <div class="col-lg-8">
-                           <form action="<?php echo base_url('initiateMeeting/meetingScheduled')?>" method="post" id="form1" onSubmit="return showHint(this);">
+                        <div class="col-lg-10">
+                           <form action="<?php echo base_url('initiateMeeting/meetingScheduled')?>" method="post" id="form1" 
+                              onSubmit="return showHint(this);">
                               <article>
                                  <div class="demo">
                                     <h2>Date and Time </h2>
@@ -49,8 +52,12 @@
                                        <input type="hidden" value="<?php echo $_POST["title"]; ?>" name="title" />
                                        <input type="hidden" value="<?php echo $_POST["faculty"]; ?>" name="faculty" />
                                        <input type="hidden" value="<?php echo $_POST["description"]; ?>" name="description" />
-                                       <input type="submit" value="Check Availabilty" class="btn btn-default"/>
+                                       
+                                       
+                                       <input type="submit"   value="Check Availabilty" class="btn btn-default"/>
                                         </form>
+                                        <button onclick="submitClick()" value="Schedule Anyway" id="ScheduleAnyway" class="btn btn-default" disabled>Schedule Anyway</button>
+                                       
                                       </p>
                                  </div>
                                  <script>
@@ -88,21 +95,58 @@
                                     <!-- /.panel-heading -->
                                     <div class="panel-body">
                                        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                          <thead>
+                                          <thead> 
                                              <tr>
                                                 <th>Meeting Tittle</th>
-                                                <th>Starting Time</th>
-                                                <th>Ending Time</th>
-                                                <th>Pirority</th>
+                                                <th>Committees Invited</th>
+                                                <th>Guests</th>
+                                                <th>Descrition</th>
                                              </tr>
                                           </thead>
                                           <tbody>
                                              <tr class="odd gradeX">
-                                                <td>ABC</td>
-                                                <td>9:00 AM</td>
-                                                <td>10:00 AM</td>
-                                                <td class="center">High</td>
-                                             </tr>
+                                                <td><?php echo $_POST["title"]; ?></td>
+                                                  <td><?php  if(empty($_POST['Committee'])) 
+                                                     {
+                                                         echo("You didn't invited any commettie.");
+                                                 
+                                                     } 
+                                                   else
+                                                   {
+                                                     $commetties = $_POST['Committee'];
+                                                     $N = count($commetties);
+                                                     for($i=0; $i < $N; $i++)
+                                                     {
+                                                       $query = $this->db->query("SELECT * FROM committees WHERE id = $commetties[$i]");
+                                                       if($query->num_rows() >0){
+                                                       foreach ($query->result() as $row) {
+                                                        echo $row->name . "<br>";
+                                                      }
+
+                                                       }
+      
+
+
+                                                     }
+                                                   }
+                                                  ?></td>
+                                       <td>          <?php 
+                                              foreach ($commetties as $commettie) {
+                                                  foreach ($users["records"] as $user) {
+                                                       $user_commetties = explode(",",$user->commitee_id);    
+                                                      foreach ($user_commetties as $user_commettie) {
+                                                         if ($commettie == $user_commettie) {
+                                                             $invited_Users[] = $user;
+                                                             echo $user->name . "<br>";
+                                                         }
+                                                      }
+
+                                                  }
+                                              } ?>
+      </td>
+                                            <td>     <?php echo $_POST["description"]; ?></td>
+                                       
+                                               </tr>
                                           </tbody>
                                        </table>
                                        <!-- /.table-responsive -->
@@ -128,13 +172,8 @@
       <!-- /#wrapper -->
    </body>
 </html>
-
-
-
 <?php
 
-
-   
        if(empty($_POST['Committee'])) 
        {
            echo("You didn't invited any commettie.");
