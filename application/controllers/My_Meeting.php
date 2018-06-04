@@ -3,6 +3,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 class My_Meeting extends CI_Controller {
 
+
 	/**
 	 * Index Page for this controller.
 	 *
@@ -65,28 +66,32 @@ class My_Meeting extends CI_Controller {
 		
 
 
-		echo "Hi its working";
+		//echo "Hi its working";
+		
+		//redirect("Email");
+		
+	
 			
 		
-		
-
-		
-
+		/*
 		$this->load->library('email');
+		 $this->email->initialize($config);
 
 		$this->email->from('karan.sachrani@gmail.com', 'Karan');
 		$this->email->to('karansachrani.cs14@iba-suk.edu.pk');
  		$this->email->subject('Email Test');
 		$this->email->message('Testing the email class.');
 		
-		//if($this->email->send()){
-		//	echo "Sent";
+		if($this->email->send()){
+			echo "Sent";
 
-	//	}
-	//	else{
-	//		echo $this->email->print_debugger();
-	//	}
+	}
+		else{
+			echo $this->email->print_debugger();
+		}
 		
+
+*/
 
 
 	  	$this->load->model('Meetings');
