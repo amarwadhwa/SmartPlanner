@@ -73,14 +73,14 @@
                   <div class="panel-heading">
                      Please give details
                   </div>
+                  <form action="<?php echo base_url('initiateMeeting/initiateMeetingPage2')?>" method="post"role="form">
+                           
                   <div class="panel-body">
                      <div class="row">
                         <div class="col-lg-6">
-                           <form action="<?php echo base_url('initiateMeeting/initiateMeetingPage2')?>" method="post"role="form">
                               <div class="form-group">
                                  <label>Meeting Tittle</label>
                                  <input class="form-control" name="title">
-                                 <!-- <p class="help-block">Example block-level help text here.</p> -->
                               </div>
                               
                               <div class="form-group">
@@ -108,7 +108,10 @@
                                  <label>Faculty</label>
                                  <input class="form-control"  name="faculty" >
                               </div>
-                              <div class="col-lg-6">
+                              
+                           
+                           </div>
+                           <div class="col-lg-6">
                                  <div class="form-group">
                                     <label>Meeting Description</label>
                                     <textarea class="form-control" rows="7"  name="description" ></textarea> 
@@ -117,12 +120,12 @@
                                  <br>
                                  <button type="submit" name="submit" value="meeting"class="btn btn-default">Submit Button</button>
                                  <button type="reset" class="btn btn-default">Reset Button</button>
-                           </form>
                            </div>
                         </div>
                         <!-- /.row (nested) -->
                      </div>
                      <!-- /.panel-body -->
+                     </form>
                   </div>
                   <!-- /.panel -->
                </div>
