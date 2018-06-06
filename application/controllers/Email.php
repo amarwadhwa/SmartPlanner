@@ -2,45 +2,57 @@
     class Email extends CI_Controller {
         function __construct(){
             parent::__construct();
-            //$this->load->library('phpmailer');
+            $this->load->library('phpmailer');
         }
 
         function send_email() {
-            $this->load->library('email');
-            $subject = 'This is a test';
-            $message = '<p>This message has been sent for testing purposes.</p>';
+            $response = false;
+            //$mail = new PHPMailer\PHPMailer\PHPMailer(true);
+            $mail = new PHPMailer();
+            $subject = 'Test subject';
+            $body = 'Hi there, <strong>Carl</strong> here.<br/> This is our email body.';
+            $email = 'karansachrani.cs14@iba-suk.edu.pk';
 
-            // Get full html:
-            $body = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-            <html xmlns="http://www.w3.org/1999/xhtml">
-            <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=' . strtolower(config_item('charset')) . '" />
-    <title>' . html_escape($subject) . '</title>
-    <style type="text/css">
-        body {
-            font-family: Arial, Verdana, Helvetica, sans-serif;
-            font-size: 16px;
-        }
-    </style>
-</head>
-<body>
-' . $message . '
-</body>
-</html>';
-// Also, for getting full html you may use the following internal method:
-$body = $this->email->full_html($subject, $message);
-date_default_timezone_set('Etc/UTC');
-$result = $this->email
-    ->from('localhostlocal4@gmail.com')
-    ->reply_to('yoursecondemail@somedomain.com')    // Optional, an account where a human being reads.
-    ->to('aakash.cs14@iba-suk.edu.pk')
-    ->subject($subject)
-    ->message($body)
-    ->send();
 
-var_dump($result);
-echo '<br />';
-echo $this->email->print_debugger();
+            $mail->CharSet = 'UTF-8';
+            $mail->SetFrom('localhostlocal4','Testing Mail');
 
+            //You could either add recepient name or just the email address.
+            //$mail->AddAddress($email,"ABC");
+            $mail->AddAddress($email);
+
+            //Address to which recipient will reply
+            $mail->addReplyTo("localhostlocal4","Reply");
+            //$mail->addCC("cc@example.com");
+            //$mail->addBCC("bcc@example.com");
+
+            //Add a file attachment
+            //$mail->addAttachment("file.txt", "File.txt");        
+            //$mail->addAttachment("images/profile.png"); //Filename is optional
+
+            //You could send the body as an HTML or a plain text
+            $mail->IsHTML(true);
+
+            $mail->Subject = $subject;
+            $mail->Body = $body;
+
+            //Send email via SMTP
+            $mail->IsSMTP();
+            $mail->SMTPAuth   = true; 
+            $mail->SMTPSecure = "ssl";  //tls
+            $mail->Host       = "smtp.googlemail.com";
+            $mail->Port       = 465; //you could use port 25, 587, 465 for googlemail
+            //$mail->Username   = "yourlessenabledaccount@gmail.com";
+            //$mail->Password   = "yourpassword";
+            $mail->Username   = "Testing Mail";
+            $mail->Password   = "4localhostlocal";
+
+            if(!$mail->send()){
+                $response['message'] = 'Email has been sent successfully';
+            }
+            else{
+                $response['message'] = 'Oops! Something went wrong while trying to send your email.';
+            }
+            echo json_encode($response);
         }
     }
