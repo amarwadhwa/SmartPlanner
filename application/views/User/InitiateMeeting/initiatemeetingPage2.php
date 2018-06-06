@@ -7,7 +7,7 @@
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("txtHint").innerHTML = this.responseText;
-                if (this.responseText == "" ) { document.getElementById("ScheduleAnyway").disabled = false;}
+                if (this.responseText == "") { document.getElementById("ScheduleAnyway").disabled = false;}
               }
         };
         xmlhttp.open("POST", "http://localhost/SmartPlanner/My_Meeting/checkConflict", true);
@@ -110,12 +110,12 @@ function submitClick(){
                                       </p>
                                  </div>
                                  <script>
-                                    $('#datepairExample.time').timepicker({
+                                    $('#datepairExample .time').timepicker({
                                         'showDuration': true,
                                         'timeFormat': 'g:ia'
                                     });
                                     
-                                    $('#datepairExample.date').datepicker({
+                                    $('#datepairExample .date').datepicker({
                                         'format': 'm/d/yyyy',
                                         'autoclose': true
                                     });
