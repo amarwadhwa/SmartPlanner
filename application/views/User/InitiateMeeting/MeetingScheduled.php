@@ -26,11 +26,9 @@ echo "<br>";
 echo $_POST["description"];
 echo "<br>";
 
-print_r($_SESSION["users"]);
 $users = $_SESSION["users"];
 
-
-print_r($_SESSION["commetties"]);
+$stringCommettee = implode(",",$_SESSION["commetties"]);
 
 echo "<br>";
 echo "<br>";
@@ -40,7 +38,7 @@ $data = array(
    		'title' => $_POST["title"], 
         'status' => "scheduled",
         'initiater_id' => $_SESSION['id'], 
-		'committee_id' =>"02",
+		'committee_id' =>$stringCommettee,
 		'start_time' =>$start_timestamp,
 		'end_time'  =>$end_timestamp,
 		'description' => $_POST["description"]); 
@@ -65,8 +63,20 @@ foreach ($users as $user) {
 		'start_time' =>$start_timestamp,
 		'end_time'  =>$end_timestamp,);
 		$this->db->insert("temporary_engages", $data);
+
+		$acceptLink =  "http://localhost/SmartPlanner/schduleMeeting/setStatus/".$this->db->insert_id()."/accept";
+		$rejectLink =  "http://localhost/SmartPlanner/schduleMeeting/setStatus/".$this->db->insert_id()."/Not Interested";
+
+		echo "$acceptLink <br> <br>";
+		echo "$rejectLink <br> <br>";
+
+
+			
+
+
 	}
 	else {
+
 		$freeUsers[] = $user;
 		$data = array( 
    		'meeting_id' =>  $lastIdMeetingLog,
@@ -76,8 +86,15 @@ foreach ($users as $user) {
 		'end_time'  =>$end_timestamp,);
 		$this->db->insert("temporary_engages", $data);
 
+		$acceptLink =  "http://localhost/SmartPlanner/schduleMeeting/setStatus/".$this->db->insert_id()."/accept";
+		$rejectLink =  "http://localhost/SmartPlanner/schduleMeeting/setStatus/".$this->db->insert_id()."/Not Interested";
+
+
+		echo "$acceptLink <br> <br>";
+		echo "$rejectLink <br> <br>";
+
+
 	}
 }
-
-
 ?>
+

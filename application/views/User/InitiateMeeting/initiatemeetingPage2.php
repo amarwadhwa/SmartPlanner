@@ -132,6 +132,7 @@ function submitClick(){
                                                    }
                                                   ?></td>
                                        <td>          <?php 
+                                              
                                               foreach ($commetties as $commettie) {
                                                   foreach ($users["records"] as $user) {
                                                        $user_commetties = explode(",",$user->commitee_id);    

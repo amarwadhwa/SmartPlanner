@@ -16,12 +16,10 @@
          <tr>
          <th scope="col">Meeting Title</th>
          <th scope="col">Comitties</th>
-         <th scope="col">Members</th>
          <th scope="col">Meeting Initiated Time</th>
          <th scope="col">Meeting Start Time</th>
          <th scope="col">Meeting End Time</th>
          <th scope="col">Options</th>
-        
          </tr>
          </thead>
          <tbody>
@@ -32,7 +30,6 @@
             echo "<tr>";
             echo "<td>".$row->title."</td>";
             echo "<td>".$row->committee_id."</td>";
-            echo "<td>".$row->guest_id."</td>";
             echo "<td>".$row->time."</td>";
             echo "<td>".$row->start_time."</td>";
             echo "<td>".$row->end_time."</td>";
