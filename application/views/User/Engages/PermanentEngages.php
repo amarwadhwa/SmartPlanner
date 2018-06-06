@@ -35,79 +35,91 @@
                      <td data-title="Monday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
-
                      </td>
                      <td data-title="Tuesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type1" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type1" value="Temporary"> Temporary<br>
-                        </div>                     </td>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
+                        </div>
+                     </td>
                      <td data-title="Wednesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type3" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type3" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Thursday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type4" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type4" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Friday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type5" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type5" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Saturday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type6" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type6" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                   </tr>
@@ -116,79 +128,91 @@
                      <td data-title="Monday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type7" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type7" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Tuesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type8" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type8" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Wednesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type9" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type9" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Thursday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type10" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type10" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Friday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type11" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type11" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Saturday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type12" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type12" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                   </tr>
@@ -197,79 +221,91 @@
                      <td data-title="Monday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type13" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type13" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Tuesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type14" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type14" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Wednesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type15" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type15" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Thursday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type16" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type16" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Friday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type17" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type17" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Saturday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type18" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type18" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                   </tr>
@@ -278,79 +314,91 @@
                      <td data-title="Monday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type19" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type19" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Tuesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type20" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type20" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Wednesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type21" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type21" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Thursday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type22" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type22" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Friday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type23" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type23" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Saturday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type24" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type24" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                   </tr>
@@ -359,79 +407,91 @@
                      <td data-title="Monday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type25" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type25" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Tuesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type26" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type26" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Wednesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type27" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type27" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Thursday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type28" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type28" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Friday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type29" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type29" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Saturday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type30" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type30" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                   </tr>
@@ -440,79 +500,91 @@
                      <td data-title="Monday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type31" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type31" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Tuesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type32" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type32" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Wednesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type33" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type33" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Thursday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type34" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type34" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Friday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type35" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type35" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Saturday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type36" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type36" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                   </tr>
@@ -521,79 +593,91 @@
                      <td data-title="Monday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Tuesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Wednesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Thursday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Friday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Saturday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                   </tr>
@@ -602,79 +686,91 @@
                      <td data-title="Monday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Tuesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Wednesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Thursday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Friday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Saturday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                   </tr>
@@ -683,79 +779,91 @@
                      <td data-title="Monday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Tuesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Wednesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Thursday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Friday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Saturday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                   </tr>
@@ -764,79 +872,91 @@
                      <td data-title="Monday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Tuesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Wednesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Thursday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Friday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Saturday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                   </tr>
@@ -845,79 +965,91 @@
                      <td data-title="Monday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Tuesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Wednesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Thursday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Friday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Saturday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                   </tr>
@@ -926,79 +1058,91 @@
                      <td data-title="Monday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Tuesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Wednesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Thursday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Friday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Saturday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                   </tr>
@@ -1007,79 +1151,91 @@
                      <td data-title="Monday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Tuesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Wednesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Thursday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Friday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Saturday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                   </tr>
@@ -1088,79 +1244,91 @@
                      <td data-title="Monday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Tuesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Wednesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Thursday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Friday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Saturday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                   </tr>
@@ -1169,79 +1337,91 @@
                      <td data-title="Monday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Tuesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Wednesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Thursday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Friday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Saturday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                   </tr>
@@ -1250,79 +1430,91 @@
                      <td data-title="Monday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Tuesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Wednesday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Thursday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Friday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                      <td data-title="Saturday">
                         <div class="form-group row">
                            <div class="col-xs-12">
-                              <input class="form-control" id="ex2" type="text" placeholder="Description" >
+                              <input class="form-control" id="ex2" type="text" >
                            </div>
                         </div>
-                        <div >
-                           <input type="checkbox" name="busy" value="busy" id="busy">
-                           <label for="love">I am Busy!</label><br>
-                           <input type="radio" name="type" value="Permenent" checked> Permanent<br>
-                           <input type="radio" name="type" value="Temporary"> Temporary<br>
+                        <div class="btn-group" data-toggle="buttons">
+                           <label class="btn btn-primary active btn-xs">
+                           <input type="radio" name="options" id="option1" autocomplete="off" checked> Permenent 
+                           </label>
+                           <label class="btn btn-primary btn-xs">
+                           <input type="radio" name="options" id="option2" autocomplete="off"> Temporary
+                           </label>
                         </div>
                      </td>
                   </tr>
