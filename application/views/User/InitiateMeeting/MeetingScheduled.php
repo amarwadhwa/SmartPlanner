@@ -45,5 +45,7 @@ foreach ($users as $user) {
 	$busyUsers[] = $user;	
 	}
 }
+$users = array_diff($users, $busyUsers);
+print_r($users);
 print_r($busyUsers);
 ?>
