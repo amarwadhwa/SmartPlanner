@@ -64,7 +64,6 @@ class My_Meeting extends CI_Controller {
 		$this->session_check();
 
 		
-<<<<<<< HEAD
 
 
 		//echo "Hi its working";
@@ -95,14 +94,10 @@ class My_Meeting extends CI_Controller {
 */
 
 
-=======
->>>>>>> parent of a891669... AgainStartingPhpMailerIntegration
 	  	$this->load->model('Meetings');
 
 		$data['meetings'] = $this->Meetings->view_all();
 		
-
-
 
 		//print_r($data);
 
