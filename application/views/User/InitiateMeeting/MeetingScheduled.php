@@ -37,6 +37,7 @@ echo "<br>";
 echo "<br>";
 
 $busyUsers = array();
+$freeUsers[] = arrary();
 foreach ($users as $user) {
 	$id =$user->id;
 	$query = $this->db->query("SELECT * FROM temporary_engages WHERE user_id = '".$id."' AND (start_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."' OR end_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."' )");
@@ -44,8 +45,11 @@ foreach ($users as $user) {
 	if($query->num_rows() >0){
 	$busyUsers[] = $user;	
 	}
-}
-$users = array_diff($users, $busyUsers);
-print_r($users);
+	else {
+		$freeUsers[] = $user;
+	}
+};
 print_r($busyUsers);
+print_r($freeUsers);
+
 ?>
