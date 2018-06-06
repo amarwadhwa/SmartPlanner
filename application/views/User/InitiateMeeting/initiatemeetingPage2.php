@@ -7,7 +7,7 @@
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("txtHint").innerHTML = this.responseText;
-                if (this.responseText == "" ) { document.getElementById("ScheduleAnyway").disabled = false;}
+                if (this.responseText == "") { document.getElementById("ScheduleAnyway").disabled = false;}
               }
         };
         xmlhttp.open("POST", "http://localhost/SmartPlanner/My_Meeting/checkConflict", true);
@@ -20,28 +20,6 @@ function submitClick(){
   return true;
 }
 </script>
-
-
-
-<script type="text/javascript">
-    $(function () {
-        $('#datetimepicker6').datetimepicker();
-        $('#datetimepicker7').datetimepicker({
-            useCurrent: false //Important! See issue #1075
-        });
-        $("#datetimepicker6").on("dp.change", function (e) {
-            $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
-        });
-        $("#datetimepicker7").on("dp.change", function (e) {
-            $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
-        });
-    });
-</script>
-
-
-
-
-
 </head>
    <body>
       <div id="page-wrapper">
@@ -66,33 +44,6 @@ function submitClick(){
                               <article>
                                  <div class="demo">
                                     <h2>Date and Time </h2>
-<!--my nee-->
-<div class="container">
-    <div class='col-md-5'>
-        <div class="form-group">
-            <div class='input-group date' id='datetimepicker6'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-            </div>
-        </div>
-    </div>
-    <div class='col-md-5'>
-        <div class="form-group">
-            <div class='input-group date' id='datetimepicker7'>
-                <input type='text' class="form-control" />
-                <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-calendar"></span>
-                </span>
-            </div>
-        </div>
-    </div>
-</div>
-
-
-
-
                                     <p id="datepairExample">
                                        <input type="text" class="date start" placeholder="Date"  name="start_date" required />
                                        <input type="text" class="time start" placeholder="Time" name="start_time" required /> to
@@ -110,12 +61,12 @@ function submitClick(){
                                       </p>
                                  </div>
                                  <script>
-                                    $('#datepairExample.time').timepicker({
+                                    $('#datepairExample .time').timepicker({
                                         'showDuration': true,
                                         'timeFormat': 'g:ia'
                                     });
                                     
-                                    $('#datepairExample.date').datepicker({
+                                    $('#datepairExample .date').datepicker({
                                         'format': 'm/d/yyyy',
                                         'autoclose': true
                                     });
@@ -127,7 +78,13 @@ function submitClick(){
                               <p><span id="txtHint"></span></p>  
                                </div>              
                          </div>
-                       <br>
+                        <div class="col-lg-12">
+                           
+                           <br>
+                           <div class="progress" class="col-lg-9">
+                              <div class="progress-bar" style="width:70%">70%</div>
+                           </div>
+                        </div>
                         <div>
                            <div class="row">
                               <div class="col-lg-12">
