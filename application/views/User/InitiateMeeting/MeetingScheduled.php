@@ -36,20 +36,48 @@ echo "<br>";
 echo "<br>";
 echo "<br>";
 
+$data = array( 
+   		'title' => $_POST["title"], 
+        'status' => "scheduled",
+        'initiater_id' => $_SESSION['id'], 
+		'committee_id' =>"02",
+		'start_time' =>$start_timestamp,
+		'end_time'  =>$end_timestamp,
+		'description' => $_POST["description"]); 
+		$this->db->insert("meeting_logs", $data);
+		$lastIdMeetingLog =  $this->db->insert_id();
+
+
+
 $busyUsers = array();
-$freeUsers[] = arrary();
+$freeUsers[] = array();
 foreach ($users as $user) {
 	$id =$user->id;
 	$query = $this->db->query("SELECT * FROM temporary_engages WHERE user_id = '".$id."' AND (start_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."' OR end_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."' )");
 
 	if($query->num_rows() >0){
 	$busyUsers[] = $user;	
+
+		$data = array( 
+   		'meeting_id' =>  $lastIdMeetingLog,
+   		'user_id' => $user->id,
+   		'description' => $_POST["description"], 
+		'start_time' =>$start_timestamp,
+		'end_time'  =>$end_timestamp,);
+		$this->db->insert("temporary_engages", $data);
 	}
 	else {
 		$freeUsers[] = $user;
+		$data = array( 
+   		'meeting_id' =>  $lastIdMeetingLog,
+   		'user_id' => $user->id,
+   		'description' => $_POST["description"], 
+		'start_time' =>$start_timestamp,
+		'end_time'  =>$end_timestamp,);
+		$this->db->insert("temporary_engages", $data);
+
 	}
-};
-print_r($busyUsers);
-print_r($freeUsers);
+}
+
 
 ?>
