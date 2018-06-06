@@ -7,7 +7,8 @@
         xmlhttp.onreadystatechange = function() {
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("txtHint").innerHTML = this.responseText;
-                if (this.responseText == "") { document.getElementById("ScheduleAnyway").disabled = false;}
+                document.getElementById("ScheduleAnyway").disabled = false;
+                if (this.responseText == "") {document.getElementById("ScheduleAnyway").innerHTML = "Schedule Meeting"; }
               }
         };
         xmlhttp.open("POST", "http://localhost/SmartPlanner/My_Meeting/checkConflict", true);
