@@ -8,7 +8,7 @@
             if (this.readyState == 4 && this.status == 200) {
                 document.getElementById("txtHint").innerHTML = this.responseText;
                 document.getElementById("ScheduleAnyway").disabled = false;
-                if (this.responseText == "") {document.getElementById("ScheduleAnyway").innerHTML = "Schedule Meeting"; }
+                if (this.responseText != "") {document.getElementById("ScheduleAnyway").innerHTML = "Schedule Anyway"; }
               }
         };
         xmlhttp.open("POST", "http://localhost/SmartPlanner/My_Meeting/checkConflict", true);
@@ -57,7 +57,7 @@ function submitClick(){
                                        
                                        <input type="submit"   value="Check Availabilty" class="btn btn-default"/>
                                         </form>
-                                        <button onclick="submitClick()" value="Schedule Anyway" id="ScheduleAnyway" class="btn btn-default" disabled>Schedule Anyway</button>
+                                        <button onclick="submitClick()" value="Schedule Anyway" id="ScheduleAnyway" class="btn btn-default" disabled>Schedule Meeting</button>
                                        
                                       </p>
                                  </div>
