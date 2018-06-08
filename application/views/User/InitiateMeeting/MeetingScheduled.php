@@ -97,14 +97,3 @@ foreach ($users as $user) {
 	}
 }
 ?>
-
-
-
-
-
-
-
-
-
-
-
