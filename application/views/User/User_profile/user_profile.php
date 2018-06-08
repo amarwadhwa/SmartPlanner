@@ -26,11 +26,7 @@
                                  <input class="form-control" readonly>
                               </div>
                               <div class="form-group">
-                                 <label>First Name</label>
-                                 <input class="form-control" readonly>
-                              </div>
-                              <div class="form-group">
-                                 <label>Last Name</label>
+                                 <label>Designation</label>
                                  <input class="form-control" readonly>
                               </div>
                               <div class="form-group">
@@ -45,7 +41,7 @@
                         <div class="col-lg-6">
                            <form role="form">
                               <div class="form-group">
-                                 <label>Address</label>
+                                 <label>Member Of the following Committees</label>
                                  <textarea class="form-control" rows="4" readonly></textarea> 
                                  <br>
                            </form>
