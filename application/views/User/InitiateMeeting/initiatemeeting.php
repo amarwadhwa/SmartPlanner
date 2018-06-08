@@ -75,9 +75,10 @@
                   </div>
                   <div class="panel-body">
                      <div class="row">
+                      <form action="<?php echo base_url('initiateMeeting/initiateMeetingPage2')?>" method="post"role="form">
+                            
                         <div class="col-lg-6">
-                           <form action="<?php echo base_url('initiateMeeting/initiateMeetingPage2')?>" method="post"role="form">
-                              <div class="form-group">
+                             <div class="form-group">
                                  <label>Meeting Tittle</label>
                                  <input class="form-control" name="title">
                                  <!-- <p class="help-block">Example block-level help text here.</p> -->
@@ -108,6 +109,10 @@
                                  <label>Faculty</label>
                                  <input class="form-control"  name="faculty" >
                               </div>
+                              <button type="submit" name="submit" value="meeting"class="btn btn-default">Submit Button</button>
+                                 <button type="reset" class="btn btn-default">Reset Button</button>
+
+                            </div>
                               <div class="col-lg-6">
                                  <div class="form-group">
                                     <label>Meeting Description</label>
@@ -115,9 +120,9 @@
                                     <br>
                                  </div>
                                  <br>
-                                 <button type="submit" name="submit" value="meeting"class="btn btn-default">Submit Button</button>
-                                 <button type="reset" class="btn btn-default">Reset Button</button>
-                           </form>
+
+                               </div>
+                             </form>
                            </div>
                         </div>
                         <!-- /.row (nested) -->
