@@ -51,5 +51,4 @@ foreach ($users as $user) {
 };
 print_r($busyUsers);
 print_r($freeUsers);
-
 ?>
