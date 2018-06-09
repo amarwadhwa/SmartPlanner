@@ -49,6 +49,23 @@ class schduleMeeting extends CI_Controller {
 		$this->session_check();
 
 	}
-	
+
+	public function setStatus($rowId = null, $status= null){
+		echo $rowId ." ". $status;
+
+		$this->db->where("id", "$rowId");
+    	
+    	$data = array( 
+   		'status' => "$status"
+		);
+
+		$this->db->update("temporary_engages", $data);
+
+
+
+	}
+
+
+
 
 }

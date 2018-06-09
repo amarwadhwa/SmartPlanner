@@ -66,21 +66,12 @@ class My_Meeting extends CI_Controller {
 	  	$this->load->model('Meetings');
 
 		$data['meetings'] = $this->Meetings->view_all();
-		
+		$JSON_Data['json'] =  json_encode($data['meetings']); 
 
+		/*
+		Following is the Required JSON Format by the Calender API
 
-
-		//print_r($data);
-
-		//echo "<br>";
-		//echo "<br>";
-
-		//echo json_encode($data['meetings']['records']); 
-		$a['json'] =  json_encode($data['meetings']['records']); 
-		
-
-
-		$data['json'] = "[{
+		$a['json'] = "[{
           title: 'All of Event',
           start: '2018-02-01',
           	
@@ -137,8 +128,12 @@ class My_Meeting extends CI_Controller {
         }
       
 ]";
+
+echo $a['json'];
+
+*/
 		$this->load->view('User/Partial/header');
-		$this->load->view('User/MyMeetings/showmeetings',$data);
+		$this->load->view('User/MyMeetings/showmeetings',$JSON_Data);
 		$this->load->view('User/Partial/footer'	);
 		
 		//$this->Meetings->initiate('a','b','c','d','e','f','g'); 

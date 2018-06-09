@@ -11,10 +11,6 @@
 
     <title>Meeting Planner</title>
 
-    
-
- 
-
 </head>
 
 <body>
@@ -25,15 +21,19 @@
                 <div class="login-panel panel panel-default">
                     <div class="panel-heading">
                         <h3 class="panel-title">Please Sign In</h3>
+                        
                     </div>
                     <div class="panel-body">
+                        <?php if (isset($error)) {?>
+                        <h6> <font style="color:red"> Invalid Credentials</font> </h6>
+                            <?php }?>
                         <form role="form" action="<?php echo base_url('Login/check')?>" method="post">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="E-mail" name="email" type="email" autofocus>
+                                    <input class="form-control" placeholder="CMS ID" name="email" autofocus required>
                                 </div>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="Password" name="password" type="password" value="">
+                                    <input class="form-control" placeholder="Password" name="password" type="password" required>
                                 </div>
                                 <div class="checkbox">
                                     <label>
@@ -50,8 +50,6 @@
             </div>
         </div>
     </div>
-
-    
 
 </body>
 

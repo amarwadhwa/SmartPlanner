@@ -88,13 +88,24 @@
 	public function view_all()
 		
 	{
-
-		//$query = $this->db->get("meeting_logs");
-
-	    $query_str= "SELECT title , start_time as start , end_time end FROM meeting_logs ";
+			$currentUser = $_SESSION["id"];	
+$query_str= "SELECT description as title , start_time as start , end_time as end FROM temporary_engages 
+WHERE user_id = '$currentUser' ";
+		
+		
 		$query= $this->db->query($query_str);
-        $data['records'] = $query->result(); 
-      	return $data;
+        $dataTemp = $query->result(); 
+        
+
+        $query_str= "SELECT description as title , start_time as start , end_time as end FROM permanent_engages 
+        WHERE user_id = '$currentUser' ";
+		
+		
+		 $query= $this->db->query($query_str);
+        $dataPerm = $query->result(); 
+
+      $data  = array_merge($dataTemp,$dataPerm);
+      return $data;
 
 
 
