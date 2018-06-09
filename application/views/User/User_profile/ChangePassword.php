@@ -22,11 +22,11 @@
                      <div class="row">
                         <div class="col-lg-6">
                                  <!--
+                                
                                  <div class="form-group">
                                  <label >Enter Old Password</label>
                                  <input class="form-control"  id = "Old" required>
                                  </div>
-                                 
                                  
                                  
                                  <div class="form-group">
@@ -41,7 +41,7 @@
                                  <button type= "submit" onclick="CallIt()"  class="btn btn-primary" >Click me </button>
                                  -->
                            
-                           <form onSubmit="return CallIt(this);" method="post" >
+                           <form  onSubmit="return CallIt(this);" method="post" >
                               <div class="form-group">
                                  <label >Enter Old Password</label>
                                  <input class="form-control"  id = "Old"  required>
@@ -49,7 +49,7 @@
                              
                                <div class="form-group">
                                  <label>Enter New Password</label>
-                                 <input class="form-control" id = "New" name = "NewOne" required >
+                                 <input class="form-control" id = "New" name = "NewOne"  required >
                                </div>
                               <div class="form-group">
                                  <label>Re-Enter New Password</label>
@@ -87,27 +87,33 @@
 
   <script type="text/javascript">
 
-
-
-
-function  CallIt(){          
+   function  CallIt(){          
                                                       
-           var abc  = "<?php echo $_POST["NewOne"]; ?>"
-            window.alert(abc);
-
-               OldpassDatabase = "<?php echo $_SESSION["password"] ?>"; 
-               Oldpass = document.getElementById("Old").value;
+          //window.alert("abc");
+         //window.location.replace("http://stackoverflow.com");
+           
+            var  OldpassDatabase = "<?php echo $_SESSION["password"] ?>"; 
+            var Oldpass = document.getElementById("Old").value;
               
                if (OldpassDatabase==Oldpass) {
-
-                  //Query to the DataBase is remaining                     
+                  
+                  //Have to run Password Change Query Here But Data is not bieng posted. 
+                  var show  =  "<?php echo $_POST["NewOne"]; ?>"   
+                  window.alert("Ok");
+                  window.alert(show);
+                  Oldpass = " ";
 
                }
                else
                   {
+                     var show2  =  "<?php  $_POST["NewOne"] = "";
+                                    echo $_POST["NewOne"]; ?>"
                      window.alert("Incorrect old Password !");
                   }
-            
-   
-  } 
+
+
+
+
+  
+   } 
    </script>
