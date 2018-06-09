@@ -41,6 +41,7 @@ class Login extends CI_Controller {
             $_SESSION["id"] = $row->id;
             $_SESSION["designation"] = $row->designation;
             $_SESSION["commitee_id"] = $row->commitee_id;
+            $_SESSION["password"] = $row->password;
 
             }
       		redirect("User");
