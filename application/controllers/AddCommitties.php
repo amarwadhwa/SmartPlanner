@@ -47,14 +47,13 @@ class AddCommitties extends CI_Controller {
 		
 		else{*/
 		$data = array("name" =>$this->input->post("committie"),
-						  "id" =>$this->input->post("committie_id"),
 						  "description" =>$this->input->post("committie_description")
 						  
 						);
 
 				$this->load->model("Committee");
 				$this ->Committee->insert_data($data);
-				echo "Data Inserted Succesfully";
+				echo "Commeety Created Successfuly";
 		
 		
 		//}			

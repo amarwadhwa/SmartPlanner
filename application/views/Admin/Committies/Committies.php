@@ -26,17 +26,13 @@
                         <label>Committie</label>
                         <input class="form-control" type="text" name="committie">
                         </div>
-                        <div class="form-group">
-                        <label>Committie Id</label>
-                        <input class="form-control"  type="text" name="committie_id">
-                        </div>
                         <div class="form-group" >
                         <label>Committie Description</label>
                         <textarea class="form-control" rows="7" type="text" name="committie_description"></textarea> 
                         </div>
                         <div>
-                        <button type="submit" name="insert" value="insert"class="btn btn-default">Submit Button</button>
-                        <button type="reset" class="btn btn-default">Reset Button</button>
+                        <button type="submit" name="insert" value="insert"class="btn btn-primary">Add Committee</button>
+                        <button type="reset" class="btn btn-primary">Reset</button>
                         </div> 
                         </div>
                      </div>
