@@ -35,39 +35,41 @@ class AddUsers extends CI_Controller {
 		
 	}
 	public function register(){
-		$this->load->library('form_validation');
-		$this->form_validation->set_rules("last_name", "Last Name" , 'required|alpha');
-		$this->form_validation->set_rules("email", "Email" , 'required');
-		$this->form_validation->set_rules("id", "Id" , 'required');
-		$this->form_validation->set_rules("committe_id", "Committie Id" , 'required');
-		$this->form_validation->set_rules("designation", "Designation" , 'required');
-		$this->form_validation->set_rules("password", "Password" , 'required');
+		
+		//$this->load->library('form_validation');
+		//$this->form_validation->set_rules("last_name", "Last Name" , 'required|alpha');
+		//$this->form_validation->set_rules("email", "Email" , 'required');
+		//$this->form_validation->set_rules("id", "Id" , 'required');
+		//$this->form_validation->set_rules("committe_id", "Committie Id" , 'required');
+		//$this->form_validation->set_rules("designation", "Designation" , 'required');
+		//$this->form_validation->set_rules("password", "Password" , 'required');			
+							
+                           	$this->load->model("User");
+                           	$id    =  $this->input->post("id");
+							if($this ->User->search($id))
+							{
+									 
+								echo "User Already Exist";
+								
+								
+								  
+				
+
+							}
+							else {
+									 $name =  $this->input->post("name");
+						 			 $email = $this->input->post("email");
+						  			 $id    =  $this->input->post("id");
+						             $committee_id = $this->input->post("committie_id");
+						             $designation = $this->input->post("designation");
+						             $password    = $this->input->post("password");
+						             $this ->User->save($name,$email,$id,$committee_id,$designation,$password);
+									 echo "User Added Succesfully";
+									 
+							}
 
 
 					
-		/*if($this->form_validation->run()==FALSE){
-			
-		}	
-		
-		else{*/
-$data = array("name" =>$this->input->post("first_name"),
-						  "email" =>$this->input->post("email"),
-						  "id" =>$this->input->post("id"),
-						  "last_name" =>$this->input->post("last_name"),
-						  "commitee_id" =>$this->input->post("committie_id"),
-						  "designation" =>$this->input->post("designation"),
-						  "password" =>$this->input->post("password")
-						  
-						);
-
-				$this->load->model("User");
-				$this ->User->insert_data($data);
-				echo "Data Inserted Succesfully";
-		
-		
-		//}			
-
-
 	}		
 	
 	

@@ -61,12 +61,7 @@
                            </form> 
                            
                            
-                           
-                                          
-
-
-
-                        </div>
+                          </div>
                         <!-- /.row (nested) -->
                      </div>
                      <!-- /.panel-body -->

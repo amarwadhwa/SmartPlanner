@@ -22,45 +22,40 @@
                            <div class="col-lg-6">
                         <form role="form">
                         <div class="form-group">
-                        <label>First Name</label>
-                        <input class="form-control" type="text" name="first_name" >
+                        <label>Name</label>
+                        <input class="form-control" type="text" name="name" required>
                         <span class="text-danger"><?php echo form_error("first_name");?></span>
-                        </div>
-                        <div class="form-group">
-                        <label>Last Name</label>
-                        <input class="form-control" type="text" name="last_name" >
-                        <span class="text-danger"><?php echo form_error("last_name");?></span>
-                        </div>
+                        </div>                        
                         <div class="form-group">
                         <label>Email</label>
-                        <input class="form-control" type="text" name="email" >
+                        <input class="form-control" type="text" name="email" required>
                         <span class="text-danger"><?php echo form_error("email");?></span>
                         </div>
                         <div class="form-group">
                         <label>Instructor Id</label>
-                        <input class="form-control" type="text" name="id" >
+                        <input class="form-control" type="text" name="id" required>
                         <span class="text-danger"><?php echo form_error("id");?></span>
                         </div>
                         <div class="form-group">
                         <label>Committie Id</label>
-                        <input class="form-control" type="text" name="committie_id" >
+                        <input class="form-control" type="text" name="committie_id" required>
                         <span class="text-danger"><?php echo form_error("committie_id");?></span>
                         </div>
                         <div>
-                        <button type="submit" name="insert" value="Insert "class="btn btn-default">Submit Button</button>
-                        <button type="reset" class="btn btn-default">Reset Button</button>
+                        <button type="submit" name="insert" value="Insert "class="btn btn-primary">Add User</button>
+                        <button type="reset" class="btn btn-primary">Reset</button>
                         </div> 
                         </div>
                         <div class="col-lg-6">
                         <form role="form">
                         <div class="form-group">
                         <label>Designation</label>
-                        <input class="form-control" type="text" name="designation">
+                        <input class="form-control" type="text" name="designation" required>
                         <span class="text-danger"><?php echo form_error("designation");?></span>
                         </div>
                         <div class="form-group">
                         <label>Password</label>
-                        <input class="form-control" type="text" name="password">
+                        <input class="form-control" type="text" name="password" required>
                         <span class="text-danger"><?php echo form_error("password");?></span>
                         <br>
                         </div>

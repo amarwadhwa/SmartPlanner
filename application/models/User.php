@@ -6,19 +6,23 @@
       } 
 	
 	
-	 public function search($id="",$name="")
+	 public function search($id)
 	{
 
 		
 		$this->db->select('*');
     	$this->db->from('users');
-    	$this->db->where('users.name', $name);
-    	$this->db->or_where('users.id', $id);
+    	//$this->db->or_where('users.name', $name);
+    	$this->db->where('users.id', $id);
     	$query = $this->db->get();    
     	if($query->num_rows() > 0){
-    	$data['records'] = $query->result(); 
-   		print_r($data);
+    		return true ;
+    		//$data['records'] = $query->result(); 
+   			//print_r($data);
 
+   		}
+   		else {
+   			return false;
    		}
 	}
 	
@@ -35,14 +39,15 @@
 		$this->db->insert("users" ,$data);
 	}
 	
-	public function save($id,$name,$password,$designation,$commitee_id="")
+	public function save($name,$email,$id,$commitee_id,$designation,$password)
 	{
 		$data = array(
 		'id' => "$id",
 		'password' => "$password", 
    		'name' => "$name", 
         'designation' => "$designation",
-        'commitee_id' => "$commitee_id"
+        'commitee_id' => "$commitee_id",
+        'email' => "$email"
 		); 
 		$this->db->insert("users", $data);	
 	}
