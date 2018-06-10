@@ -77,6 +77,23 @@ foreach ($users as $user) {
 	}
 	else {
 		$freeUsers[] = $user;
+
+		$data = array( 
+   		'meeting_id' =>  $lastIdMeetingLog,
+   		'user_id' => $user->id,
+   		'description' => $_POST["description"], 
+		'start_time' =>$start_timestamp,
+		'end_time'  =>$end_timestamp,);
+		$this->db->insert("temporary_engages", $data);
+
+		$acceptLink =  "http://localhost/SmartPlanner/schduleMeeting/setStatus/".$this->db->insert_id()."/accept";
+		$rejectLink =  "http://localhost/SmartPlanner/schduleMeeting/setStatus/".$this->db->insert_id()."/Not Interested";
+
+		echo "$acceptLink <br> <br>";
+		echo "$rejectLink <br> <br>";
+
+
+
 	}
 }
 ?>
