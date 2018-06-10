@@ -8,7 +8,6 @@
         function send_email() {
           require 'application_resources/PHPMailer/PHPMailerAutoload.php';
 
-
             $mail = new PHPMailer;
 
             //$mail->SMTPDebug = 3;                               // Enable verbose debug output
@@ -21,7 +20,7 @@
             $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
             $mail->Port = 465;                                    // TCP port to connect to
 
-            $mail->setFrom('admin@equeet.com', 'Mailer');
+            $mail->setFrom('localhostlocal4gmail.com', 'Meeting Scheduled');
             $mail->addAddress('rockiing.aakash@gmail.com', 'Aakash');     // Add a recipient
             $mail->addReplyTo('info@example.com', 'Information');
             $mail->isHTML(true);                                  // Set email format to HTML
@@ -34,7 +33,7 @@
                 echo 'Message could not be sent.';
                 echo 'Mailer Error: ' . $mail->ErrorInfo;
             } else {
-                echo 'Message has been sent';
+                //echo 'Message has been sent';
             }
     }
 }

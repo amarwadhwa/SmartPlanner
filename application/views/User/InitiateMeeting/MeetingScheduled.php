@@ -1,4 +1,6 @@
 <?php
+require 'application_resources/PHPMailer/PHPMailerAutoload.php';
+$mail = new PHPMailer;
 $start_time =  strtotime($_POST["start_date"] . " ". $_POST["start_time"]);
 $start_timestamp =  date('Y-m-d H:i:s', $start_time);
 $end_time =  strtotime($_POST["end_date"] . " ". $_POST["end_time"]);
@@ -71,8 +73,30 @@ foreach ($users as $user) {
 		echo "$rejectLink <br> <br>";
 
 
-			
+			// mail for busy users...
+		
+            $mail->isSMTP();                                      // Set mailer to use SMTP
+            $mail->Host = 'ssl://smtp.gmail.com';  // Specify main and backup SMTP servers
+            $mail->SMTPAuth = true;                               // Enable SMTP authentication
+            $mail->Username = 'localhostlocal4';                 // SMTP username
+            $mail->Password = '4localhostlocal';                           // SMTP password
+            $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+            $mail->Port = 465;                                    // TCP port to connect to
 
+            $mail->setFrom('localhostlocal4gmail.com', 'Meeting Scheduled');
+            $mail->addAddress($user->email, $user->name);     // Add a recipient
+            $mail->addReplyTo('no-reply@SmartPlanner.com', 'No Reply');
+            $mail->isHTML(true);                                  // Set email format to HTML
+
+            $mail->Subject = 'Meeting Scheduled';
+            $mail->Body    = 'Here is meeting details<b> <h1> Options </h1> <br> <br> <a href="'.$acceptLink.'"> Interested</a> <br> <br> <a href="'. $rejectLink.'">Not Interested </a>';
+
+            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+            if(!$mail->send()) {
+                echo 'Message could not be sent.';
+                echo 'Mailer Error: ' . $mail->ErrorInfo;
+            } 
 
 	}
 	else {
@@ -91,6 +115,33 @@ foreach ($users as $user) {
 
 		echo "$acceptLink <br> <br>";
 		echo "$rejectLink <br> <br>";
+
+
+		// mail for free users..
+
+
+            $mail->isSMTP();                                      // Set mailer to use SMTP
+            $mail->Host = 'ssl://smtp.gmail.com';  // Specify main and backup SMTP servers
+            $mail->SMTPAuth = true;                               // Enable SMTP authentication
+            $mail->Username = 'localhostlocal4';                 // SMTP username
+            $mail->Password = '4localhostlocal';                           // SMTP password
+            $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
+            $mail->Port = 465;                                    // TCP port to connect to
+
+            $mail->setFrom('localhostlocal4gmail.com', 'Meeting Scheduled');
+            $mail->addAddress($user->email, $user->name);     // Add a recipient
+            $mail->addReplyTo('no-reply@SmartPlanner.com', 'No Reply');
+            $mail->isHTML(true);                                  // Set email format to HTML
+
+            $mail->Subject = 'Meeting Scheduled';
+            $mail->Body    = 'Here is meeting details<b> <h1> Options </h1> <br> <br> <a href="'.$acceptLink.'"> Interested</a> <br> <br> <a href="'. $rejectLink.'">Not Interested </a>';
+
+            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
+
+            if(!$mail->send()) {
+                echo 'Message could not be sent.';
+                echo 'Mailer Error: ' . $mail->ErrorInfo;
+            } 
 
 
 
