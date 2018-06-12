@@ -61,31 +61,12 @@ function submitClick(){
                                        
                                       </p>
                                  </div>
-                                 <script type="text/javascript" src="datepair.js"></script>
-                                 <script type="text/javascript" src="jquery.datepair.js"></script>
                                  <script>
-
-                                   
-
                                     $('#datepairExample .time').timepicker({
-                                        'scrollDefault': 'now',
-                                        'minTime': '8:00am',
-                                        'maxTime': '7:59am',
-                                        'step': '5',                                        
-                                        'timeFormat': 'g:ia',
-                                          
-                                                                               
+                                        'showDuration': true,
+                                        'timeFormat': 'g:ia'
                                     });
-
-                                    //$('#datepairExample').timepicker();
-                                    $('#datepairExample').on('changeTime', function() {
-                                                  
-                                       //     window.alert("Select event Working");     
-                                          //Write code to disable the selecting previos tims
-
-                                        });
-
-                                                                
+                                    
                                     $('#datepairExample .date').datepicker({
                                         'format': 'm/d/yyyy',
                                         'autoclose': true
