@@ -46,10 +46,11 @@ function submitClick(){
                                  <div class="demo">
                                     <h2>Date and Time </h2>
                                     <p id="datepairExample">
-                                       <input type="text" class="date start" placeholder="Date"  name="start_date" required />
+                                       <input type="text" class="date start" placeholder="Date"  name="start_date" autocomplete="off" required />
                                        <input type="text" class="time start" placeholder="Time" name="start_time" required /> to
                                        <input type="text" class="time end" placeholder="Time"   name="end_date" required />
-                                       <input type="text" class="date end" placeholder="Date" name="end_time" required />
+                                       <input type="text" class="date end" placeholder="Date" name="end_time"
+                                         autocomplete="off" required />
                                        <input type="hidden" value="<?php echo $_POST["title"]; ?>" name="title" />
                                        <input type="hidden" value="<?php echo $_POST["faculty"]; ?>" name="faculty" />
                                        <input type="hidden" value="<?php echo $_POST["description"]; ?>" name="description" />
@@ -61,15 +62,32 @@ function submitClick(){
                                        
                                       </p>
                                  </div>
+                                  <script type="text/javascript" src="datepair.js"></script>
+                                  <script type="text/javascript" src="jquery.datepair.js"></script>
                                  <script>
                                     $('#datepairExample .time').timepicker({
-                                        'showDuration': true,
-                                        'timeFormat': 'g:ia'
+                                        
+                                        'minTime': '8:00am',
+                                        'maxTime': '7:59am',
+                                        'timeFormat': 'g:ia',
+                                        'scrollDefault': 'now',
+                                        'step': '5'
+
                                     });
+
+
+                                    $('#datepairExample').on('changeTime', function() {
+                                                  
+                                           // window.alert("Select event Working");     
+                                          //Write code to disable the selecting previos tims
+                                           //$('#datepairExample').timepicker('option', 'minTime', '2:00pm');
+
+                                        });
                                     
                                     $('#datepairExample .date').datepicker({
                                         'format': 'm/d/yyyy',
                                         'autoclose': true
+                                        //'todayBtn': true
                                     });
                                     
                                     $('#datepairExample').datepair();
