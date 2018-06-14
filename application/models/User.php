@@ -52,6 +52,21 @@
 		$this->db->insert("users", $data);	
 	}
 	
+
+	public function changePassword($newPass,$userId)
+	{
+	
+			
+		 
+
+
+	
+
+	}
+
+
+
+
 	
 	public function delete($user_id)
 	{

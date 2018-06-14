@@ -70,8 +70,8 @@ function submitClick(){
                                         'minTime': '8:00am',
                                         'maxTime': '7:59am',
                                         'timeFormat': 'g:ia',
-                                        'scrollDefault': 'now',
-                                        'step': '5'
+                                        
+                                        'scrollDefault': 'now'
 
                                     });
 

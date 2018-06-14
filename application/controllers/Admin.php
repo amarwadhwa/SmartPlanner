@@ -32,6 +32,11 @@ class Admin extends CI_Controller {
 		$this->load->view('Admin/Partial/footer');
 		$this->session_check();
 	}
+
+	
+
+
+
 	
 	
 	

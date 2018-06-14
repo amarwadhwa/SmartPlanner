@@ -21,8 +21,21 @@ class Login extends CI_Controller {
 	 */
 	public function index()
 	{
-		$this->load->view('Login/header');	
-		$this->load->view('Login/index');
+
+		if(isset($_SESSION["passwordChange"]))
+			{
+				echo "<script type='text/javascript'> alert('Password successfully changed');  </script>"; 
+				session_unset();
+				$this->load->view('Login/header');	
+				$this->load->view('Login/index');				
+
+			}
+		else{
+				session_unset();
+				$this->load->view('Login/header');	
+				$this->load->view('Login/index');			
+		}
+		
 	}
 	
 	public function check()
@@ -70,7 +83,8 @@ class Login extends CI_Controller {
     public function logout()  
     {  
         //removing session  
-        unset($_SESSION["user-type"]);  
+
+        session_unset();
         redirect("Login");  
     }		
 	

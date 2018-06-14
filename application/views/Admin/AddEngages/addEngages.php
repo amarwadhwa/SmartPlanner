@@ -40,7 +40,7 @@
                   </div>
                   <!-- /.col-lg-6 (nested) -->
                   <!-- /.row (nested) -->
-               </div>
+               </div>   
                <!-- /.panel-body -->
             </div>
             <!-- /.panel -->

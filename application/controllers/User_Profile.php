@@ -21,8 +21,6 @@ class user_profile extends CI_Controller {
 	public function index()
 	{
 		$this->load->view('User/Partial/header');
-
-		
 		$this->load->view('User/User_profile/user_profile');
 		$this->load->view('User/Partial/footer');
 	}
@@ -32,7 +30,11 @@ class user_profile extends CI_Controller {
 		$this->load->view('User/Partial/header');
 		$this->load->view('User/User_profile/ChangePassword');
 		$this->load->view('User/Partial/footer');
+
 	}
+
+
+
 	public function edit()
 	{
 		$this->load->view('welcome_message');

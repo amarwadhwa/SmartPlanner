@@ -1,4 +1,28 @@
+<?php
+if (isset($_POST['submit']) && $_POST['submit'] == "set") {
+$oldPass = $_SESSION["password"];
+$userOldPass = $_POST["oldPass"];
+$newPass = $_POST["newOne"];
 
+if ($oldPass == $userOldPass) {
+   $_POST['submit'] = "Not Set" ;
+   unset($_POST['submit']);   
+      $data = array('password' => "$newPass");      
+         $this->db->set($data); 
+         $this->db->where("id",$userId); 
+         $this->db->update("users", $data);
+        $_SESSION["passwordChange"] = "set";
+         redirect("Login");
+
+
+}
+else {
+   $_POST['submit'] = "Not Set" ;
+   unset($_POST['submit']); 
+   $error = false;
+   }   
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -20,43 +44,27 @@
                   </div>
                   <div class="panel-body">
                      <div class="row">
-                        <div class="col-lg-6">
-                                 <!--
-                                
-                                 <div class="form-group">
-                                 <label >Enter Old Password</label>
-                                 <input class="form-control"  id = "Old" required>
-                                 </div>
-                                 
-                                 
-                                 <div class="form-group">
-                                 <label>Enter New Password</label>
-                                 <input class="form-control" id = "New" required >
-                                 </div>
-
-                                 <div class="form-group">
-                                 <label>Re-Enter New Password</label>
-                                 <input class="form-control" id = "AgainNew" required >
-                                 </div>
-                                 <button type= "submit" onclick="CallIt()"  class="btn btn-primary" >Click me </button>
-                                 -->
-                           
-                           <form  onSubmit="return CallIt(this);" method="post" >
+                        <div class="col-lg-6">                                 
+                           <form onSubmit="return validatePassword(this);"  method="post" >
+                              <?php if (isset($error)) {
+                                echo '<font color="RED"> <h5>Invalid Old Password</h5></font>';
+                                 unset($error);                                                                
+                              } ?>
                               <div class="form-group">
                                  <label >Enter Old Password</label>
-                                 <input class="form-control"  id = "Old"  required>
+                                 <input class="form-control" name="oldPass"  type="password" required>
                               </div>
                              
                                <div class="form-group">
                                  <label>Enter New Password</label>
-                                 <input class="form-control" id = "New" name = "NewOne"  required >
+                                 <input class="form-control" id = "password" name = "newOne"  type="password" required >
                                </div>
                               <div class="form-group">
                                  <label>Re-Enter New Password</label>
-                                 <input class="form-control" id = "AgainNew"  name = "NewTwo" required >
+                                 <input class="form-control" id = "confirm_password" name = "NewTwo" type="password" required >
                               </div>
                                   
-                              <button type="submit"  name="submit" value="meeting "class="btn btn-primary">Submit Button</button>
+                              <button type="submit"  name="submit" value = "set" class="btn btn-primary">Submit Button</button>
                               
                            </form> 
                            
@@ -77,38 +85,21 @@
       <!-- /#wrapper -->
    </body>
 </html>
+<script type="text/javascript">
 
+  var password = document.getElementById("password"),confirm_password = document.getElementById("confirm_password");
 
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+   window.alert("Password does not Matched");   
+    
+    return false;
+  } else {
+   
+    
+    return true;
+  }
+}
 
-  <script type="text/javascript">
+</script>
 
-   function  CallIt(){          
-                                                      
-          //window.alert("abc");
-         //window.location.replace("http://stackoverflow.com");
-           
-            var  OldpassDatabase = "<?php echo $_SESSION["password"] ?>"; 
-            var Oldpass = document.getElementById("Old").value;
-              
-               if (OldpassDatabase==Oldpass) {
-                  
-                  //Have to run Password Change Query Here But Data is not bieng posted. 
-                  var show  =  "<?php echo $_POST["NewOne"]; ?>"   
-                  window.alert("Ok");
-                  window.alert(show);
-                  Oldpass = " ";
-
-               }
-               else
-                  {
-                     var show2  =  "<?php  $_POST["NewOne"] = "";
-                                    echo $_POST["NewOne"]; ?>"
-                     window.alert("Incorrect old Password !");
-                  }
-
-
-
-
-  
-   } 
-   </script>
