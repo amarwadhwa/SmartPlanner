@@ -130,9 +130,9 @@
                               ?>"
             document.getElementById("comm").value = comm;
 
-         
+</script>
 
-              </script>
+
 
 
             
