@@ -83,7 +83,6 @@ class Login extends CI_Controller {
     public function logout()  
     {  
         //removing session  
-
         session_unset();
         redirect("Login");  
     }		
