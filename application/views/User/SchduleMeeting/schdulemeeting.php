@@ -6,10 +6,10 @@
       <div id="page-wrapper">
          <div class="row">
             <div class="col-lg-12">
-               <h2 class="page-header">Upcoming Scheduled Meetings Status</h2>
+               <h2 class="page-header">Upcoming Scheduled Meetings Status > 30 mins</h2>
             </div>
             <!-- /.col-lg-12 -->
-            <form action="<?php echo base_url('schduleMeeting/edit')?>" method="post"role="form">
+            <form action="<?php echo base_url('schduleMeeting/edit')?>" method="post" role="form">
          </div>
          <table class="table table-bordered" >
             
@@ -46,35 +46,36 @@
                foreach($commArray as $comm_Array){               
                $comQuery = $this->db->query("SELECT name FROM committees WHERE id = '".$comm_Array."'");  
                $result = $comQuery->result();
-               $commetteesString .=$result[0]->name.", ";
+               $commetteesString .=$result[0]->name.", <br>";
                }
 
-               $meetingGuests = "";  
-               $newString = "";    
+               
+               $guestString = "";    
                $guest = $this->db->query("SELECT user_id FROM temporary_engages WHERE meeting_id = '".$row->id."' AND status != 'reject'"); 
                $guestresult = $guest->result();               
-               //print_r($guestresult);
+               
                foreach ($guestresult as $guest_result) {
                   
                    $guestStringQuery = $this->db->query("SELECT name FROM users WHERE id = '".$guest_result->user_id."'"); 
                    $guestStringQuery = $guestStringQuery->result();                  
-                   //$newString .=$guestStringQuery[0]->name."-".$guest_result->user_id." <br>";
-                   $meetingGuests .=$guest_result->user_id." ";
-
-
+                   $guestString .=$guestStringQuery[0]->name."-".$guest_result->user_id.", <br>";                  
                }
               
-               
+             $guestString = substr($guestString, 0, -6);
+             $commetteesString = substr($commetteesString, 0, -6);
+
+             
+
             echo "<tr>";
-            //echo "<td>".$row->id."</td>";
+           // echo "<td>".$row->id."</td>";
             echo "<td>".$row->title."</td>";            
             echo "<td width=20%>".$commetteesString."</td>";
-            echo "<td>".$meetingGuests."</td>";
+            echo "<td>".$guestString."</td>";
             echo "<td width=10%>".$row->time."</td>";            
             echo "<td width=10%>".$row->start_time."</td>";
             echo "<td width=10%>".$row->end_time."</td>";
             echo "<td>".$row->description."</td>";
-            echo "<td><button type='submit'  class='btn btn-secondary'>Edit</button></td>";
+            echo "<td><button type='submit' formaction=/SmartPlanner/initiateMeeting/?meeting_id=$row->id class='btn btn-secondary'>Edit</button></td>";
             echo "<td><button type='submit' class='btn btn-secondary'>Cancel</button></td>";
             echo "</tr>";
             }
@@ -86,4 +87,3 @@
       </div>
    </body>
 </html>
-

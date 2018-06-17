@@ -1,4 +1,5 @@
 <?php
+ini_set('max_execution_time', 300);
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 class AddEngages extends CI_Controller {

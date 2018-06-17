@@ -1,3 +1,20 @@
+
+<?php
+                    if(isset($_GET["meeting_id"]))
+    {                    echo $_GET["meeting_id"];
+                         $meeting_id = $_GET["meeting_id"];      
+                         $query = $this->db->query("SELECT * FROM meeting_logs WHERE id = '".$meeting_id."'" );
+                           if($query->num_rows() >0){                          
+                          foreach ($query->result() as $row) {                           
+                          $title = $row->title;
+                          $description = $row->description;
+                          $commArray = explode(',', $row->committee_id);
+                          }
+
+         }
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -62,7 +79,7 @@
       <div id="page-wrapper">
          <div class="row">
             <div class="col-lg-12">
-               <h1 class="page-header">Initiate Meeting</h1>
+               <h1 class="page-header">Initiate Meeting</h1>               
             </div>
             <!-- /.col-lg-12 -->
          </div>
@@ -80,7 +97,7 @@
                         <div class="col-lg-6">
                              <div class="form-group">
                                  <label>Meeting Tittle</label>
-                                 <input class="form-control" name="title">
+                                 <input class="form-control" value="<?php if(isset($title)){ echo $title; }?>" name="title">
                                  <!-- <p class="help-block">Example block-level help text here.</p> -->
                               </div>
                               
@@ -91,14 +108,38 @@
                                     
                                     for($i=0; $i < $count; $i++){
                                  ?>
-                                 
+
                                  <div class="checkbox" >
                                     <label>
-                                    <input type="checkbox" name="Committee[]" value= <?php echo $Committies["records"][$i]->id ?> />  
+                                    <input <?php 
+                                                if(isset($commArray)){
+                                                foreach ($commArray as $comm_Array) {
+                                                 if($comm_Array==$Committies["records"][$i]->id ){ echo 'checked="checked"'; 
+                                                  break; }
+                                                 }}
+                                           ?> 
+
+                                     type="checkbox" name="Committee[]" value= <?php echo $Committies["records"][$i]->id ?> />
                                     <?php   echo $Committies["records"][$i]->name ; 
                                     ?>
+
+                                      
+        
+
+                                     
+                                      
+
+                                            
                                     </label>
                                  </div>
+
+
+
+
+
+
+                                 
+                                 
                                  <?php
                                     }
                                   ?>   
@@ -116,7 +157,8 @@
                               <div class="col-lg-6">
                                  <div class="form-group">
                                     <label>Meeting Description</label>
-                                    <textarea class="form-control" rows="7"  name="description" ></textarea> 
+                                    <textarea class="form-control" rows="7"  name="description"><?php 
+                                    if(isset($description)){ echo $description;}?></textarea> 
                                     <br>
                                  </div>
                                  <br>
