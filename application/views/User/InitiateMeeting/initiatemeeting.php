@@ -9,6 +9,9 @@
                           $title = $row->title;
                           $description = $row->description;
                           $commArray = explode(',', $row->committee_id);
+                          $_SESSION["startTimeStamp"] = $row->start_time;
+                          $_SESSION["endTimeStamp"] = $row->end_time;
+
                           }
 
          }

@@ -32,6 +32,18 @@ class schduleMeeting extends CI_Controller {
 		$this->session_check();
 
 	}
+
+	public function cancel()
+	{
+		$this->load->view('User/Partial/header');
+		$this->load->view('User/SchduleMeeting/cancelmeeting');
+		$this->load->view('User/Partial/footer');
+		$this->session_check();
+
+	}
+
+
+
 	public function edit()
 	{
 		$this->load->view('User/Partial/header');
@@ -40,6 +52,8 @@ class schduleMeeting extends CI_Controller {
 		$this->session_check();
 
 	}
+
+
 	public function editConform()
 	{
 		$this->load->view('User/Partial/header');

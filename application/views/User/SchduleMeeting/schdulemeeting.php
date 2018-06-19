@@ -76,7 +76,7 @@
             echo "<td width=10%>".$row->end_time."</td>";
             echo "<td>".$row->description."</td>";
             echo "<td><button type='submit' formaction=/SmartPlanner/initiateMeeting/?meeting_id=$row->id class='btn btn-secondary'>Edit</button></td>";
-            echo "<td><button type='submit' class='btn btn-secondary'>Cancel</button></td>";
+            echo "<td><button type='submit' formaction=/SmartPlanner/SchduleMeeting/cancel?meeting_id=$row->id class='btn btn-secondary'>Cancel</button></td>";
             echo "</tr>";
             }
           }?>   

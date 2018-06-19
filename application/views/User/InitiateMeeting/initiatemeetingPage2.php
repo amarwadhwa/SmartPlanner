@@ -1,3 +1,16 @@
+<?php 
+  if(isset($_SESSION["startTimeStamp"])){
+  $startDate = date('m/d/Y',strtotime($_SESSION["startTimeStamp"]));
+  $startTime = date('g:ia',strtotime($_SESSION["startTimeStamp"]));
+}
+
+if(isset($_SESSION["endTimeStamp"])){
+  $endDate = date('m/d/Y',strtotime($_SESSION["endTimeStamp"]));
+  $endTime = date('g:ia',strtotime($_SESSION["endTimeStamp"]));
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -46,11 +59,23 @@ function submitClick(){
                                  <div class="demo">
                                     <h2>Date and Time </h2>
                                     <p id="datepairExample">
-                                       <input type="text" class="date start" placeholder="Date"  name="start_date" autocomplete="off" required />
-                                       <input type="text" class="time start" placeholder="Time" name="start_time" required /> to
-                                       <input type="text" class="time end" placeholder="Time"   name="end_date" required />
+                                       <input type="text" class="date start" placeholder="Date"  name="start_date" autocomplete="off" value=<?php
+                                      if(isset($startDate)){echo "$startDate";}
+
+                                       ?> required />
+                                       <input type="text" class="time start" placeholder="Time" name="start_time"  value=<?php
+                                      if(isset($startTime)){echo "$startTime";}
+
+                                       ?>  required /> to
+                                       <input type="text" class="time end" placeholder="Time"   name="end_date" value=<?php
+                                      if(isset($endTime)){echo "$endTime";}
+
+                                       ?> required />
                                        <input type="text" class="date end" placeholder="Date" name="end_time"
-                                         autocomplete="off" required />
+                                         autocomplete="off" value=<?php if(isset($endDate)){echo "$endDate";
+                                        unset($endDate);   
+                                       } ?>
+                                         required />
                                        <input type="hidden" value="<?php echo $_POST["title"]; ?>" name="title" />
                                        <input type="hidden" value="<?php echo $_POST["faculty"]; ?>" name="faculty" />
                                        <input type="hidden" value="<?php echo $_POST["description"]; ?>" name="description" />
@@ -69,8 +94,7 @@ function submitClick(){
                                         
                                         'minTime': '8:00am',
                                         'maxTime': '7:59am',
-                                        'timeFormat': 'g:ia',
-                                        
+                                        'timeFormat': 'g:ia',                                        
                                         'scrollDefault': 'now'
 
                                     });
@@ -109,7 +133,7 @@ function submitClick(){
                               <div class="col-lg-12">
                                  <div class="panel panel-default">
                                     <div class="panel-heading">
-                                       DataTables Advanced Tables
+                                       Meeting Details
                                     </div>
                                     <!-- /.panel-heading -->
                                     <div class="panel-body">
@@ -139,7 +163,7 @@ function submitClick(){
                                                        $query = $this->db->query("SELECT * FROM committees WHERE id = $commetties[$i]");
                                                        if($query->num_rows() >0){
                                                        foreach ($query->result() as $row) {
-                                                        echo $row->name . "<br>";
+                                                        echo $row->name ."<br>";
                                                       }
 
                                                        }
@@ -157,7 +181,7 @@ function submitClick(){
                                                       foreach ($user_commetties as $user_commettie) {
                                                          if ($commettie == $user_commettie) {
                                                              $invited_Users[] = $user;
-                                                             echo $user->name . "<br>";
+                                                             echo $user->name.":".$user->id. "<br>";
                                                          }
                                                       }
 
