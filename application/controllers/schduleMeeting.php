@@ -31,6 +31,11 @@ class schduleMeeting extends CI_Controller {
 		$this->load->view('User/Partial/footer');
 		$this->session_check();
 
+  
+
+//}
+
+
 	}
 
 	public function cancel()
@@ -50,6 +55,28 @@ class schduleMeeting extends CI_Controller {
 		$this->load->view('User/SchduleMeeting/editMeeting');
 		$this->load->view('User/Partial/footer');
 		$this->session_check();
+
+	}
+
+	public function deleteMeeting()
+	{
+		
+		if(isset($_POST["meeting_id"])){
+
+				//$meeting_id  = "'class'";
+				$meeting_id  =  $_POST["meeting_id"];   
+				$this->db->delete("temporary_engages", "meeting_id = ".$meeting_id);
+				$this->db->delete("meeting_logs", "id = ".$meeting_id);				
+				unset($_POST["meeting_id"]);
+			
+		}
+
+		$this->load->view('User/Partial/header');
+		$this->load->view('User/SchduleMeeting/schdulemeeting');
+		$this->load->view('User/Partial/footer');
+		$this->session_check();
+
+
 
 	}
 
@@ -78,6 +105,7 @@ class schduleMeeting extends CI_Controller {
 
 
 	}
+
 
 
 

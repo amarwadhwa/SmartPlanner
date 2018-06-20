@@ -76,9 +76,9 @@ function submitClick(){
                                         unset($endDate);   
                                        } ?>
                                          required />
-                                       <input type="hidden" value="<?php echo $_POST["title"]; ?>" name="title" />
-                                       <input type="hidden" value="<?php echo $_POST["faculty"]; ?>" name="faculty" />
-                                       <input type="hidden" value="<?php echo $_POST["description"]; ?>" name="description" />
+                                       <input type="hidden" value="<?php if(isset($_POST["title"])){echo $_POST["title"];}?>" name="title" />
+                                       <input type="hidden" value="<?php if(isset($_POST["faculty"])){echo $_POST["faculty"];} ?>" name="faculty" />
+                                       <input type="hidden" value="<?php if(isset($_POST["description"])){echo $_POST["description"];} ?>" name="description" />
                                        
                                        
                                        <input type="submit"   value="Check Availabilty" class="btn btn-default"/>
@@ -139,7 +139,7 @@ function submitClick(){
                                     <div class="panel-body">
                                        <table width="100%" class="table table-striped table-bordered table-hover" id="dataTables-example">
                                           <thead> 
-                                             <tr>
+                                             <tr style="background-color:LightGrey">
                                                 <th>Meeting Tittle</th>
                                                 <th>Committees Invited</th>
                                                 <th>Guests</th>
@@ -147,7 +147,7 @@ function submitClick(){
                                              </tr>
                                           </thead>
                                           <tbody>
-                                             <tr class="odd gradeX">
+                                             <tr class="odd gradeX" style="background-color:White">
                                                 <td><?php echo $_POST["title"]; ?></td>
                                                   <td><?php  if(empty($_POST['Committee'])) 
                                                      {

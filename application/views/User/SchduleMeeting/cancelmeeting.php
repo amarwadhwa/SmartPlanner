@@ -63,7 +63,7 @@
                <h2 class="page-header">Please Confirm </h2>
             </div>
             <!-- /.col-lg-12 -->
-            <form action="<?php echo base_url('schduleMeeting/edit')?>" method="post" role="form">
+            <form onsubmit="return CancelMsg(this)" action="<?php echo base_url('schduleMeeting/deleteMeeting')?>" method="post" role="form">
          </div>
          <table class="table table-bordered" >
          <label><h3>Meeting Title: <?php  if (isset($title)){echo $title;} ?></h3></label>
@@ -80,20 +80,33 @@
           <tbody>
             
             <?php
+
+                   $startDateTime = date('M-d-Y g:ia l', strtotime($startTimeST));
+                   $endDateTime = date('M/d/Y g:ia l', strtotime($endTimeST));
+                    $initiatedTimeNew = date('M-d-Y g:ia l', strtotime($initiatedTime));
+                   if(!isset($startDateTime)){ $startDateTime = "";}
+                   if(!isset($endDateTime)){ $endDateTime = "";}
+                   if(!isset($initiatedTimeNew)){ $initiatedTimeNew = "";}
+
+
+
                   echo "<tr>";
                   // echo "<td>".$row->id."</td>";
                   
                   if(isset($commetteesString)){echo "<td >".$commetteesString."</td>";}
                   if(isset($guestString)){echo "<td width=30%>".$guestString."</td>";}
-                  if(isset($initiatedTime)){echo "<td width=12%>".$initiatedTime."</td>";}            
-                  if(isset($startTimeST)){echo "<td width=10%>".$startTimeST."</td>";}
-                  if(isset($endTimeST)){echo "<td width=10%>".$endTimeST."</td>";}
+                  if(isset($initiatedTime)){echo "<td width=12%>".$initiatedTimeNew."</td>";}            
+                  if(isset($startTimeST)){echo "<td width=11%>".$startDateTime."</td>";}
+                  if(isset($endTimeST)){echo "<td width=11%>".$endDateTime."</td>";}
                   if(isset($description)){echo "<td>".$description."</td>";}
+
+                  echo "</tr>";
 
             ?>
 
          </tbody>
          </table>
+          <input type="hidden" value=<?php if(isset($meeting_id)){ echo "$meeting_id"; } ?> name="meeting_id" />
          <div>
          
          
@@ -119,3 +132,27 @@
 </html>
 
 
+<script type="text/javascript">
+  /*function showHint(oFormElement) {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("txtHint").innerHTML = this.responseText;
+                document.getElementById("ScheduleAnyway").disabled = false;
+                if (this.responseText != "") {document.getElementById("ScheduleAnyway").innerHTML = "Schedule Anyway"; }
+              }
+        };
+        xmlhttp.open("POST", "http://localhost/SmartPlanner/My_Meeting/checkConflict", true);
+        xmlhttp.send(new FormData (oFormElement));
+        return false;
+  }*/
+
+function CancelMsg(){
+  
+  window.alert("Meeting Canceled Successfully");
+  return true;   
+
+  
+
+}
+</script>

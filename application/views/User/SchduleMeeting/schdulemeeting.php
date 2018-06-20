@@ -14,7 +14,7 @@
          <table class="table table-bordered" >
             
          <thead>
-         <tr style="background-color:LightGrey">
+         <tr style="background-color:LightGrey" >
          
          <th scope="col">Meeting Title </th>
          <th scope="col">Committees Invited</th>
@@ -25,6 +25,7 @@
          <th scope="col">Description</th>
          <th scope="col">Edit</th>
          <th scope="col">Cancel</th>
+       
          </tr>
          </thead>
          <tbody>
@@ -64,16 +65,22 @@
              $guestString = substr($guestString, 0, -6);
              $commetteesString = substr($commetteesString, 0, -6);
 
-             
 
+             $startDateTime = date('M-d-Y g:ia l', strtotime($row->start_time));
+             $endDateTime = date('M-d-Y g:ia l', strtotime($row->end_time));
+             $initiatedTime = date('M-d-Y g:ia l', strtotime($row->time));
+              if(!isset($startDateTime)){ $startDateTime = "";}
+              if(!isset($endDateTime)){ $endDateTime = "";}
+              if(!isset($initiatedTime)){ $initiatedTime = "";}
+            
             echo "<tr>";
            // echo "<td>".$row->id."</td>";
-            echo "<td>".$row->title."</td>";            
+            echo "<td width=12%>".$row->title."</td>";            
             echo "<td width=20%>".$commetteesString."</td>";
-            echo "<td>".$guestString."</td>";
-            echo "<td width=10%>".$row->time."</td>";            
-            echo "<td width=10%>".$row->start_time."</td>";
-            echo "<td width=10%>".$row->end_time."</td>";
+            echo "<td >".$guestString."</td>";
+            echo "<td width=13%>".$initiatedTime."</td>";            
+            echo "<td width=12%>".$startDateTime."</td>";
+            echo "<td width=12%>".$endDateTime."</td>";
             echo "<td>".$row->description."</td>";
             echo "<td><button type='submit' formaction=/SmartPlanner/initiateMeeting/?meeting_id=$row->id class='btn btn-secondary'>Edit</button></td>";
             echo "<td><button type='submit' formaction=/SmartPlanner/SchduleMeeting/cancel?meeting_id=$row->id class='btn btn-secondary'>Cancel</button></td>";
