@@ -153,8 +153,8 @@
                                  <label>Faculty</label>
                                  <input class="form-control"  name="faculty" >
                               </div>
-                              <button type="submit" name="submit" value="meeting"class="btn btn-default">Submit Button</button>
-                                 <button type="reset" class="btn btn-default">Reset Button</button>
+                              <button type="submit" name="submit" value="meeting"class="btn btn-primary">Next</button>
+                                 <button type="reset" class="btn btn-primary">Reset</button>
 
                             </div>
                               <div class="col-lg-6">
