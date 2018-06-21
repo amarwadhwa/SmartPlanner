@@ -142,7 +142,7 @@
                      <a href="<?php echo base_url('My_Meeting/index')?>"><i class="fa fa-edit fa-fw"></i> My Meetings</a>
                   </li>
                   <li>
-                     <a href="<?php echo base_url('Engages/index')?>"><i class="fa fa-table fa-fw"></i>Add Engages</a>
+                     <a href="<?php echo base_url('AddPermenentEngagesUser/index')?>"><i class="fa fa-table fa-fw"></i>Add Permenent Engages</a>
                   </li>
                   <li>
                      <a href="<?php echo base_url('Engages/index')?>"><i class="fa fa-table fa-fw"></i>My Engages</a>
