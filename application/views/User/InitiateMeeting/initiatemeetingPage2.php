@@ -1,13 +1,16 @@
 <?php 
-  if(isset($_SESSION["startTimeStamp"])){
+  if(($_POST["editCheck"]=="submit") && isset($_SESSION["startTimeStamp"]) ){
   $startDate = date('m/d/Y',strtotime($_SESSION["startTimeStamp"]));
   $startTime = date('g:ia',strtotime($_SESSION["startTimeStamp"]));
+  echo "Data is Posted";
+  
+  
 }
 
-if(isset($_SESSION["endTimeStamp"])){
+if(isset($_SESSION["endTimeStamp"]) && ($_POST["editCheck"]=="submit")){
   $endDate = date('m/d/Y',strtotime($_SESSION["endTimeStamp"]));
-  $endTime = date('g:ia',strtotime($_SESSION["endTimeStamp"]));
-}
+  $endTime = date('g:ia',strtotime($_SESSION["endTimeStamp"]));  
+  echo "Data is Posted";}
 
 ?>
 
@@ -59,23 +62,21 @@ function submitClick(){
                                  <div class="demo">
                                     <h2>Date and Time </h2>
                                     <p id="datepairExample">
-                                       <input type="text" class="date start" placeholder="Date"  name="start_date" autocomplete="off" value=<?php
+                                       <input type="text" class="date start" placeholder="Date"  name="start_date" autocomplete="off" value="<?php
                                       if(isset($startDate)){echo "$startDate";}
 
-                                       ?> required />
-                                       <input type="text" class="time start" placeholder="Time" name="start_time"  value=<?php
+                                       ?>" required />
+                                       <input type="text" class="time start" placeholder="Time" name="start_time"  value="<?php
                                       if(isset($startTime)){echo "$startTime";}
 
-                                       ?>  required /> to
-                                       <input type="text" class="time end" placeholder="Time"   name="end_date" value=<?php
+                                       ?>"  required /> to
+                                       <input type="text" class="time end" placeholder="Time"   name="end_date" value="<?php
                                       if(isset($endTime)){echo "$endTime";}
 
-                                       ?> required />
+                                       ?>" required />
                                        <input type="text" class="date end" placeholder="Date" name="end_time"
-                                         autocomplete="off" value=<?php if(isset($endDate)){echo "$endDate";
-                                        unset($endDate);   
-                                       } ?>
-                                         required />
+                                         autocomplete="off" value="<?php if(isset($endDate)){echo "$endDate";
+                                        } ?>" required />
                                        <input type="hidden" value="<?php if(isset($_POST["title"])){echo $_POST["title"];}?>" name="title" />
                                        <input type="hidden" value="<?php if(isset($_POST["faculty"])){echo $_POST["faculty"];} ?>" name="faculty" />
                                        <input type="hidden" value="<?php if(isset($_POST["description"])){echo $_POST["description"];} ?>" name="description" />
@@ -148,7 +149,7 @@ function submitClick(){
                                           </thead>
                                           <tbody>
                                              <tr class="odd gradeX" style="background-color:White">
-                                                <td><?php echo $_POST["title"]; ?></td>
+                                                <td><?php if(isset($_POST["title"])){echo $_POST["title"];}?></td>
                                                   <td><?php  if(empty($_POST['Committee'])) 
                                                      {
                                                          echo("You didn't invited any commettie.");
@@ -188,7 +189,7 @@ function submitClick(){
                                                   }
                                               } ?>
       </td>
-                                            <td>     <?php echo $_POST["description"]; ?></td>
+                                            <td> <?php if(isset($_POST["description"])){echo $_POST["description"];} ?></td>
                                        
                                                </tr>
                                           </tbody>

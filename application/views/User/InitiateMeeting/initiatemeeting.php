@@ -11,7 +11,7 @@
                           $commArray = explode(',', $row->committee_id);
                           $_SESSION["startTimeStamp"] = $row->start_time;
                           $_SESSION["endTimeStamp"] = $row->end_time;
-
+                          $editCheck = true;
                           }
 
          }
@@ -165,8 +165,9 @@
                                     <br>
                                  </div>
                                  <br>
-
                                </div>
+                                <input type="hidden" value="<?php if(isset($editCheck)){ echo "submit"; } ?>" name="editCheck" />
+
                              </form>
                            </div>
                         </div>

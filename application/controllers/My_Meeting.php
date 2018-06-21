@@ -43,13 +43,17 @@ class My_Meeting extends CI_Controller {
 				// busy users..
 				if ($first) {
 				echo "<h2> Busy Users:</h2>";
+				echo "<h4> Description  and Time <h4>";
 				$first = false; }
-				echo "<h3 style='color:red'> $user->name </h2>";
-		        $row = $query->result();
+				echo "<h5 style='color:red'> $user->name </h5>";				
+		        $row = $query->result();		        
 				foreach ($query->result() as $row)
 				{
-        		echo "<h5>". $row->description . "<h5>";
+				$startTime = date('g:ia', strtotime($row->start_time));				
+				$endTime = date('g:ia', strtotime($row->end_time));	
+        		echo "<h6>". $row->description."---<i>".$startTime."  To  ".$endTime. "</i><h6>";
         		}
+        		
 
 			}
 		}
