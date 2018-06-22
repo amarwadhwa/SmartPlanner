@@ -21,7 +21,17 @@
                            <i class="fa fa-comments fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                           <div class="huge">26</div>
+                           <div class="huge">
+                              <?php 
+                              
+                              
+                              $query = $this->db->query("SELECT * FROM meeting_logs WHERE Initiater_id = '".$_SESSION["id"]."'" );
+                              $num = $query->num_rows();
+                              echo $num;  
+                           
+                           ?>
+
+                           </div>
                            <div>Initiate Meeting</div>
                         </div>
                      </div>
@@ -44,8 +54,16 @@
                            <i class="fa fa-tasks fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                           <div class="huge">12</div>
+                           <div class="huge"><?php 
+
+                                 $t=time()+(60*60*3);
+                                 $currentTime =  date("Y-m-d H:i:s",$t);
+
+                              $query = $this->db->query("SELECT * FROM temporary_engages WHERE user_id = '".$_SESSION["id"]."' AND start_time > ('$currentTime')");
+                                   $num = $query->num_rows();
+                                    echo $num;?></div>
                            <div>View Meetings</div>
+
                         </div>
                      </div>
                   </div>
@@ -66,7 +84,20 @@
                            <i class="fa fa-tasks fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                           <div class="huge">12</div>
+                           <div class="huge">
+                              <?php
+
+                                 $t=time()+(60*60*3);
+                                 $currentDay =  date("l",$t);
+
+                              $query = $this->db->query("SELECT * FROM permanent_engages WHERE user_id = '".$_SESSION["id"]."' AND day = ('$currentDay')");
+                                    $num = $query->num_rows();
+                                    echo $num;
+
+                                    ?>
+
+
+                           </div>
                            <div>Engages</div>
                         </div>
                      </div>
@@ -88,8 +119,18 @@
                            <i class="fa fa-comments fa-5x"></i>
                         </div>
                         <div class="col-xs-9 text-right">
-                           <div class="huge">26</div>
-                           <div>Schedule Meeting</div>
+                           <div class="huge"><?php 
+                              
+                              $t=time()+(60*60*3)+(60*30);
+                              $t=time()+(60*60*3)+(60*30)-(60*60*24*30*12);
+                              $currentTime =  date("Y-m-d H:i:s",$t);
+                              $query = $this->db->query("SELECT * FROM meeting_logs WHERE Initiater_id = '".$_SESSION["id"]."' AND start_time > ('$currentTime')" );
+                                 $num = $query->num_rows();
+                                  echo $num;  
+                           ?>
+                              
+                           </div>
+                           <div>Scheduled Meetings</div>
                         </div>
                      </div>
                   </div>
@@ -110,7 +151,7 @@
                <!-- /.panel -->
                <div class="panel panel-default">
                   <div class="panel-heading">
-                     <i class="fa fa-bar-chart-o fa-fw"></i> Meetings
+                     <i class="fa fa-bar-chart-o fa-fw"></i> Meetings/Todays Personal Engages
                      <div class="pull-right">
                         <div class="btn-group">
                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
@@ -118,14 +159,14 @@
                            <span class="caret"></span>
                            </button>
                            <ul class="dropdown-menu pull-right" role="menu">
-                              <li><a href="#">Action</a>
+                              <li><a href="#">Todays Meetings </a>
                               </li>
-                              <li><a href="#">Another action</a>
+                              <!--<li><a href="#">Todays Engages/Classes</a>-->
                               </li>
-                              <li><a href="#">Something else here</a>
+                              <!--<li><a href="#">Monthly Meetings</a>-->
                               </li>
                               <li class="divider"></li>
-                              <li><a href="#">Separated link</a>
+                              <li><a href="#">Todays Engages/Classes</a>
                               </li>
                            </ul>
                         </div>
@@ -139,18 +180,91 @@
                               <table class="table table-bordered table-hover table-striped">
                                  <thead>
                                     <tr>
-                                       <th>#</th>
-                                       <th>Date</th>
+                                       <th>Meeting Title</th>
+                                       <th>Initiater Name</th>
                                        <th>Time</th>
-                                       <th>Amount</th>
+                                       <th>Description</th>
+                                       <th>Status</th>
+                                       
                                     </tr>
                                  </thead>
                                  <tbody>
+                                 <?php
+                                 $t=time()+(60*60*3);                                 
+                                 $today =  date("Y-m-d",$t);
+                                 $startDay = $today." 00:00:00"; ;
+                                 $tillToday= $today." 23:59:59";                                                                   
+                                 $query = $this->db->query("SELECT * FROM temporary_engages WHERE user_id = '".$_SESSION["id"]."' AND (start_time >= '".$startDay."' AND start_time <= '".$tillToday."')");
+                                 
+
+                                 foreach ($query->result() as $row) {                 
+               
+                                       
+
+                                       if($row->meeting_id!=-1){
+
+                                          $query2 = $this->db->query("SELECT * FROM meeting_logs WHERE id = '".$row->meeting_id."'" );
+                                          foreach ($query2->result() as $row2) {      
+                                          $query3 = $this->db->query("SELECT name FROM users WHERE id = '".$row2->initiater_id."'" );
+                                          foreach ($query3->result() as $row3) {
+                                             $startT = date('g:i a', strtotime($row->start_time));
+                                             $endT = date('g:i a', strtotime($row->end_time));
+                                              echo "<tr><td>".$row2->title."</td><td>".$row3->name."</td><td>".$startT." To ".$endT."</td><td>".$row->description."</td><td>".$row->status."</td></tr>";
+                                           }
+                                          }
+                                        } 
+                                        else{
+                                          $startT = date('g:i a', strtotime($row->start_time));
+                                          $endT = date('g:i a', strtotime($row->end_time));
+                                          echo "<tr><td>Busy</td><td>Self</td><td>".$startT." To ".$endT."</td><td>".$row->description."</td><td>".$row->status."</td></tr>";
+                                        }  
+                                    }                 
+                                    ?>
+                                 </tbody>
+                              </table>
+
+                              <table class="table table-bordered table-hover table-striped">
+                                 <thead >
+                                    <tr>
+                                       <th border = "0">Todays Engages</th>
+                                    
+                                    </tr>
+                                    <tr>
+                                       <th>Description</th>
+                                       <th>Time</th>
+                                       <th>Engage Type</th>         
+                                       
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <?php
+                                         
+                                          $t=time()+(60*60*3);                                 
+                                          $today =  date("l",$t);      
+
+                                    $query = $this->db->query("SELECT * FROM permanent_engages WHERE user_id = '".$_SESSION["id"]."' AND day = '".$today."'");
+                                    
+                                    foreach ($query->result() as $row) {  
+                                          
+
+                                          $sTime =  date("g:i a ",strtotime($row->start_time));
+                                          $eTime =  date("g:i a ",strtotime($row->end_time));
+
+                                       echo "<tr><td>"."$row->description"."</td><td>"."$sTime"." to "."$eTime"."</td><td>"."$row->engage_type"."</td></tr>";
+
+                                    }
+                                    
+                                    
+                                    
+                                    
+
+                                    ?>
                                  </tbody>
                               </table>
                            </div>
                            <!-- /.table-responsive -->
                         </div>
+
                         <!-- /.col-lg-4 (nested) -->
                         <div class="col-lg-8">
                            <div id="morris-bar-chart"></div>
