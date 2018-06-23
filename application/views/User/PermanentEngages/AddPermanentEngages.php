@@ -2,48 +2,90 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      <meta charset="utf-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <meta name="description" content="">
-      <meta name="author" content="">
-      <title>Add Permamnent Engages</title>
-   </head>
+      <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <style>
+      .ui-autocomplete-loading {
+      background: white url("images/ui-anim_basic_16x16.gif") right center no-repeat;
+      }
+    </style>
+
+    </head>
    <body>
       <div id="page-wrapper">
          <div class="row">
             <div class="col-lg-12">
-               <h1 class="page-header">Add Permamnent Engages</h1>
+               <h1 class="page-header">Add Engages</h1>               
             </div>
             <!-- /.col-lg-12 -->
-            
          </div>
-         <article>
-                                 <div class="demo">
-                                    <h3>Time </h3>
-                                    <p id="datepairExample">
-                                    Start time
+         <!-- /.row -->
+         <div class="row">
+            <div class="col-lg-20">
+               <div class="panel panel-default">
+                  <div class="panel-heading">
+                     Please give details
+                  </div>
+                  <div class="panel-body">
+                     <div class="row">
+                      <form action="<?php echo base_url('AddPermenentEngagesUser/index')?>" method="post" role="form">
+
+                            
+                        <div class="col-lg-10">
+                             <div class="form-group">
+                                <h4>
+                                 <label class="radio-inline">
+                                  <input checked type="radio" name="period" value="permEngage" onclick="permEngage();"><b>Permanent Engage</b>
+                                  </label>
+                                  
+                                  <label class="radio-inline">
+                                  <input type="radio" name="period" value="tempEngage" onclick="tempEngage();"><b>Temporary Engage</b>
+                                  </label>
+                                  </h4>
+                                
+
+                            </div>
+                            
+                            <div>
+                              <div class="demo"  id="permanentEng" style="display: block;"  >
+                                    <div class="form-group">
+                                      
+                                    
+                                    <p id="datepairExample"><br>
+                                      <label>Time</label> <br>
+                                    From
                                     <input type="text" class="time start" placeholder="Time" name="start_time"  value="<?php
                                       if(isset($startTime)){echo "$startTime";}
 
-                                       ?>"  required /> to End Time 
+                                       ?>"  required /> to  
                                        <input type="text" class="time end" placeholder="Time"   name="end_date" value="<?php
                                       if(isset($endTime)){echo "$endTime";}
 
                                        ?>" required />
+
+                                        </div>
+                                        </p>
+                                       <div class="form-group">
+                                        <br><label>Description</label> 
+                                        <input required class="form-control" value="<?php if(isset($title)){ echo $title; }?>" name="title"/>
+                                 <!-- <p class="help-block">Example block-level help text here.</p> -->
+                                        </div>
+
+                                        <br>
+                                        
+                                       <label>Day</label><br>
+
+                                       <label  class="radio-inline">
+                                          <input required type="radio" name="day" value="daily"  onclick="hide();">Daily
+                                        </label>
+                                        
+                                        <label class="radio-inline">
+                                          <input type="radio" name="day" value="monsat" onclick="hide();">Monday-Saturday
+                                        </label>
                                        
-                                       <h3>Day</h3>
-                                       <label class="radio-inline">
-                                          <input type="radio" name="period" value="daily" onclick="hide();">Daily
-                                        </label>
-                                        or
                                         <label class="radio-inline">
-                                          <input type="radio" name="period" value="monsat" onclick="hide();">Monday-Saturday
+                                          <input type="radio" name="day" value="selday" onclick="show();">Select Day
                                         </label>
-                                       or
-                                        <label class="radio-inline">
-                                          <input type="radio" name="period" onclick="show();">Select Day
-                                        </label>
+                                      
                                         <br>
 
                                         
@@ -60,25 +102,72 @@
                                             </select>
                                           </div>
 
-
-
-
-                                       <script type="text/javascript">
-        function show() { document.getElementById('day').style.display = 'block'; }
-        function hide() { document.getElementById('day').style.display = 'none'; }
-      </script>
-      
-
+                                </div>
+                                <div class="demo"  id="TempEng" style="display: none;" >
+                                    <div class="form-group">
                                       
-                         
-                                        </form>
-                                        
+                                    
+                                    <p id="datepairExample"><br>
+                                      <label>Date and Time</label> <br>
+                                      <input type="text" class="date start" placeholder="Date"  name="start_date" autocomplete="off" value="<?php
+                                      if(isset($startDate)){echo "$startDate";}
+
+                                       ?>" required />
+                                    From
+                                    <input type="text" class="time start" placeholder="Time" name="start_time"  value="<?php
+                                      if(isset($startTime)){echo "$startTime";}
+
+                                       ?>"  required /> to  
+                                       <input type="text" class="time end" placeholder="Time"   name="end_date" value="<?php
+                                      if(isset($endTime)){echo "$endTime";}
+
+                                       ?>" required />
+
+                                    </div>
+                                    </p>
+                                       <div class="form-group">
+                                        <br><label>Description</label> 
+                                        <input class="form-control" value="<?php if(isset($title)){ echo $title; }?>" name="title">
+                                 <!-- <p class="help-block">Example block-level help text here.</p> -->
+                                        </div>
+
+                                        <br>
                                        
-                                      </p>
-                                 </div>
-                                  <script type="text/javascript" src="datepair.js"></script>
-                                  <script type="text/javascript" src="jquery.datepair.js"></script>
-                                 <script>
+
+                                </div>              
+
+                              <br>
+                              <br>
+                                  
+                                  <input type="submit" name="submit" value="Add Engage" class="btn btn-primary"/>
+                                  <button type="reset" class="btn btn-primary">Reset Page</button>
+
+                            </div>
+                          </div>
+                              
+
+                                </form>
+                           </div>
+                        </div>
+                        <!-- /.row (nested) -->
+                     </div>
+                     <!-- /.panel-body -->
+                  </div>
+                  <!-- /.panel -->
+               </div>
+               <!-- /.col-lg-12 -->
+            </div>
+            <!-- /.row -->
+         </div>
+         <!-- /#page-wrapper -->
+      </div>
+      <!-- /#wrapper -->
+   </body>
+</html>
+
+<script type="text/javascript" src="datepair.js"></script>
+<script type="text/javascript" src="jquery.datepair.js"></script>
+                                 <script type="text/javascript">
                                     $('#datepairExample .time').timepicker({
                                         
                                         'minTime': '8:00am',
@@ -104,17 +193,17 @@
                                     });
                                     
                                     $('#datepairExample').datepair();
-                                 </script>
-                              </article>
 
+        function show() { document.getElementById('day').style.display = 'block'; }
+        function hide() { document.getElementById('day').style.display = 'none'; }
+        function permEngage() { 
+          document.getElementById('TempEng').style.display = 'none';
+          document.getElementById('permanentEng').style.display = 'block';
+         }
+        function tempEngage() { 
+          document.getElementById('permanentEng').style.display = 'none';
+          document.getElementById('TempEng').style.display = 'block'; 
+        }
 
-
-         </tbody>
-         </table>
-         </form>
-
-
-
-      </div>
-   </body>
-</html>
+      </script>
+      
