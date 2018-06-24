@@ -13,7 +13,7 @@
    <body>
       <div id="page-wrapper">
          <div class="row">
-            <div class="col-lg-12">
+            <div class="col-lg-20">
                <h1 class="page-header">Add Engages</h1>               
             </div>
             <!-- /.col-lg-12 -->
@@ -29,8 +29,7 @@
                      <div class="row">
                       <form action="<?php echo base_url('AddPermenentEngagesUser/index')?>" method="post" role="form">
 
-                            
-                        <div class="col-lg-10">
+                              <div class="col-lg-10">
                              <div class="form-group">
                                 <h4>
                                  <label class="radio-inline">
@@ -138,7 +137,7 @@
 
                               <br>
                               <br>
-                                  
+                                                                                            
                                   <input type="submit" name="submit" value="Add Engage" class="btn btn-primary"/>
                                   <button type="reset" class="btn btn-primary">Reset Page</button>
 
@@ -165,8 +164,7 @@
    </body>
 </html>
 
-<script type="text/javascript" src="datepair.js"></script>
-<script type="text/javascript" src="jquery.datepair.js"></script>
+
                                  <script type="text/javascript">
                                     $('#datepairExample .time').timepicker({
                                         

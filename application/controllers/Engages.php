@@ -25,6 +25,9 @@ class Engages extends CI_Controller {
 		$this->load->view('User/Partial/footer');
 	}
 	
+	
+
+
 	public function edit()
 	{
 		$this->load->view('welcome_message');
