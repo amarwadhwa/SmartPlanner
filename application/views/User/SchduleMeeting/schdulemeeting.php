@@ -6,7 +6,7 @@
       <div id="page-wrapper">
          <div class="row">
             <div class="col-lg-12">
-               <h2 class="page-header">Upcoming Scheduled Meetings Status > 30 mins</h2>
+               <h2 class="page-header">Upcoming Scheduled Meetings Status</h2>
             </div>
             <!-- /.col-lg-12 -->
             <form action="<?php echo base_url('schduleMeeting/edit')?>" method="post" role="form">
@@ -32,7 +32,6 @@
          <?php
 
          $t=time()+(60*60*3)+(60*30);
-         $t=time()+(60*60*3)+(60*30)-(60*60*24*30*12);
          $currentTime =  date("Y-m-d H:i:s",$t);
          $query = $this->db->query("SELECT * FROM meeting_logs WHERE Initiater_id = '".$_SESSION["id"]."' AND start_time > ('$currentTime')" );
 
