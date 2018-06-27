@@ -25,7 +25,11 @@
          <th scope="col">Start time</th>
          <th scope="col">End time</th>
          <th scope="col">Engage ID</th>
-         <th scope="col">Edit Engage</th>
+         <th scope="col">Engage Type</th>
+         <th scope="col">Edit/Cancel</th>
+
+         
+         
          </tr>
          </thead>
          <tbody>
@@ -36,35 +40,34 @@
          if($query->num_rows() >0){
 
 
-            for($i = 1; $i <= 7; $i++){
+           for($i = 1; $i <= 7; $i++){
                foreach ($query->result() as $row) {
                         
 
-                  $day   = date('N', strtotime($row->start_time));
+                     //$day   = date('N', strtotime($row->start_time));
+                     $day = date('N', strtotime($row->day));
+                     
+                    
 
-            
+
+
+
                      if($day==$i){
-                        echo "<tr>";
-                        $t=time();
-                        $day   = date('j', strtotime($row->start_time));
-                        $month = date('n', strtotime($row->start_time));
-                        $year  = date('Y', strtotime($row->end_time));
-                        $jd=gregoriantojd($month,$day,$year);
-                        $weekDay   = jddayofweek($jd,1);
-                        $startTime  = date('H:i', strtotime($row->start_time));
-                        $endTime  =   date('H:i', strtotime($row->end_time));
-                        echo "<td>$weekDay</td>";
+                        $startTime  = date('g:i a', strtotime($row->start_time));
+                        $endTime  =   date('g:i a', strtotime($row->end_time));                        
+                        echo "<td>".$row->day."</td>";
                         echo "<td>".$row->description."</td>";
                         echo "<td>".$startTime."</td>";
                         echo "<td>".$endTime."</td>";
                         echo "<td>".$row->id."</td>";
-                        echo "<td><button type='submit' name = 'submit' value = $row->id class='btn btn-primary'>Edit</button></td>";
+                        echo "<td>".$row->engage_type."</td>";
+                        echo "<td><button type='submit' formaction=/SmartPlanner/AddPermenentEngagesUser/?engage_id=$row->id name = 'submit' value = $row->id class='btn btn-primary'>Edit</button>&nbsp&nbsp<button type='submit' formaction=/SmartPlanner/AddPermenentEngagesUser/cancel?engage_id=$row->id name = 'submit' value = $row->id class='btn btn-primary'>Delete</button></td>";
                         echo "</tr>";
                      }
 
                }
 
-            }
+         }
 
 
           }?>   

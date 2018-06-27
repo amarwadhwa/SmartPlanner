@@ -96,6 +96,7 @@
         $dataTemp = $query->result(); 
         
 
+<<<<<<< HEAD
         $query_str= "SELECT description as title , start_time as start , end_time as end, day FROM permanent_engages 
         WHERE user_id = '$currentUser' ";
 
@@ -117,6 +118,26 @@
 	}
 
  
+=======
+        $query_str= "SELECT description as title , start_time as start , end_time as end , day FROM permanent_engages 
+        WHERE user_id = '$currentUser' ";
+		
+		//$t=time()+(60*60*3);
+		//$curruntmonth = date("m",$t);
+		
+		//echo "$curruntmonth";
+
+
+
+
+		
+		$query= $this->db->query($query_str);
+        $dataPerm = $query->result(); 
+
+
+        
+
+>>>>>>> parent of b030851... Revert "Merge branch 'master' of https://github.com/amarwadhwa/SmartPlanner"
       $data  = array_merge($dataTemp,$dataPerm);
       return $data;
 	}
