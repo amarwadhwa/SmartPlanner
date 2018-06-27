@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
    <head></head>
@@ -18,7 +20,7 @@
                   </div>
                   <div class="panel-body">
                      <div class="row">
-                        <form action="<?php echo base_url('AddUsers/register')?>" method="post" role="form">
+                        <form onsubmit="return Verify()" action="<?php echo base_url('AddUsers/register')?>" method="post" role="form">
                            <div class="col-lg-6">
                         <form role="form">
                         <div class="form-group">
@@ -57,6 +59,11 @@
                         <label>Password</label>
                         <input class="form-control" type="text" name="password" required>
                         <span class="text-danger"><?php echo form_error("password");?></span>
+                        </div>
+                        <div class="form-group">
+                        <label>Password</label>
+                        <input class="form-control" type="text" name="password" required>
+                        <span class="text-danger"><?php echo form_error("password");?></span>
                         <br>
                         </div>
                         </div>
@@ -80,3 +87,12 @@
       <!-- /#wrapper -->
    </body>
 </html>
+<script type="text/javascript">
+      
+function Verify(){
+   var abc  = "<?php echo $this->input->post("name"); ?>";
+
+   alert(abc);   
+   return false;
+}
+</script>

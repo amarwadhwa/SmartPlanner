@@ -49,11 +49,14 @@ class AddUsers extends CI_Controller {
 							if($this ->User->search($id))
 							{
 									 
-								echo "User Already Exist";
+								//echo "User Already Exist";
 								
-								
-								  
-				
+
+								$this->load->view('Admin/Partial/header');
+								$this->load->view('Admin/Users/Users');
+								$this->load->view('Admin/Partial/footer');
+										  
+						
 
 							}
 							else {
