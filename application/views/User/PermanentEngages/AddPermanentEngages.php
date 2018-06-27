@@ -27,9 +27,8 @@
                   </div>
                   <div class="panel-body">
                      <div class="row">
-                      <form action="<?php echo base_url('AddPermenentEngagesUser/index')?>" method="post" role="form">
-
-                            
+                      <form action="#"> <input type="submit" name="submit"></form>
+                      <form action="#" method="post">                            
                         <div class="col-lg-10">
                              <div class="form-group">
                                 <h4>
