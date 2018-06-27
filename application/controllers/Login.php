@@ -46,29 +46,32 @@ class Login extends CI_Controller {
 		$query = $this->db->query("SELECT * FROM users WHERE id = '".$user."' AND password = '" .$password. "'");
 
 	if($query->num_rows() >0){
-	     
 	        foreach ($query->result() as $row) {
-            $_SESSION["user-type"] = "user";
-            $_SESSION["user-name"]= $row->name;
-            $_SESSION["gmail"]= $row->email;
-            $_SESSION["id"] = $row->id;
-            $_SESSION["designation"] = $row->designation;
-            $_SESSION["commitee_id"] = $row->commitee_id;
-            $_SESSION["password"] = $row->password;
 
-            }
-      		redirect("User");
+	        	if($row->id=="admin"){
+	        		 $_SESSION["user-type"] = "admin";
+            		 redirect("Admin");
+            		 break;
 
-        }  
+	        	}
+	        	else{	
+            	$_SESSION["user-type"] = "user";
+            	$_SESSION["user-name"]= $row->name;
+            	$_SESSION["gmail"]= $row->email;
+            	$_SESSION["id"] = $row->id;
+            	$_SESSION["designation"] = $row->designation;
+            	$_SESSION["commitee_id"] = $row->commitee_id;
+            	$_SESSION["password"] = $row->password;
+        		redirect("User");
+        		break;
+        		}
 
-        elseif($user=='admin@gmail.com' && $password=='admin')
-        	        {  
-            //declaring session  
-            		$_SESSION["user-type"] = "admin";
-            		redirect("Admin");
-            		
-        } 
-        else{  
+        	}
+      		
+      		
+      }       
+     
+    else{  
             $data['error'] = 'Your Account is Invalid';  
             $this->load->view('Login/header');	
 			$this->load->view('Login/index' ,$data);  
