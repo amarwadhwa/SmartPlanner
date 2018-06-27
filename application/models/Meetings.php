@@ -85,30 +85,40 @@
 		//return $this->db->get();	
 	}*/
 	
-	public function view_all()
-		
+	public function view_all()		
 	{
-			$currentUser = $_SESSION["id"];	
-$query_str= "SELECT description as title , start_time as start , end_time as end FROM temporary_engages 
-WHERE user_id = '$currentUser' ";
+		$currentUser = $_SESSION["id"];	
+		$query_str= "SELECT description as title , start_time as start , end_time as end FROM temporary_engages 
+						 WHERE user_id = '$currentUser' ";
 		
 		
 		$query= $this->db->query($query_str);
         $dataTemp = $query->result(); 
         
 
-        $query_str= "SELECT description as title , start_time as start , end_time as end FROM permanent_engages 
+        $query_str= "SELECT description as title , start_time as start , end_time as end, day FROM permanent_engages 
         WHERE user_id = '$currentUser' ";
-		
-		
-		 $query= $this->db->query($query_str);
-        $dataPerm = $query->result(); 
 
+        $query= $this->db->query($query_str);
+        $dataPerm =  $query->result();
+
+	    $currentMonth = date("m",time());
+	    $currentYear = date("Y");
+	    for ($i=1; $i<=date("t") ; $i++) { 
+	    $str = $currentYear."-".$currentMonth."-".$i;
+	    $timestamp = strtotime($str);
+
+	    $day = date('l', $timestamp);
+	    foreach ($query->result() as $row) {
+	  	if ($row->day == $day) {
+	  		echo "$day ".date('d-m-Y', $timestamp)." <br> ";
+	  	}
+	    }
+	}
+
+ 
       $data  = array_merge($dataTemp,$dataPerm);
       return $data;
-
-
-
 	}
 	
 		/*
