@@ -70,7 +70,9 @@ class My_Meeting extends CI_Controller {
 	  	$this->load->model('Meetings');
 
 		$data['meetings'] = $this->Meetings->view_all();
-		$JSON_Data['json'] =  json_encode($data['meetings']); 
+		$JSON_Data['json'] = json_encode($data['meetings']);
+		
+		
 
 		/*
 		Following is the Required JSON Format by the Calender API
