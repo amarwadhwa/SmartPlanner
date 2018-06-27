@@ -111,7 +111,7 @@
 	    $day = date('l', $timestamp);
 	    foreach ($query->result() as $row) {
 	  	if ($row->day == $day) {
-	  		echo "$day ".date('d-m-Y', $timestamp)." <br> ";
+	  		echo "$day ".date('d-m-Y ', $timestamp)." <br> ";
 	  	}
 	    }
 	}
