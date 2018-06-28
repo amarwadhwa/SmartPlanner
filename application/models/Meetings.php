@@ -84,7 +84,7 @@
 
 		//return $this->db->get();	
 	}*/
-	
+
 	public function view_all()		
 	{
 		$currentUser = $_SESSION["id"];	
@@ -96,74 +96,38 @@
         $dataTemp = $query->result(); 
         
 
-<<<<<<< HEAD
         $query_str= "SELECT description as title , start_time as start , end_time as end, day FROM permanent_engages 
         WHERE user_id = '$currentUser' ";
-
         $query= $this->db->query($query_str);
-        $dataPerm =  $query->result();
-
-	    $currentMonth = date("m",time());
+		
+		$currentMonth = date("m",time());
 	    $currentYear = date("Y");
+	    $dataarray = array();
 	    for ($i=1; $i<=date("t") ; $i++) { 
 	    $str = $currentYear."-".$currentMonth."-".$i;
 	    $timestamp = strtotime($str);
-
 	    $day = date('l', $timestamp);
 	    foreach ($query->result() as $row) {
 	  	if ($row->day == $day) {
-	  		echo "$day ".date('d-m-Y ', $timestamp)." <br> ";
+	  		$timeStart = date("H:i:s", strtotime($row->start));
+	  		$date =  date('Y-m-d ', $timestamp);
+	  		$timeDateStart = $date . " ".$timeStart;
+			$timeDateStartFinal = date("Y-m-d H:i:s", strtotime($timeDateStart));
+			$timeEnd = date("H:i:s", strtotime($row->end));
+			$timeDateEnd = $date . " ". $timeEnd;
+			$timeDateEndFinal = date("Y-m-d H:i:s", strtotime($timeDateEnd));
+			$dataItems["title"] = $row->title;
+			$dataItems["start"] = $timeDateStartFinal;
+			$dataItems["end"] = $timeDateEndFinal;
+			array_push($dataarray,(Object)$dataItems);
 	  	}
 	    }
 	}
 
- 
-=======
-        $query_str= "SELECT description as title , start_time as start , end_time as end , day FROM permanent_engages 
-        WHERE user_id = '$currentUser' ";
-		
-		//$t=time()+(60*60*3);
-		//$curruntmonth = date("m",$t);
-		
-		//echo "$curruntmonth";
-
-
-
-
-		
-		$query= $this->db->query($query_str);
-        $dataPerm = $query->result(); 
-
-
-        
-
->>>>>>> parent of b030851... Revert "Merge branch 'master' of https://github.com/amarwadhwa/SmartPlanner"
-      $data  = array_merge($dataTemp,$dataPerm);
+	  $data  = array_merge($dataTemp,$dataarray);
       return $data;
 	}
-	
-		/*
-	
-	public function cancel(&$person_data, &$customer_data, $customer_id = FALSE)
-	{
-	
-	}
-	
-	public function postpone(&$person_data, &$customer_data, $customer_id = FALSE)
-	{
-	
-	}
-	
-	public function update(&$person_data, &$customer_data, $customer_id = FALSE)
-	{
-	
-	}
-	
-	
 		
-		
-		
-   } */
-
+	
 }
 ?>
