@@ -31,14 +31,19 @@ class My_Meeting extends CI_Controller {
 		$first = true;
 		$start_time =  strtotime($_POST["start_date"] . " ". $_POST["start_time"]);
 		$start_timestamp =  date('Y-m-d H:i:s', $start_time);
+		$startDay = date('l', $start_time);
 		$end_time =  strtotime($_POST["end_date"] . " ". $_POST["end_time"]);
 		$end_timestamp =  date('Y-m-d H:i:s', $end_time);
+		$endDay = date('l',$end_time);
+		$startDate =  strtotime("2000-01-01" . " ". $_POST["start_time"]);
+		$endDate = strtotime("2000-01-01" . " ". $_POST["end_date"]);
+		$startDateTimestamp = date('Y-m-d H:i:s', $startDate);
+		$endDateTimestamp = date('Y-m-d H:i:s', $endDate);
 		$users = $_SESSION["users"];
 		
 		foreach ($users as $user) {
 		$id =$user->id;
 		$query = $this->db->query("SELECT * FROM temporary_engages WHERE user_id = '".$id."' AND (start_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."' OR end_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."' )");
-
 			if($query->num_rows() >0){
 				// busy users..
 				if ($first) {
@@ -53,10 +58,26 @@ class My_Meeting extends CI_Controller {
 				$endTime = date('g:ia', strtotime($row->end_time));	
         		echo "<h6>". $row->description."---<i>".$startTime."  To  ".$endTime. "</i><h6>";
         		}
-        		
+        	}
+				$query = $this->db->query("SELECT * FROM permanent_engages WHERE user_id = '".$id."' AND (start_time BETWEEN '".$startDateTimestamp."' AND '".$endDateTimestamp."' OR end_time BETWEEN '".$startDate."' AND '".$endDate."' ) AND (day = '".$endDay."' OR day = '".$startDay."')");
+			    if($query->num_rows() >0){
+				// busy users..
+				if ($first) {
+				echo "<h2> Busy Users:</h2>";
+				echo "<h4> Description  and Time <h4>";
+				$first = false; }
+				echo "<bold> <u>$user->name </u></bold>";				
+		        $row = $query->result();		        
+				foreach ($query->result() as $row)
+				{
+				$startTime = date('g:ia', strtotime($row->start_time));				
+				$endTime = date('g:ia', strtotime($row->end_time));	
+        		echo "<h6>". $row->description."---<i>".$startTime."  To  ".$endTime. "</i><h6>";
+        		}
 
 			}
-		}
+	
+			}
 		echo "";
 
 	}
@@ -72,8 +93,6 @@ class My_Meeting extends CI_Controller {
 		$data['meetings'] = $this->Meetings->view_all();
 		$JSON_Data['json'] = json_encode($data['meetings']);
 		
-		
-
 		/*
 		Following is the Required JSON Format by the Calender API
 
