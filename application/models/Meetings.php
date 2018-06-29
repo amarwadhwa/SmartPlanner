@@ -1,4 +1,3 @@
-
 <?php 
    Class Meetings extends CI_Model {
 	
@@ -96,10 +95,7 @@
 		$query= $this->db->query($query_str);
         $dataTemp = $query->result(); 
         
-<<<<<<< HEAD
-=======
 
->>>>>>> dccb770c8747f3516b2ee317b237bdf4d93724e3
         $query_str= "SELECT description as title , start_time as start , end_time as end, day FROM permanent_engages 
         WHERE user_id = '$currentUser' ";
         $query= $this->db->query($query_str);
@@ -128,19 +124,7 @@
 	    }
 	}
 
-<<<<<<< HEAD
-        $query_str= "SELECT description as title , start_time as start , end_time as end , day FROM permanent_engages 
-        WHERE user_id = '$currentUser' ";
-		
-		
-		$query= $this->db->query($query_str);
-        $dataPerm = $query->result(); 
-
-
-      $data  = array_merge($dataTemp,$dataPerm);
-=======
 	  $data  = array_merge($dataTemp,$dataarray);
->>>>>>> dccb770c8747f3516b2ee317b237bdf4d93724e3
       return $data;
 	}
 		
