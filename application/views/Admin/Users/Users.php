@@ -1,5 +1,4 @@
 
-
 <!DOCTYPE html>
 <html lang="en">
    <head></head>
@@ -20,53 +19,89 @@
                   </div>
                   <div class="panel-body">
                      <div class="row">
-                        <form onsubmit="return Verify()" action="<?php echo base_url('AddUsers/register')?>" method="post" role="form">
+                        <form onsubmit="return Verify()" action="" method="post" role="form">
                            <div class="col-lg-6">
                         <form role="form">
                         <div class="form-group">
                         <label>Name</label>
-                        <input class="form-control" type="text" name="name" required>
+                        <input class="form-control" type="text" name="name" value="<?php if(isset($formData["name"])){ echo $formData["name"]; } ?>" required>
                         <span class="text-danger"><?php echo form_error("first_name");?></span>
                         </div>                        
                         <div class="form-group">
                         <label>Email</label>
-                        <input class="form-control" type="text" name="email" required>
+                        <input class="form-control" type="text" name="email" value="<?php if(isset($formData["email"])){ echo $formData["email"]; } ?>" required>
                         <span class="text-danger"><?php echo form_error("email");?></span>
                         </div>
                         <div class="form-group">
                         <label>Instructor Id</label>
-                        <input class="form-control" type="text" name="id" required>
+                        <input class="form-control" type="text" name="id" value="<?php if(isset($formData["id"])){ echo $formData["id"]; } ?>" required>
                         <span class="text-danger"><?php echo form_error("id");?></span>
+                        <?php if(isset($error)) {echo "<h4> <font style='color:red'>". $error . "</font> </h4>";}?>
                         </div>
-                        <div class="form-group">
-                        <label>Committie Id</label>
-                        <input class="form-control" type="text" name="committie_id" required>
-                        <span class="text-danger"><?php echo form_error("committie_id");?></span>
-                        </div>
-                        <div>
-                        <button type="submit" name="insert" value="Insert "class="btn btn-primary">Add User</button>
-                        <button type="reset" class="btn btn-primary">Reset</button>
-                        </div> 
-                        </div>
-                        <div class="col-lg-6">
-                        <form role="form">
+                        
+                        
+
                         <div class="form-group">
                         <label>Designation</label>
-                        <input class="form-control" type="text" name="designation" required>
+                        <input class="form-control" type="text" name="designation" value="<?php if(isset($formData["designation"])){ echo $formData["designation"]; } ?>" required>
                         <span class="text-danger"><?php echo form_error("designation");?></span>
                         </div>
+
                         <div class="form-group">
                         <label>Password</label>
-                        <input class="form-control" type="text" name="password" required>
+                        <input class="form-control" type="text" name="password" value="<?php if(isset($formData["password"])){ echo $formData["password"]; } ?>"  required>
                         <span class="text-danger"><?php echo form_error("password");?></span>
+                        </div> 
+                        <div>
+                        
+                        <button type="submit" name="insert" value="Insert "class="btn btn-primary">Add User</button>
+                        <button type="reset" class="btn btn-primary">Reset</button>
+                        
                         </div>
+                        
+                        </div>
+                        <div class="col-lg-6">
+                        
+                        <form role="form">                      
                         <div class="form-group">
-                        <label>Password</label>
-                        <input class="form-control" type="text" name="password" required>
-                        <span class="text-danger"><?php echo form_error("password");?></span>
+                        <label>Add User into the Commitee</label>
+                        <div class="col-lg-10">
+                        <?php 
+                                    $count = count($Committies["records"]);
+                                    
+                                    for($i=0; $i < $count; $i++){
+                        ?>
+                        
+                       
+                        <div class="checkbox" >   
+      
+                        <input
+                              <?php 
+                                                if(isset($formData["Committee"])){
+                                                   foreach ($formData["Committee"] as $comm_Array) {
+                                                   if($comm_Array==$Committies["records"][$i]->id ){ echo 'checked="checked"'; 
+                                                  break; }
+                                                 }}
+                              ?>
+
+
+
+                         type="checkbox" name="Committee[]" value= <?php echo $Committies["records"][$i]->id ?> >
+                        <span class="text-danger"><?php echo form_error("Committies");?></span>
+                        <?php   echo $Committies["records"][$i]->name; 
+                        ?>
+                        
                         <br>
                         </div>
+                        <?php
+                           }
+                                  ?>
+                         
+                                                 
+                         <br>
+                         <br><br><br>           
                         </div>
+                        
                      </div>
                      </form>
                      <!-- /.col-lg-6 (nested) -->
@@ -90,8 +125,7 @@
 <script type="text/javascript">
       
 function Verify(){
-   var abc  = "<?php echo $this->input->post("name"); ?>";
-
+   
    alert(abc);   
    return false;
 }

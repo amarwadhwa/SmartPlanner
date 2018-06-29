@@ -26,50 +26,60 @@ class AddUsers extends CI_Controller {
 	}
 	public function index()
 	{
-		
-		$this->load->view('Admin/Partial/header');
-		$this->load->view('Admin/Users/Users');
-		$this->load->view('Admin/Partial/footer');
+
+
 		$this->session_check();
+		$this->load->model("User");
+		$this->load->model('Committee');
+		$data['Committies'] = $this->Committee->view_all();	
 
-		
-	}
-	public function register(){
-		
-		//$this->load->library('form_validation');
-		//$this->form_validation->set_rules("last_name", "Last Name" , 'required|alpha');
-		//$this->form_validation->set_rules("email", "Email" , 'required');
-		//$this->form_validation->set_rules("id", "Id" , 'required');
-		//$this->form_validation->set_rules("committe_id", "Committie Id" , 'required');
-		//$this->form_validation->set_rules("designation", "Designation" , 'required');
-		//$this->form_validation->set_rules("password", "Password" , 'required');			
-							
-                           	$this->load->model("User");
-                           	$id    =  $this->input->post("id");
-							if($this ->User->search($id))
-							{
-									 
-								//echo "User Already Exist";
-								
+		if($this->input->post("id") != null && !$this->User->search($this->input->post("id")) ){ 
 
-								$this->load->view('Admin/Partial/header');
-								$this->load->view('Admin/Users/Users');
-								$this->load->view('Admin/Partial/footer');
-										  
-						
-
-							}
-							else {
 									 $name =  $this->input->post("name");
 						 			 $email = $this->input->post("email");
 						  			 $id    =  $this->input->post("id");
 						             $committee_id = $this->input->post("committie_id");
 						             $designation = $this->input->post("designation");
 						             $password    = $this->input->post("password");
-						             $this ->User->save($name,$email,$id,$committee_id,$designation,$password);
-									 echo "User Added Succesfully";
+						             $Committee    = $this->input->post("Committee");
+						             $Committee = implode (",", $Committee);									            
+						             $this ->User->save($name,$email,$id,$Committee,$designation,$password);
+									 echo "<script>alert('User Added Succesfully');</script>";
+									 $this->load->view('Admin/Partial/header');
+									 $this->load->view('Admin/Users/Users',$data);
+									 $this->load->view('Admin/Partial/footer');
+
 									 
-							}
+		
+        } 
+        
+		else if($this->input->post("id") != null && $this->User->search($this->input->post("id")) ){ 
+
+		$formData["name"] = $this->input->post("name");
+		$formData["email"] = $this->input->post("email");
+		$formData["id"] = $this->input->post("id");
+		$formData["committee_id"] = $this->input->post("committie_id");
+		$formData["designation"] = $this->input->post("designation");
+		$formData["password"] = $this->input->post("password");
+		$formData["Committee"] = $this->input->post("Committee");
+		$data["error"] = "User already exists!";
+		$data["formData"]= $formData;
+		$this->load->view('Admin/Partial/header');
+		$this->load->view('Admin/Users/Users', $data);
+		$this->load->view('Admin/Partial/footer');
+
+		
+        } 
+        else{ 
+      	
+		$this->load->view('Admin/Partial/header');
+		$this->load->view('Admin/Users/Users',$data);
+		$this->load->view('Admin/Partial/footer');
+
+		}
+		
+	}
+	public function register(){
 
 
 					

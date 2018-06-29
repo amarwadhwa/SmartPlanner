@@ -33,7 +33,7 @@
 
          $t=time()+(60*60*3)+(60*30);
          $currentTime =  date("Y-m-d H:i:s",$t);
-         $query = $this->db->query("SELECT * FROM meeting_logs WHERE Initiater_id = '".$_SESSION["id"]."' AND start_time > ('$currentTime')" );
+         $query = $this->db->query("SELECT * FROM meeting_logs WHERE Initiater_id = '"."ins-0005"."' AND start_time > ('$currentTime')" );
 
 
 
