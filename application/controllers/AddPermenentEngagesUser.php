@@ -31,6 +31,213 @@ class AddPermenentEngagesUser extends CI_Controller {
 
 	public function index()
 	{
+		if(isset($_POST["addPermEng"]))
+		{
+
+			if($_POST["day"]=="daily"){
+				if(isset($_POST["editCheck"]) && ($_POST["editCheck"]=="edited") ){
+  						
+  						$Engage_Id  = "'".$_POST["Engage_Id"]."'";   
+						$this->db->delete("permanent_engages", "id = ".$Engage_Id);
+  					}
+
+
+				$startTime =  strtotime("2000-01-01 ".$_POST["start_timePerm"]);
+				$start_timestamp =  date('Y-m-d H:i:s', $startTime);
+				$endTime = strtotime("2000-01-01 ". $_POST["end_timePerm"]);
+				$end_timestamp = date('Y-m-d H:i:s', $endTime); 			
+			
+					$data = array(
+					'user_id'=>$_SESSION["id"],
+   					'description'=>$_POST["descriptionPerm"],
+   					'day'=>"Monday",
+   					'start_time'=>"$start_timestamp",
+   					'end_time'=>"$end_timestamp");
+    				$this->db->set($data); 
+    				$this->db->insert("permanent_engages", $data);
+
+    				$data = array(
+					'user_id'=>$_SESSION["id"],
+   					'description'=>$_POST["descriptionPerm"],
+   					'day'=>"Tuesday",
+   					'start_time'=>"$start_timestamp",
+   					'end_time'=>"$end_timestamp");
+    				$this->db->set($data); 
+    				$this->db->insert("permanent_engages", $data);
+
+    				$data = array(
+					'user_id'=>$_SESSION["id"],
+   					'description'=>$_POST["descriptionPerm"],
+   					'day'=>"Wednesday",
+   					'start_time'=>"$start_timestamp",
+   					'end_time'=>"$end_timestamp");
+    				$this->db->set($data); 
+    				$this->db->insert("permanent_engages", $data);
+
+ 					$data = array(
+					'user_id'=>$_SESSION["id"],
+   					'description'=>$_POST["descriptionPerm"],
+   					'day'=>"Thursday",
+   					'start_time'=>"$start_timestamp",
+   					'end_time'=>"$end_timestamp");
+    				$this->db->set($data); 
+    				$this->db->insert("permanent_engages", $data); 
+
+    				$data = array(
+					'user_id'=>$_SESSION["id"],
+   					'description'=>$_POST["descriptionPerm"],
+   					'day'=>"Friday",
+   					'start_time'=>"$start_timestamp",
+   					'end_time'=>"$end_timestamp");
+    				$this->db->set($data); 
+    				$this->db->insert("permanent_engages", $data);
+
+    				$data = array(
+					'user_id'=>$_SESSION["id"],
+   					'description'=>$_POST["descriptionPerm"],
+   					'day'=>"Saturday",
+   					'start_time'=>"$start_timestamp",
+   					'end_time'=>"$end_timestamp");
+    				$this->db->set($data); 
+    				$this->db->insert("permanent_engages", $data);
+
+    				$data = array(
+					'user_id'=>$_SESSION["id"],
+   					'description'=>$_POST["descriptionPerm"],
+   					'day'=>"Sunday",
+   					'start_time'=>"$start_timestamp",
+   					'end_time'=>"$end_timestamp");
+    				$this->db->set($data); 
+    				$this->db->insert("permanent_engages", $data);
+
+
+			echo "<script> alert('P Engage added successfully'); </script>";
+			}
+			else if($_POST["day"]=="mon-sat"){
+					if(isset($_POST["editCheck"]) && ($_POST["editCheck"]=="edited") ){
+  						
+  						$Engage_Id  = "'".$_POST["Engage_Id"]."'";   
+						$this->db->delete("permanent_engages", "id = ".$Engage_Id);
+  					}
+
+
+				$startTime =  strtotime("2000-01-01 ".$_POST["start_timePerm"]);
+				$start_timestamp =  date('Y-m-d H:i:s', $startTime);
+				$endTime = strtotime("2000-01-01 ". $_POST["end_timePerm"]);
+				$end_timestamp = date('Y-m-d H:i:s', $endTime); 			
+			
+					$data = array(
+					'user_id'=>$_SESSION["id"],
+   					'description'=>$_POST["descriptionPerm"],
+   					'day'=>"Monday",
+   					'start_time'=>"$start_timestamp",
+   					'end_time'=>"$end_timestamp");
+    				$this->db->set($data); 
+    				$this->db->insert("permanent_engages", $data);
+
+    				$data = array(
+					'user_id'=>$_SESSION["id"],
+   					'description'=>$_POST["descriptionPerm"],
+   					'day'=>"Tuesday",
+   					'start_time'=>"$start_timestamp",
+   					'end_time'=>"$end_timestamp");
+    				$this->db->set($data); 
+    				$this->db->insert("permanent_engages", $data);
+
+    				$data = array(
+					'user_id'=>$_SESSION["id"],
+   					'description'=>$_POST["descriptionPerm"],
+   					'day'=>"Wednesday",
+   					'start_time'=>"$start_timestamp",
+   					'end_time'=>"$end_timestamp");
+    				$this->db->set($data); 
+    				$this->db->insert("permanent_engages", $data);
+
+ 					$data = array(
+					'user_id'=>$_SESSION["id"],
+   					'description'=>$_POST["descriptionPerm"],
+   					'day'=>"Thursday",
+   					'start_time'=>"$start_timestamp",
+   					'end_time'=>"$end_timestamp");
+    				$this->db->set($data); 
+    				$this->db->insert("permanent_engages", $data); 
+
+    				$data = array(
+					'user_id'=>$_SESSION["id"],
+   					'description'=>$_POST["descriptionPerm"],
+   					'day'=>"Friday",
+   					'start_time'=>"$start_timestamp",
+   					'end_time'=>"$end_timestamp");
+    				$this->db->set($data); 
+    				$this->db->insert("permanent_engages", $data);
+
+    				$data = array(
+					'user_id'=>$_SESSION["id"],
+   					'description'=>$_POST["descriptionPerm"],
+   					'day'=>"Saturday",
+   					'start_time'=>"$start_timestamp",
+   					'end_time'=>"$end_timestamp");
+    				$this->db->set($data); 
+    				$this->db->insert("permanent_engages", $data);
+
+
+			echo "<script> alert('P Engage added successfully'); </script>";
+			}
+
+			else if($_POST["day"]=="selectDay"){
+
+					if(isset($_POST["editCheck"]) && ($_POST["editCheck"]=="edited") ){
+  						
+  						$Engage_Id  = "'".$_POST["Engage_Id"]."'";   
+						$this->db->delete("permanent_engages", "id = ".$Engage_Id);
+
+  						
+  					}
+
+
+
+
+				$startTime =  strtotime("2000-01-01 ".$_POST["start_timePerm"]);
+				$start_timestamp =  date('Y-m-d H:i:s', $startTime);
+				$endTime = strtotime("2000-01-01 ". $_POST["end_timePerm"]);
+				$end_timestamp = date('Y-m-d H:i:s', $endTime);
+				$day = $_POST["particularDay"];
+
+
+				$data = array(
+					'user_id'=>$_SESSION["id"],
+   					'description'=>$_POST["descriptionPerm"],
+   					'day'=>"$day",
+   					'start_time'=>"$start_timestamp",
+   					'end_time'=>"$end_timestamp");
+    				$this->db->set($data); 
+    				$this->db->insert("permanent_engages", $data);
+
+			echo "<script> alert('Engage added successfully'); </script>";
+			}
+
+		}
+
+		else if(isset($_POST["addTempEng"])) {
+
+				$start_time =  strtotime($_POST["start_dateTemp"] . " ". $_POST["start_timeTemp"]);
+				$start_timestamp =  date('Y-m-d H:i:s', $start_time);
+				$end_time =  strtotime($_POST["start_dateTemp"] . " ". $_POST["end_timeTemp"]);
+				$end_timestamp =  date('Y-m-d H:i:s', $end_time);
+			
+			
+					$data = array(
+					'user_id'=>$_SESSION["id"],
+   					'description'=>$_POST["descriptionTemp"],
+   					'start_time'=>"$start_timestamp",
+   					'end_time'=>"$end_timestamp");
+    				$this->db->set($data); 
+    				$this->db->insert("temporary_engages", $data);
+
+
+			echo "<script> alert('Engage added successfully'); </script>";
+		} 
+
 		$this->load->view('User/Partial/header');
 		$this->load->view('User/Partial/timedateheader');
 		$this->load->view('User/PermanentEngages/AddPermanentEngages');

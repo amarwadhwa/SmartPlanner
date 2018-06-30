@@ -78,7 +78,7 @@
                <ul class="nav" id="side-menu">
                   
                   <li>
-                     <a href="<?php echo base_url('Admin/index')?>"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>
+                    <!-- <a href="<?php echo base_url('Admin/index')?>"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>-->
                   </li>
                   <li>
                      <a href="<?php echo base_url('AddUsers/index')?>"><i class="fa fa-dashboard fa-fw"></i> Users</a>

@@ -45,7 +45,7 @@
                         <div class="col-lg-6">
                              <div class="form-group">
                                  <label>Meeting Tittle</label>
-                                 <input class="form-control" value="<?php if(isset($title)){ echo $title; }?>" name="title">
+                                 <input class="form-control" value="<?php if(isset($title)){ echo $title; }?>" name="title" required>
                                  <!-- <p class="help-block">Example block-level help text here.</p> -->
                               </div>
                               
@@ -59,7 +59,7 @@
 
                                  <div class="checkbox" >
                                     <label>
-                                    <input <?php 
+                                    <input  <?php 
                                                 if(isset($commArray)){
                                                 foreach ($commArray as $comm_Array) {
                                                  if($comm_Array==$Committies["records"][$i]->id ){ echo 'checked="checked"'; 
@@ -92,12 +92,12 @@
                                     }
                                   ?>   
                               </div>
-                              <br>
-                              <br>
-                              <div class="form-group">
+                              <!--<br>-->
+                              <!--<br>-->
+                              <!--<div class="form-group">
                                  <label>Faculty</label>
-                                 <input class="form-control"  name="faculty" >
-                              </div>
+                                 <input class="form-control"  name="faculty">
+                              </div>-->
                               <button type="submit" name="submit" value="meeting"class="btn btn-primary">Next</button>
                                  <button type="reset" class="btn btn-primary">Reset</button>
 
@@ -105,7 +105,7 @@
                               <div class="col-lg-6">
                                  <div class="form-group">
                                     <label>Meeting Description</label>
-                                    <textarea class="form-control" rows="7"  name="description"><?php 
+                                    <textarea class="form-control" rows="7"  name="description" required><?php 
                                     if(isset($description)){ echo $description;}?></textarea> 
                                     <br>
                                  </div>

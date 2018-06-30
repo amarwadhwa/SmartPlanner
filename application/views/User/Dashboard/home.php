@@ -151,13 +151,13 @@
                <!-- /.panel -->
                <div class="panel panel-default">
                   <div class="panel-heading">
-                     <i class="fa fa-bar-chart-o fa-fw"></i> Meetings/Todays Personal Engages
+                     <i class="fa fa-bar-chart-o fa-fw"></i>Todays Meetings/Personal Engages
                      <div class="pull-right">
                         <div class="btn-group">
-                           <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                           <!--<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                            Actions
                            <span class="caret"></span>
-                           </button>
+                           </button>-->
                            <ul class="dropdown-menu pull-right" role="menu">
                               <li><a href="#">Todays Meetings </a>
                               </li>

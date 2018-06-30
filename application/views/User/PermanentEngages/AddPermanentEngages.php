@@ -1,3 +1,23 @@
+<?php
+                    if(isset($_GET["engage_id"]))
+    {                    
+                         $engage_id = $_GET["engage_id"];      
+                         $query = $this->db->query("SELECT * FROM permanent_engages WHERE id = '".$engage_id."'" );
+                           if($query->num_rows() >0){                          
+                          foreach ($query->result() as $row) {
+
+                          $startTimePerm = date("g:ia",strtotime($row->start_time));
+                          $endTimeperm = date("g:ia",strtotime($row->end_time));
+                          $descriptionPerm = $row->description;
+                          $day = $row->day;
+                          //$_SESSION["startTimeStamp"] = $row->start_time;
+                          //$_SESSION["endTimeStamp"] = $row->end_time;
+                          $editCheck = true;
+                          }
+
+         }
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -27,9 +47,7 @@
                   </div>
                   <div class="panel-body">
                      <div class="row">
-                      <form action="<?php echo base_url('AddPermenentEngagesUser/index')?>" method="post" role="form">
 
-                            
                         <div class="col-lg-10">
                              <div class="form-group">
                                 <h4>
@@ -41,9 +59,11 @@
                                   <input type="radio" name="period" value="tempEngage" onclick="tempEngage();"><b>Temporary Engage</b>
                                   </label>
                                   </h4>
-                                
-
                             </div>
+                      
+
+                      <form action="<?php echo base_url('AddPermenentEngagesUser/index')?>" method="post" role="form">
+
                             
                             <div>
                               <div class="demo"  id="permanentEng" style="display: block;"  >
@@ -53,12 +73,12 @@
                                     <p id="datepairExample"><br>
                                       <label>Time</label> <br>
                                     From
-                                    <input type="text" class="time start" placeholder="Time" name="start_time"  value="<?php
-                                      if(isset($startTime)){echo "$startTime";}
+                                    <input type="text" class="time start" placeholder="Time" name="start_timePerm"  value="<?php
+                                      if(isset($startTimePerm)){echo "$startTimePerm";}
 
                                        ?>"  required /> to  
-                                       <input type="text" class="time end" placeholder="Time"   name="end_date" value="<?php
-                                      if(isset($endTime)){echo "$endTime";}
+                                       <input type="text" class="time end" placeholder="Time"   name="end_timePerm" value="<?php
+                                      if(isset($endTimeperm)){echo "$endTimeperm";}
 
                                        ?>" required />
 
@@ -66,7 +86,9 @@
                                         </p>
                                        <div class="form-group">
                                         <br><label>Description</label> 
-                                        <input required class="form-control" value="<?php if(isset($title)){ echo $title; }?>" name="title"/>
+                                        <input required class="form-control" value="<?php if(isset($descriptionPerm)){ 
+                                          echo "$descriptionPerm"; }?>" 
+                                        name="descriptionPerm"/>
                                  <!-- <p class="help-block">Example block-level help text here.</p> -->
                                         </div>
 
@@ -79,11 +101,12 @@
                                         </label>
                                         
                                         <label class="radio-inline">
-                                          <input type="radio" name="day" value="monsat" onclick="hide();">Monday-Saturday
+                                          <input type="radio" name="day" value="mon-sat" onclick="hide();">Monday-Saturday
                                         </label>
                                        
                                         <label class="radio-inline">
-                                          <input type="radio" name="day" value="selday" onclick="show();">Select Day
+                                          <input type="radio" name="day" <?php if(isset($editCheck)){ echo "checked" ; } ?> 
+                                          value="selectDay" onclick="show();">Select Day
                                         </label>
                                       
                                         <br>
@@ -91,35 +114,57 @@
                                         
                                         <div class="form-group" id="day" style="display: none;">
                                           <h3>Select Day </h3>
-                                            <select class="form-control" >
-                                              <option>Monday</option>
-                                              <option>Tuesday</option>
-                                              <option>Wednesday</option>
-                                              <option>Thursday</option>
-                                              <option>Friday</option>
-                                              <option>Saturday</option>
-                                              <option>Sunday</option>        
+                                            <select name="particularDay"  class="form-control" required >
+                                              <option <?php if(isset($day) && $day =="Monday") echo "selected"; ?> value="Monday">Monday</option>
+                                              <option <?php if(isset($day) && $day =="Tuesday") echo "selected"; ?> value="Tuesday">Tuesday</option>
+                                              <option <?php if(isset($day) && $day =="Wednesday") echo "selected"; ?> value="Wednesday">Wednesday</option>
+                                              <option <?php if(isset($day) && $day =="Thursday") echo "selected"; ?> value="Thursday">Thursday</option>
+                                              <option <?php if(isset($day) && $day =="Friday") echo "selected"; ?> value="Friday">Friday</option>
+                                              <option <?php if(isset($day) && $day =="Saturday") echo "selected"; ?> value="Saturday">Saturday</option>
+                                              <option <?php if(isset($day) && $day =="Sunday") echo "selected"; ?> value="Sunday">Sunday</option>        
                                             </select>
                                           </div>
 
+                              <br>
+                              <br>
+                                <input type="hidden" value="<?php if(isset($editCheck)){ echo "edited"; } ?>" name="editCheck" />
+                                <input type="hidden" value="<?php if(isset($engage_id)){ echo "$engage_id"; } ?>" name="Engage_Id"/>
+                                   <input type="submit" name="addPermEng" value="Add Permanent Engage" class="btn btn-primary"/>
+                                  <button type="reset" class="btn btn-primary">Reset Page</button>       
+
                                 </div>
+                                  
+
+
+                                  
+                                  
+
+                            </div>
+                          </div>
+                              
+
+                                </form>
+                              </div>
+                              <div>
+                           <form action="<?php echo base_url('AddPermenentEngagesUser/index')?>" method="post" role="form">
+
                                 <div class="demo"  id="TempEng" style="display: none;" >
                                     <div class="form-group">
                                       
                                     
                                     <p id="datepairExample"><br>
                                       <label>Date and Time</label> <br>
-                                      <input type="text" class="date start" placeholder="Date"  name="start_date" autocomplete="off" value="<?php
-                                      if(isset($startDate)){echo "$startDate";}
+                                      <input type="text" class="date start" placeholder="Date"  name="start_dateTemp" autocomplete="off" value="<?php
+                                      if(isset($startDateTemp)){echo "$startDateTemp";}
 
                                        ?>" required />
                                     From
-                                    <input type="text" class="time start" placeholder="Time" name="start_time"  value="<?php
-                                      if(isset($startTime)){echo "$startTime";}
+                                    <input type="text" class="time start" placeholder="Time" name="start_timeTemp"  value="<?php
+                                      if(isset($startTimeTemp)){echo "$startTime";}
 
                                        ?>"  required /> to  
-                                       <input type="text" class="time end" placeholder="Time"   name="end_date" value="<?php
-                                      if(isset($endTime)){echo "$endTime";}
+                                       <input type="text" class="time end" placeholder="Time"   name="end_timeTemp" value="<?php
+                                      if(isset($endTimeTemp)){echo "$endTime";}
 
                                        ?>" required />
 
@@ -127,27 +172,19 @@
                                     </p>
                                        <div class="form-group">
                                         <br><label>Description</label> 
-                                        <input class="form-control" value="<?php if(isset($title)){ echo $title; }?>" name="title">
+                                        <input required class="form-control" value="<?php if(isset($descriptionTemp)){ echo "$descriptionTemp"; }?>" name="descriptionTemp">
                                  <!-- <p class="help-block">Example block-level help text here.</p> -->
                                         </div>
 
                                         <br>
-                                       
+                                       <input type="submit" name="addTempEng" value="Add Temporary Engage" class="btn btn-primary"/>
+                                <button type="reset" class="btn btn-primary">Reset Page</button>
 
-                                </div>              
 
-                              <br>
-                              <br>
-                                  
-                                  <input type="submit" name="submit" value="Add Engage" class="btn btn-primary"/>
-                                  <button type="reset" class="btn btn-primary">Reset Page</button>
-
-                            </div>
-                          </div>
-                              
-
+                                </div>
                                 </form>
-                           </div>
+                                
+                              </div>
                         </div>
                         <!-- /.row (nested) -->
                      </div>
@@ -178,13 +215,6 @@
                                     });
 
 
-                                    $('#datepairExample').on('changeTime', function() {
-                                                  
-                                           // window.alert("Select event Working");     
-                                          //Write code to disable the selecting previos tims
-                                           //$('#datepairExample').timepicker('option', 'minTime', '2:00pm');
-
-                                        });
                                     
                                     $('#datepairExample .date').datepicker({
                                         'format': 'm/d/yyyy',

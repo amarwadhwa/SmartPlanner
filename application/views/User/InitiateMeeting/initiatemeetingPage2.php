@@ -221,7 +221,7 @@ function submitClick(){
 
        if(empty($_POST['Committee'])) 
        {
-           echo("You didn't invited any commettie.");
+           //echo("You didn't invited any commettie.");
    
        } 
      else
@@ -229,18 +229,18 @@ function submitClick(){
        $commetties = $_POST['Committee'];
        $N = count($commetties);
    
-       echo("You Invited $N Commetties: ");
+       //echo("You Invited $N Commetties: ");
        for($i=0; $i < $N; $i++)
        {
-         echo($commetties[$i] . " ");
+        // echo($commetties[$i] . " ");
        }
      }
    
    ?>
 <br>
 <?php
-   print_r($users);
-   print_r($users["records"][0]->name);
+   //print_r($users);
+   //print_r($users["records"][0]->name);
    $totalUsers  = count($users["records"]);
    for($i=0; $i  < $totalUsers; $i++)
        {
@@ -248,7 +248,7 @@ function submitClick(){
            $users_com_id[$users["records"][$i]->id] = explode(",",$users["records"][$i]->commitee_id);     
        }
    
-   print_r($users_com_id);
+   //print_r($users_com_id);
    //print_r (explode(",",$users["records"][0]->commitee_id));
 
 
@@ -256,19 +256,19 @@ function submitClick(){
 
 if(isset($_POST["start_time"])) {
 
-            echo $_POST["start_time"];
+            //echo $_POST["start_time"];
             //echo('<br /><br />'.$_POST['f']);
         }
         else{
 
-            echo "not setcookie";
+           // echo "not setcookie";
 
         }
 
 
 
-echo "<br>";
-echo "<br>";
+//echo "<br>";
+//echo "<br>";
 
         foreach ($commetties as $commettie) {
             foreach ($users["records"] as $user) {
@@ -282,17 +282,17 @@ echo "<br>";
             }
         }
         
-        echo "<br>";
-        echo "<br>";
+       // echo "<br>";
+        //echo "<br>";
         
         $invited_Users2 = array_map("unserialize", array_unique(array_map("serialize", $invited_Users)));
-        print_r($invited_Users2);
+        //print_r($invited_Users2);
 
 
-        echo "<br>";
-        echo "<br>";
+        //echo "<br>";
+        //echo "<br>";
 
-        print_r(array_map("unserialize", array_unique(array_map("serialize", $invited_Users))));
+        //print_r(array_map("unserialize", array_unique(array_map("serialize", $invited_Users))));
 
 
         $_SESSION["users"] = array_map("unserialize", array_unique(array_map("serialize", $invited_Users)));

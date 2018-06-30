@@ -24,7 +24,6 @@
          <th scope="col">Description</th>
          <th scope="col">Start time</th>
          <th scope="col">End time</th>
-         <th scope="col">Engage ID</th>
          <th scope="col">Engage Type</th>
          <th scope="col">Edit/Cancel</th>
 
@@ -50,8 +49,6 @@
                     
 
 
-
-
                      if($day==$i){
                         $startTime  = date('g:i a', strtotime($row->start_time));
                         $endTime  =   date('g:i a', strtotime($row->end_time));                        
@@ -59,7 +56,6 @@
                         echo "<td>".$row->description."</td>";
                         echo "<td>".$startTime."</td>";
                         echo "<td>".$endTime."</td>";
-                        echo "<td>".$row->id."</td>";
                         echo "<td>".$row->engage_type."</td>";
                         echo "<td><button type='submit' formaction=/SmartPlanner/AddPermenentEngagesUser/?engage_id=$row->id name = 'submit' value = $row->id class='btn btn-primary'>Edit</button>&nbsp&nbsp<button type='submit' formaction=/SmartPlanner/AddPermenentEngagesUser/cancel?engage_id=$row->id name = 'submit' value = $row->id class='btn btn-primary'>Delete</button></td>";
                         echo "</tr>";
