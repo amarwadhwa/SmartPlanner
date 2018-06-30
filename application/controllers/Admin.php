@@ -28,7 +28,8 @@ class Admin extends CI_Controller {
 	{
 		
 		$this->load->view('Admin/Partial/header');
-		$this->load->view('Admin/DashBoard/home');
+		//$this->load->view('Admin/DashBoard/home');
+		redirect('AddUsers');
 		$this->load->view('Admin/Partial/footer');
 		$this->session_check();
 	}
