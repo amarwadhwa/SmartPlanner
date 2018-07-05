@@ -89,13 +89,20 @@
                   <li>
                      <a href="<?php echo base_url('AddEngages/index')?>"><i class="fa fa-table fa-fw"></i> Add Engages</a>
                   </li>
-                  
+                     
+
+                  <li>
+                     <a href="<?php echo base_url('AddRoom/index')?>"><i class="fa fa-edit fa-fw"></i> Add Room</a>
+                  </li>
+
                   <li>
                      <a href="<?php echo base_url('AdminSettings/index')?>"><i class="fa fa-edit fa-fw"></i> Settings</a>
                   </li>
                   <li>
                      <a href="<?php echo base_url('Login/logout')?>"><i class="fa fa-edit fa-fw"></i> Logout</a>
                   </li>
+                  
+
                </ul>
             </div>
             <!-- /.sidebar-collapse -->
