@@ -8,17 +8,33 @@ $lessons = $data->lessons;
 $cards = $data->cards;
 $teachers = $data->teachers;
 $periods = $data->periods;
-
+$classes = $data->classrooms;
 
 $type  = "'class'";   
 $this->db->delete("permanent_engages", "engage_type = ".$type);
-   
+$value = "'program_officer'";
+$this->db->delete("classess", "added_by = ".$value);
+$this->db->delete("busy_classes","added_by = ".$value);
+
+$classesParsed = array();
+foreach ($classes->children() as $class) {
+$classId= $class["id"];
+$classesParsed["$classId"]["name"] = $class["name"];
+$className = $class["name"];
+$data = array(
+   'class_id'=>"$classId",
+   'class_name'=>"$className",
+   'added_by'=>"program_officer");
+    $this->db->set($data); 
+    $this->db->insert("classess", $data);
+}
 
 $periodsParsed = array();
 foreach ($periods->children() as $period) {
    $id = $period["period"];
    $periodsParsed["$id"]["starttime"] = $period["starttime"];
    $periodsParsed["$id"]["endtime"] = $period["endtime"];
+
 
 }
 
@@ -63,6 +79,7 @@ foreach ($lessons->children() as $lesson) {
 
 foreach ($cards->children() as $card) {
    $lessonID = $card["lessonid"];
+   $class = $card["classroomids"];
    $teacherId = $lessonsForTeachers["$lessonID"];
    if ($teacherId != null) {
    $subject = $lessonsForSubjects["$lessonID"];
@@ -71,7 +88,6 @@ foreach ($cards->children() as $card) {
    $periodId = $card["period"];
    $endtime = $periodsParsed["$periodId"]["endtime"];
    $starttime = $periodsParsed["$periodId"]["starttime"];
-   
        //start_time and end_time are timestamps..Remember 
 
       $engage_type = "class";
@@ -89,6 +105,16 @@ foreach ($cards->children() as $card) {
          'engage_type'=>"$engage_type");
       $this->db->set($data); 
       $this->db->insert("permanent_engages", $data);
+
+      $data = array(
+       'class_id'=>"$class",
+       'day'=>"$day",
+       'start_time'=>"$start_timestamp",
+       'end_time'=>"$end_timestamp",
+       'added_by'=>"'program_officer'");
+       $this->db->set($data); 
+       $this->db->insert("busy_classes", $data);
+    
    }
 }
 ?>
