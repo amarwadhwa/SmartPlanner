@@ -67,7 +67,7 @@
                                                  }}
                                            ?> 
 
-                                     type="checkbox" name="Committee[]" value= <?php echo $Committies["records"][$i]->id ?> />
+                                     type="radio" name="Committee[]" value= <?php echo $Committies["records"][$i]->id ?> />
                                     <?php   echo $Committies["records"][$i]->name ; 
                                     ?>
 

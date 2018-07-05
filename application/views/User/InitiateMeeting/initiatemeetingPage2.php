@@ -87,6 +87,16 @@ function submitClick(){
                                         <button onclick="submitClick()" value="Schedule Anyway" id="ScheduleAnyway" class="btn btn-default" disabled>Schedule Meeting</button>
                                        
                                       </p>
+
+                                        <label for="sel1">Select Venue :</label>
+                                        <select class="form-control" id="sel_class" name="selected_class">
+                                          <option>1</option>
+                                          <option>2</option>
+                                          <option>3</option>
+                                          <option>4</option>
+                                        </select>
+
+
                                  </div>
                                   <script type="text/javascript" src="datepair.js"></script>
                                   <script type="text/javascript" src="jquery.datepair.js"></script>

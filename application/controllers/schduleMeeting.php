@@ -64,6 +64,7 @@ class schduleMeeting extends CI_Controller {
 		if(isset($_POST["meeting_id"])){
 
 				//$meeting_id  = "'class'";
+				
 				$meeting_id  =  $_POST["meeting_id"];   
 				$this->db->delete("temporary_engages", "meeting_id = ".$meeting_id);
 				$this->db->delete("meeting_logs", "id = ".$meeting_id);				

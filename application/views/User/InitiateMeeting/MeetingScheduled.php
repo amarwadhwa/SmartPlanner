@@ -6,35 +6,18 @@ $start_timestamp =  date('Y-m-d H:i:s', $start_time);
 $end_time =  strtotime($_POST["end_date"] . " ". $_POST["end_time"]);
 $end_timestamp =  date('Y-m-d H:i:s', $end_time);
 
-echo "<br>";
-echo $start_timestamp;
-echo "<br>";
-echo $end_timestamp;
-echo "<br>";
 
 
-echo "meething scheduled succeesfully";
-echo "<br>";
-echo "meeting title ";
-echo "<br>";
+
+
+
 echo $_POST["title"];
-echo "<br>";
-echo "Other Faculty Members";
-echo "<br>";
-echo $_POST["faculty"];
-echo "<br>";
-echo "meeting description ";
-echo "<br>";
 echo $_POST["description"];
-echo "<br>";
+
 
 $users = $_SESSION["users"];
 
 $stringCommettee = implode(",",$_SESSION["commetties"]);
-
-echo "<br>";
-echo "<br>";
-echo "<br>";
 
 $data = array( 
    		'title' => $_POST["title"], 
@@ -148,3 +131,31 @@ foreach ($users as $user) {
 	}
 }
 ?>
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+   </head>
+   <body>
+      <div id="page-wrapper">
+         <div class="row">
+            <div class="col-lg-12">
+               <h2 class="page-header">Meeting scheduled successfully</h2>
+            </div>
+            <!-- /.col-lg-12 -->
+            
+         </div>
+         <div><h4>Meeting Details</h4></div>
+                Meeting Title : <?php echo $_POST["title"]; ?><br>
+                Committees Invited : <?php echo "$stringCommettee" ; ?> <br>
+                Guests :  <br>
+                Start time: <?php echo $_POST["start_time"]." ".$_POST["start_date"];?> <br>
+                End time:<?php echo $_POST["end_date"] . " ". $_POST["end_time"];?> <br>
+                Description:<?php echo $_POST["description"]; ?>
+           
+         
+
+         
+         <!-- /#page-wrapper -->
+      </div>
+   </body>
+</html>
