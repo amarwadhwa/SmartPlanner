@@ -68,11 +68,22 @@
 
 
 	
-	public function delete($user_id)
+	public function update($id,$name,$email,$Committee,$designation,$password)
 	{
-		//$this->db->where('person_id', $customer_id);
+		$data = array( 
+    		'name'      => $name , 
+    		'password' => $password, 
+    		'designation'=> $designation,
+    		'commitee_id'=> $Committee,
+    		'email'=> $email
+		);
 
-		//return $this->db->update('customers', array('deleted' => 1));
+		$this->db->where('id', $id);
+
+		$this->db->update('users', $data);
+
+		return true;
+
 	}
 	  
 	  

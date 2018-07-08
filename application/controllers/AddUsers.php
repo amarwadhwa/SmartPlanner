@@ -31,9 +31,33 @@ class AddUsers extends CI_Controller {
 		$this->session_check();
 		$this->load->model("User");
 		$this->load->model('Committee');
-		$data['Committies'] = $this->Committee->view_all();	
+		$data['Committies'] = $this->Committee->view_all();
 
-		if($this->input->post("id") != null && !$this->User->search($this->input->post("id")) ){ 
+
+		if($this->input->post("edit") == "editing"){
+
+
+									 $name =  $this->input->post("name");
+						 			 $email = $this->input->post("email");
+						  			 $id    =  $this->input->post("id");
+						             $committee_id = $this->input->post("committie_id");
+						             $designation = $this->input->post("designation");
+						             $password    = $this->input->post("password");
+						             $Committee    = $this->input->post("Committee");
+						             $Committee = implode (",", $Committee);									            
+						             $this ->User->update($id,$name,$email,$Committee,$designation,$password);
+									 echo "<script>alert('User Updated Succesfully');</script>";
+									 $this->load->view('Admin/Partial/header');
+									 $this->load->view('Admin/Users/Users',$data);
+									 $this->load->view('Admin/Partial/footer');
+
+
+
+
+		}
+
+
+		else if($this->input->post("id") != null && !$this->User->search($this->input->post("id")) ){ 
 
 									 $name =  $this->input->post("name");
 						 			 $email = $this->input->post("email");
@@ -45,6 +69,8 @@ class AddUsers extends CI_Controller {
 						             $Committee = implode (",", $Committee);									            
 						             $this ->User->save($name,$email,$id,$Committee,$designation,$password);
 									 echo "<script>alert('User Added Succesfully');</script>";
+									 
+
 									 $this->load->view('Admin/Partial/header');
 									 $this->load->view('Admin/Users/Users',$data);
 									 $this->load->view('Admin/Partial/footer');
@@ -74,6 +100,7 @@ class AddUsers extends CI_Controller {
       	
 		$this->load->view('Admin/Partial/header');
 		$this->load->view('Admin/Users/Users',$data);
+
 		$this->load->view('Admin/Partial/footer');
 
 		}

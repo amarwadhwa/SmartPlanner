@@ -1,7 +1,7 @@
 <?php
 
 
-                    if(isset($_GET["user_id"]))
+                    if(isset($_GET["user_id"]) && isset($_POST["editMode"]))
     {                    $user_id = $_GET["user_id"];      
                          $query = $this->db->query("SELECT * FROM users WHERE id = '".$user_id."'" );
                           if($query->num_rows() >0){                          
@@ -14,8 +14,11 @@
                           $formData["designation"] = $row->designation;
                           $commitee_id = $row->commitee_id;
                           $formData["email"] = $row->email;
-                          $commArray = explode(',', $row->commitee_id);            
+                          $formData["Committee"] = explode(',', $row->commitee_id);            
                           $edit = "true";
+                          $this->load->model('Committee');
+                          $Committies = $this->Committee->view_all();   
+
 
                           }
 
@@ -58,12 +61,12 @@
                         </div>
                         <div class="form-group">
                         <label>Instructor Id</label>
-                        <input class="form-control" type="text" name="id" value="<?php if(isset($formData["id"])){ echo $formData["id"]; } ?>" required>
+                        <input class="form-control" type="text" name="id" value="<?php if(isset($formData["id"])){ echo $formData["id"]; } ?>" <?php if(isset($formData["id"])){ echo "readonly"; } ?> required  >
                         <span class="text-danger"><?php echo form_error("id");?></span>
                         <?php if(isset($error)) {echo "<h4> <font style='color:red'>". $error . "</font> </h4>";}?>
                         </div>
                         
-                        
+                        <input type="hidden" name="edit" value=<?php  if(isset($edit)){echo "editing";}?>        >
 
                         <div class="form-group">
                         <label>Designation</label>
@@ -75,14 +78,17 @@
 
                         <div class="form-group">
                         <label>Password</label>
-                        <input class="form-control" type="text" name="password" value="<?php if(isset($formData["password"])){ echo $formData["password"]; } ?>"  required>
+                        <input class="form-control" type="password" name="password" value="<?php if(isset($formData["password"])){ echo $formData["password"]; } ?>"  required>
                         <span class="text-danger"><?php echo form_error("password");?></span>
                         </div> 
                         <div>
                         
                         <button type="submit" name="insert" value="Insert "class="btn btn-primary"><?php if(isset($edit)){    
 
-                           echo "Update";}
+                           echo "Update";
+
+
+                        }
                            else{
                                  echo "Add User";    
                            } 
@@ -106,7 +112,8 @@
                         
                        
                         <div class="checkbox" >   
-      
+                        
+
                         <input
                               <?php 
                                                 if(isset($formData["Committee"])){

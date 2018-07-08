@@ -11,6 +11,9 @@
             <!-- /.col-lg-12 -->
             <form action="<?php echo base_url('schduleMeeting/edit')?>" method="post" role="form">
          </div>
+
+          <input type="hidden" name="editMode" value="on">
+
          <table class="table table-bordered" >
             
          <thead>
