@@ -1,3 +1,35 @@
+<?php
+
+
+                    if(isset($_GET["user_id"]))
+    {                    $user_id = $_GET["user_id"];      
+                         $query = $this->db->query("SELECT * FROM users WHERE id = '".$user_id."'" );
+                          if($query->num_rows() >0){                          
+                          foreach ($query->result() as $row) {                           
+                         
+                          
+                          $formData["id"] = $row->id;                          
+                          $formData["password"] = $row->password;
+                          $formData["name"] = $row->name;
+                          $formData["designation"] = $row->designation;
+                          $commitee_id = $row->commitee_id;
+                          $formData["email"] = $row->email;
+                          $commArray = explode(',', $row->committee_id);
+                          <?php 
+                                                if(isset($commArray)){
+                                                foreach ($commArray as $comm_Array) {
+                                                 if($comm_Array==$Committies["records"][$i]->id ){ echo 'checked="checked"'; 
+                                                  break; }
+                                                 }}
+                                           ?>
+                                      
+                          $edit = "true";
+
+                          }
+
+         }
+    }
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -43,9 +75,11 @@
 
                         <div class="form-group">
                         <label>Designation</label>
-                        <input class="form-control" type="text" name="designation" value="<?php if(isset($formData["designation"])){ echo $formData["designation"]; } ?>" required>
+                        <input class="form-control" type="text" name="designation" value="<?php if(isset($formData["designation"])){ echo $commArray; } ?>" required>
                         <span class="text-danger"><?php echo form_error("designation");?></span>
                         </div>
+
+
 
                         <div class="form-group">
                         <label>Password</label>
@@ -54,7 +88,13 @@
                         </div> 
                         <div>
                         
-                        <button type="submit" name="insert" value="Insert "class="btn btn-primary">Add User</button>
+                        <button type="submit" name="insert" value="Insert "class="btn btn-primary"><?php if(isset($edit)){    
+
+                           echo "Update";}
+                           else{
+                                 echo "Add User";    
+                           } 
+                        ?></button>
                         <button type="reset" class="btn btn-primary">Reset</button>
                         
                         </div>

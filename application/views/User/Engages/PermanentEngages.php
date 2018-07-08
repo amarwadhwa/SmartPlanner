@@ -51,7 +51,8 @@
 
                      if($day==$i){
                         $startTime  = date('g:i a', strtotime($row->start_time));
-                        $endTime  =   date('g:i a', strtotime($row->end_time));                        
+                        $endTime  =   date('g:i a', strtotime($row->end_time));
+                        echo "<tr>";                        
                         echo "<td>".$row->day."</td>";
                         echo "<td>".$row->description."</td>";
                         echo "<td>".$startTime."</td>";
@@ -82,17 +83,17 @@ $day = date('N', strtotime("2017-04-24 00:00:00"));
 
 
 
-echo $day."<br>";
+//echo $day."<br>";
 
 $day = date('j', strtotime("2017-04-24 00:00:00"));
 $month = date('n', strtotime("2017-04-24 00:00:00"));
 $year  = date('Y', strtotime("2017-04-24 00:00:00"));
 
-echo $day."<br>";
-echo $month."<br>";
-echo $year."<br>";
+//echo $day."<br>";
+//echo $month."<br>";
+//echo $year."<br>";
 
 $jd=gregoriantojd($month,$day,$year);
-echo jddayofweek($jd,1);
+//echo jddayofweek($jd,1);
 
 ?>

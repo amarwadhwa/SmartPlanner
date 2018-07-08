@@ -23,12 +23,14 @@
                            <div class="col-lg-6">
                         <form role="form">
                         <div class="form-group">
-                        <label>Room Name</label>
-                        <input class="form-control" type="text" placeholder="Ex: Room-102" name="room_name">
+                        <label>Room Number</label>
+                        <input class="form-control" type="text" placeholder="Ex: Room-102" name="room_name" value="<?php if(isset($formData["room_name"])){ echo $formData["room_name"]; } ?>" required>
+                        <?php if(isset($error)) {echo "<h5> <font style='color:red'>". $error . "</font> </h5>";}?>
+
                         </div>
                         <div class="form-group" >
                         <label>Room Description</label>
-                        <textarea class="form-control" rows="7" type="text" name="room_desc"></textarea> 
+                        <textarea class="form-control" rows="7" type="text" name="room_description" value="<?php if(isset($formData["room_description"])){ echo $formData["room_description"]; } ?>" ></textarea> 
                         </div>
                         <div>
                         <button type="submit" name="insert" value="insert"class="btn btn-primary">Add Room</button>

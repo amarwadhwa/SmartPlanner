@@ -29,14 +29,15 @@
    <script src='<?php echo base_url(); ?>application_resources/CalenderFiles/js/fullcalendar.min.js'></script>
    <script>
       $(document).ready(function() {
-      
+        var today = new Date();
+
         $('#calendar').fullCalendar({
           header: {
             left: 'prev,next today',
             center: 'title',
             right: 'month,agendaWeek,agendaDay,listWeek'
           },
-          defaultDate: '2018-02-12',
+          defaultDate: today,
           navLinks: true, // can click day/week names to navigate views
       
           weekNumbers: true,
@@ -49,6 +50,7 @@
           events: 
           <?php echo $json; ?>
              
+
           
         });
       

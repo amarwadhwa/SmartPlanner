@@ -36,7 +36,69 @@ class AddRoom extends CI_Controller {
 
 	public function add_room()
 	{
+		$this->session_check();
+		$this->load->model('Classess');
+
 		
+		
+
+
+
+		if($this->input->post("room_name") != null && !$this->Classess->search($this->input->post("room_name")) ){ 
+										
+									$class_id = rand(111111111,999999999);		
+									$class_name =  $this->input->post("room_name");
+						 			$added_by = "admin";								
+									$this ->Classess->save($class_id,$class_name,$added_by);
+									 echo "<script>alert('Room Added Succesfully');</script>";
+										 $this->load->view('Admin/Partial/header');
+										 $this->load->view('Admin/Room/addRoom');
+										 $this->load->view('Admin/Partial/footer');
+
+									 
+		
+        } 
+        
+		else if($this->input->post("room_name") != null && $this->Classess->search($this->input->post("room_name")) ){ 
+		
+		$formData["room_name"] = $this->input->post("room_name");
+		$formData["room_description"] = $this->input->post("room_description");
+		$data["error"] = "Room already exists!";
+		$data["formData"]= $formData;
+		$this->load->view('Admin/Partial/header');
+		$this->load->view('Admin/Room/addRoom',$data);
+		$this->load->view('Admin/Partial/footer');
+
+		
+        } 
+        else{ 
+      	
+		$this->load->view('Admin/Partial/header');
+		$this->load->view('Admin/Room/addRoom');
+		$this->load->view('Admin/Partial/footer');
+
+		}
+
+
+		
+
+
+
+		
+		//$data = array("name" =>$this->input->post("committie"),
+		//				  "description" =>$this->input->post("committie_description")
+						  
+		//				);
+
+		//		$this->load->model("Committee");
+		//		$this ->Committee->insert_data($data);
+		//		echo "Commeety Created Successfuly";
+	
+		
+
+
+
+
 		
 		
 	}

@@ -94,6 +94,14 @@
                   <li>
                      <a href="<?php echo base_url('AddRoom/index')?>"><i class="fa fa-edit fa-fw"></i> Add Room</a>
                   </li>
+                  <li>
+                     <a href="<?php echo base_url('AdminSettings/index')?>"><i class="fa fa-edit fa-fw"></i>View Rooms</a>
+                  </li>
+                  
+                  <li>
+                     <a href="<?php echo base_url('ViewUsers/index')?>"><i class="fa fa-edit fa-fw"></i>View Members</a>
+                  </li>
+
 
                   <li>
                      <a href="<?php echo base_url('AdminSettings/index')?>"><i class="fa fa-edit fa-fw"></i> Settings</a>
