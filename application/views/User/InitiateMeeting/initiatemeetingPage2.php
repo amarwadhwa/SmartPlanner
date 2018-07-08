@@ -29,8 +29,18 @@ if(isset($_SESSION["endTimeStamp"]) && ($_POST["editCheck"]=="submit")){
         };
         xmlhttp.open("POST", "http://localhost/SmartPlanner/My_Meeting/checkConflict", true);
         xmlhttp.send(new FormData (oFormElement));
+       
+        var xmlhttpForSelect = new XMLHttpRequest();
+        xmlhttpForSelect.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("sel_class").innerHTML = this.responseText;
+              }
+              
+        };
+        xmlhttpForSelect.open("POST", "http://localhost/SmartPlanner/My_Meeting/checkFreeClasses", true);
+        xmlhttpForSelect.send(new FormData (oFormElement));
         return false;
-  }
+}
 
 function submitClick(){
   document.getElementById("form1").submit();
@@ -82,12 +92,11 @@ function submitClick(){
                                        <input type="hidden" value="<?php if(isset($_POST["description"])){echo $_POST["description"];} ?>" name="description" />
                                        
                                        
-                                       <input type="submit"   value="Check Availabilty" class="btn btn-default"/>
+                                       <input type="submit" value="Check Availabilty" class="btn btn-default"/>
                                         </form>
                                         <button onclick="submitClick()" value="Schedule Anyway" id="ScheduleAnyway" class="btn btn-default" disabled>Schedule Meeting</button>
                                        
                                       </p>
-
                                         <label for="sel1">Select Venue :</label>
                                         <select class="form-control" id="sel_class" name="selected_class">
                                           <option>1</option>
@@ -95,8 +104,6 @@ function submitClick(){
                                           <option>3</option>
                                           <option>4</option>
                                         </select>
-
-
                                  </div>
                                   <script type="text/javascript" src="datepair.js"></script>
                                   <script type="text/javascript" src="jquery.datepair.js"></script>

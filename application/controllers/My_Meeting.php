@@ -19,12 +19,10 @@ class My_Meeting extends CI_Controller {
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
 	public function session_check(){
-
 	if(!isset($_SESSION["user-type"]) && $_SESSION["user-type"] != "user"){
 		redirect("Login");
 	}
 	}
-
 
 	public function checkConflict()
 	{
@@ -88,11 +86,11 @@ class My_Meeting extends CI_Controller {
 		$start_time =  strtotime($_POST["start_date"] . " ". $_POST["start_time"]);
 		$start_timestamp =  date('Y-m-d H:i:s', $start_time);
 		$startDay = date('l', $start_time);
-		$end_time =  strtotime($_POST["end_date"] . " ". $_POST["end_time"]);
+		$end_time =  strtotime($_POST["end_time"] . " ". $_POST["end_date"]);
 		$end_timestamp =  date('Y-m-d H:i:s', $end_time);
 		$endDay = date('l',$end_time);
 		$startDate =  strtotime("2000-01-01" . " ". $_POST["start_time"]);
-		$endDate = strtotime("2000-01-01" . " ". $_POST["end_time"]);
+		$endDate = strtotime("2000-01-01" . " ". $_POST["end_date"]);
 		$startDateTimestamp = date('Y-m-d H:i:s', $startDate);
 		$endDateTimestamp = date('Y-m-d H:i:s', $endDate);
 		$query = $this->db->get("classess"); 
@@ -100,8 +98,9 @@ class My_Meeting extends CI_Controller {
 		$id =$class->class_id;
 		$query = $this->db->query("SELECT * FROM busy_classes WHERE class_id = '".$id."' AND (start_time BETWEEN '".$startDateTimestamp."' AND '".$endDateTimestamp."' OR end_time BETWEEN '".$startDateTimestamp."' AND '".$endDateTimestamp."' ) AND (day = '".$endDay."' OR day = '".$startDay."')");
 			if($query->num_rows() == 0){
-				echo "<option value='".$id."''>".$class->class_name."</option>";		        
+				echo "<option value='".$id."'>".$class->class_name."</option>";		        
 			}
+
 			}
 		echo "";
 	}
