@@ -14,15 +14,7 @@
                           $formData["designation"] = $row->designation;
                           $commitee_id = $row->commitee_id;
                           $formData["email"] = $row->email;
-                          $commArray = explode(',', $row->committee_id);
-                          <?php 
-                                                if(isset($commArray)){
-                                                foreach ($commArray as $comm_Array) {
-                                                 if($comm_Array==$Committies["records"][$i]->id ){ echo 'checked="checked"'; 
-                                                  break; }
-                                                 }}
-                                           ?>
-                                      
+                          $commArray = explode(',', $row->commitee_id);            
                           $edit = "true";
 
                           }
@@ -75,7 +67,7 @@
 
                         <div class="form-group">
                         <label>Designation</label>
-                        <input class="form-control" type="text" name="designation" value="<?php if(isset($formData["designation"])){ echo $commArray; } ?>" required>
+                        <input class="form-control" type="text" name="designation" value="<?php if(isset($formData["designation"])){ echo $formData["designation"]; } ?>" required>
                         <span class="text-danger"><?php echo form_error("designation");?></span>
                         </div>
 
@@ -170,3 +162,4 @@ function Verify(){
    return false;
 }
 </script>
+
