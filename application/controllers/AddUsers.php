@@ -44,7 +44,7 @@ class AddUsers extends CI_Controller {
 						             $designation = $this->input->post("designation");
 						             $password    = $this->input->post("password");
 						             $Committee    = $this->input->post("Committee");
-						             $Committee = implode (",", $Committee);									            
+						             $Committee = is_array($Committee) ? implode (",", $Committee) : '';           
 						             $this ->User->update($id,$name,$email,$Committee,$designation,$password);
 									 echo "<script>alert('User Updated Succesfully');</script>";
 									 $this->load->view('Admin/Partial/header');

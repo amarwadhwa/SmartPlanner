@@ -23,7 +23,7 @@
          <th scope="col">Name</th>
          <th scope="col">Designation</th>
          <th scope="col">Member of following Committees </th>
-         <th scope="col">Update/Delete</th>                   
+         <th scope="col">Update/Remove</th>                   
          </tr>
          </thead>
          <tbody>
@@ -39,7 +39,7 @@
             echo "<td>".$row->designation."</td>";
             echo "<td>".$row->commitee_id."</td>";
             
-            echo "<td><button type='submit' formaction=/SmartPlanner/AddUsers/?user_id=$row->id name = 'submit' value = $row->id class='btn btn-primary'>Edit</button>&nbsp&nbsp<button type='submit' formaction=/SmartPlanner/AddUsers/cancel?engage_id=$row->id name = 'submit' value = $row->id class='btn btn-primary'>Delete</button></td>";
+            echo "<td><button type='submit' formaction=/SmartPlanner/AddUsers/?user_id=$row->id name = 'submit' value = $row->id class='btn btn-primary'>Edit</button>&nbsp&nbsp<button  type='submit' formaction=/SmartPlanner/ViewUsers/deleteUser?user_id=$row->id name = 'submit' value = $row->id class='btn btn-primary'>Remove</button></td>";
             echo "</tr>"; 
 
           }

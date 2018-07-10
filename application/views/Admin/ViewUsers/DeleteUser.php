@@ -9,11 +9,10 @@
                          
                           
                           $id = $row->id;                          
-                          $password = $row->password;
                           $name = $row->name;
                           $designation = $row->designation;
                           $commitee_id = $row->commitee_id;
-                          $email = $row->email;            
+                          $email = $row->email;     
                         
                           }
 
@@ -32,36 +31,32 @@
                <h2 class="page-header">Please Confirm </h2>
             </div>
             <!-- /.col-lg-12 -->
-            <form onsubmit="return RemoveMsg(this)" action="<?php echo base_url('AddPermenentEngagesUser/removeEngage')?>" method="post" role="form">
+            <form onsubmit="return RemoveMsg(this)" action="<?php echo base_url('ViewUsers/deleteUser/deleteUser')?>" method="post" role="form">
          </div>
          <table class="table table-bordered" >
-         <label><h3>Engage Description: <?php  if (isset($description)){echo $description;} ?></h3></label>
+         <label><h3>Name: <?php  if(isset($name)){echo $name;} ?></h3></label>
           <thead>
           <tr style="background-color:LightGrey" >
-         <th scope="col">Day</th>
-         <th scope="col">Start Time</th>
-         <th scope="col">End Time</th>
-         <th scope="col">Engage Type</th>
+         <th scope="col">ID</th>
+         <th scope="col">Designation</th>
+         <th scope="col">Committee id</th>
+         <th scope="col">Email</th>
          </tr>  
          </thead>
           <tbody>
             
             <?php
 
-                   $startTime = date('g:i a', strtotime($startTimeST));
-                   $endTime = date('g:i a', strtotime($endTimeST));
-                   if(!isset($startTime)){ $startDateTime = "";}
-                   if(!isset($endTime)){ $endDateTime = "";}
-
-
+                
+                  
 
                   echo "<tr>";
                   
                       
-                  if(isset($day)){echo "<td>".$day."</td>";}            
-                  if(isset($startTimeST)){echo "<td >".$startTime."</td>";}
-                  if(isset($endTimeST)){echo "<td >".$endTime."</td>";}
-                  if(isset($engage_type)){echo "<td >".$engage_type."</td>";}
+                  if(isset($id)){echo "<td>".$id."</td>";}
+                  if(isset($designation)){echo "<td >".$designation."</td>";}
+                  if(isset($commitee_id)){echo "<td >".$commitee_id."</td>";}
+                  if(isset($email)){echo "<td >".$email."</td>";}
 
                   echo "</tr>";
 
@@ -70,9 +65,9 @@
          </tbody>
          </table>
          <div>
-         <input type="hidden" value=<?php if(isset($engage_id)){ echo "$engage_id"; } ?> name="engage_id" />
+         <input type="hidden" value=<?php if(isset($id)){ echo "$id"; } ?> name="user_id" />
          
-         <h5>Note: You are about to remove the Above engage. Confirm?  
+         <h5>Note: You are about to remove the Above User. Confirm?  
           
           <p align="right">
           <input type="submit"  class='btn btn-secondary' name="insert" value="Yes, Remove " />
@@ -97,7 +92,7 @@
 <script type="text/javascript">
 function RemoveMsg(){
   
-  window.alert("Engage Removed Successfully");
+  window.alert("User Removed Successfully");
   return true;   
 
   
