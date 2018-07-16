@@ -48,6 +48,7 @@ class AddRoom extends CI_Controller {
 										
 									$class_id = rand(111111111,999999999);		
 									$class_name =  $this->input->post("room_name");
+									$class_name = str_replace(' ', '_', $class_name);
 						 			$added_by = "admin";								
 									$this ->Classess->save($class_id,$class_name,$added_by);
 									 echo "<script>alert('Room Added Succesfully');</script>";

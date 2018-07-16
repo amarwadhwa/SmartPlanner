@@ -1,12 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class User extends CI_Controller {
+class BusyRooms extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
-	 *
-	 * Maps to the following URL
+	 * Maps to the following URL Hello
 	 * 		http://example.com/index.php/welcome
 	 *	- or -
 	 * 		http://example.com/index.php/welcome/index
@@ -18,31 +17,26 @@ class User extends CI_Controller {
 	 * map to /index.php/welcome/<method_name>
 	 * @see https://codeigniter.com/user_guide/general/urls.html
 	 */
+
 	public function session_check(){
 
-	if(!isset($_SESSION["user-type"]) && $_SESSION["user-type"] != "user"){
+		if(!isset($_SESSION["user-type"]) && $_SESSION["user-type"] != "admin"){
 		redirect("Login");
+		}
 	}
-	}
-	public function index($s = "today")
+	
+	public function index()
 	{
-
-		$this->session_check();
-		$data['ShowMeetings'] = $s;
-		$this->load->view('User/Partial/header');
-		$this->load->view('User/DashBoard/home',$data);
-		$this->load->view('User/Partial/footer');
 		
-
-	}
-
-	public function getUsers()
-	{
-		$this->load->model('Meetings');
-		$data = $this->Meetings->view_users();
-		echo  json_encode($data["records"]);
-	}
-	
+		$this->session_check();
+		$this->load->view('Admin/Partial/header');
+		$this->load->view('Admin/Room/busyRooms');
+		$this->load->view('Admin/Partial/footer');
+		
+	}		
 	
 
+	
+	
+	
 }

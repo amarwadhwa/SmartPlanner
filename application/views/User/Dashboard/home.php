@@ -154,16 +154,16 @@
                      <i class="fa fa-bar-chart-o fa-fw"></i>Todays Meetings/Personal Engages
                      <div class="pull-right">
                         <div class="btn-group">
-                           <!--<button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
+                           <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                            Actions
                            <span class="caret"></span>
-                           </button>-->
+                           </button>
                            <ul class="dropdown-menu pull-right" role="menu">
-                              <li><a href="#">Todays Meetings </a>
+                              <li><a href="<?php echo base_url('User/index/today');?>">Todays Meetings </a>
                               </li>
-                              <!--<li><a href="#">Todays Engages/Classes</a>-->
+                              <li><a href="<?php echo base_url('User/index/weekly');?>">Weekly Meetings</a>
                               </li>
-                              <!--<li><a href="#">Monthly Meetings</a>-->
+                              <li><a href="<?php echo base_url('User/index/monthly');?>">Monthly Meetings</a>
                               </li>
                               <li class="divider"></li>
                               <li><a href="#">Todays Engages/Classes</a>
@@ -192,9 +192,25 @@
                                  <?php
                                  $t=time()+(60*60*3);                                 
                                  $today =  date("Y-m-d",$t);
-                                 $startDay = $today." 00:00:00"; ;
-                                 $tillToday= $today." 23:59:59";                                                                   
-                                 $query = $this->db->query("SELECT * FROM temporary_engages WHERE user_id = '".$_SESSION["id"]."' AND (start_time >= '".$startDay."' AND start_time <= '".$tillToday."')");
+                                 $start = $today." 00:00:00"; 
+                                
+                                 if($ShowMeetings=='today'){
+                                    $end=$today." 23:59:59";  
+                                 }
+                                 else if($ShowMeetings=='weekly'){
+                                    $end=date('Y-m-d H:i:s', strtotime($start. ' + 7 days'));
+                                    
+                                 }
+                                 else{
+                                    $end=date('Y-m-d H:i:s', strtotime($start. ' + 30 days'));
+                                       
+                                    }
+                                 
+
+
+
+
+                                 $query = $this->db->query("SELECT * FROM temporary_engages WHERE user_id = '".$_SESSION["id"]."' AND (start_time >= '".$start."' AND start_time <= '".$end."')");
                                  
 
                                  foreach ($query->result() as $row) {                 
