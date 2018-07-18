@@ -58,6 +58,19 @@ class initiateMeeting extends CI_Controller {
 		$this->load->view('User/Partial/footer');		
 	}
 
+
+	public function meetingDetails()
+	{
+		$this->session_check();
+		$this->load->model('Committee');
+		$data['Committies'] = $this->Committee->view_all();
+		$this->load->view('User/Partial/header');
+		$this->load->view('User/Partial/timedateheader');
+		$this->load->view('User/InitiateMeeting/meetingDetails',$data);
+		$this->load->view('User/Partial/footer');
+	}
+
+
 	public function edit()
 	{
 		$this->load->view('welcome_message');

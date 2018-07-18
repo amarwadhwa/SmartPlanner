@@ -32,7 +32,7 @@
                            ?>
 
                            </div>
-                           <div>Initiate Meeting</div>
+                           <div>Initiated Meetings</div>
                         </div>
                      </div>
                   </div>
@@ -58,8 +58,7 @@
 
                                  $t=time()+(60*60*3);
                                  $currentTime =  date("Y-m-d H:i:s",$t);
-
-                              $query = $this->db->query("SELECT * FROM temporary_engages WHERE user_id = '".$_SESSION["id"]."' AND start_time > ('$currentTime')");
+                              $query = $this->db->query("SELECT * FROM temporary_engages WHERE user_id = '".$_SESSION["id"]."' AND start_time > '".$currentTime."'");
                                    $num = $query->num_rows();
                                     echo $num;?></div>
                            <div>View Meetings</div>
@@ -89,8 +88,7 @@
 
                                  $t=time()+(60*60*3);
                                  $currentDay =  date("l",$t);
-
-                              $query = $this->db->query("SELECT * FROM permanent_engages WHERE user_id = '".$_SESSION["id"]."' AND day = ('$currentDay')");
+                              $query = $this->db->query("SELECT * FROM permanent_engages WHERE user_id = '".$_SESSION["id"]."' AND day = '".$currentDay."'");
                                     $num = $query->num_rows();
                                     echo $num;
 
@@ -122,9 +120,8 @@
                            <div class="huge"><?php 
                               
                               $t=time()+(60*60*3)+(60*30);
-                              $t=time()+(60*60*3)+(60*30)-(60*60*24*30*12);
                               $currentTime =  date("Y-m-d H:i:s",$t);
-                              $query = $this->db->query("SELECT * FROM meeting_logs WHERE Initiater_id = '".$_SESSION["id"]."' AND start_time > ('$currentTime')" );
+                              $query = $this->db->query("SELECT * FROM meeting_logs WHERE Initiater_id = '".$_SESSION["id"]."' AND start_time > '".$currentTime."'" );
                                  $num = $query->num_rows();
                                   echo $num;  
                            ?>
@@ -161,24 +158,29 @@
                            <ul class="dropdown-menu pull-right" role="menu">
                               <li><a href="<?php echo base_url('User/index/today');?>">Todays Meetings </a>
                               </li>
+                              <li class="divider"></li>
                               <li><a href="<?php echo base_url('User/index/weekly');?>">Weekly Meetings</a>
                               </li>
+                              <li class="divider"></li>
                               <li><a href="<?php echo base_url('User/index/monthly');?>">Monthly Meetings</a>
                               </li>
-                              <li class="divider"></li>
-                              <li><a href="#">Todays Engages/Classes</a>
-                              </li>
+                              
+                              
                            </ul>
                         </div>
                      </div>
                   </div>
                   <!-- /.panel-heading -->
-                  <div class="panel-body">
+                  <div class="panel-body ">
                      <div class="row">
                         <div class="col-lg-12">
-                           <div class="table-responsive">
-                              <table class="table table-bordered table-hover table-striped">
-                                 <thead>
+                           <div class="table-responsive " >
+                              <table  class="table table-bordered table-hover table-striped" >
+                                 <thead >
+                                    <tr>
+                                       <th  border = "0" bgcolor="#D5D5D9">Meetups</th>
+                                       
+                                    </tr>
                                     <tr>
                                        <th>Meeting Title</th>
                                        <th>Initiater Name</th>
@@ -242,7 +244,7 @@
                               <table class="table table-bordered table-hover table-striped">
                                  <thead >
                                     <tr>
-                                       <th border = "0">Todays Engages</th>
+                                       <th border = "0" bgcolor="#D5D5D9">Engages/Classes</th>
                                     
                                     </tr>
                                     <tr>

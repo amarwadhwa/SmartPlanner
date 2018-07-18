@@ -1,7 +1,7 @@
 
 <?php
                     if(isset($_GET["meeting_id"]))
-    {                    echo $_GET["meeting_id"];
+    {                    //echo $_GET["meeting_id"];
                          $meeting_id = $_GET["meeting_id"];      
                          $query = $this->db->query("SELECT * FROM meeting_logs WHERE id = '".$meeting_id."'" );
                            if($query->num_rows() >0){                          

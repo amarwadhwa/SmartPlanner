@@ -105,6 +105,38 @@ class My_Meeting extends CI_Controller {
 		echo "";
 	}
 
+	public function checkBusyClasses()
+	{
+		$start_time =  strtotime($_POST["start_date"] . " ". $_POST["start_time"]);
+		$start_timestamp =  date('Y-m-d H:i:s', $start_time);
+		$startDay = date('l', $start_time);
+		$end_time =  strtotime($_POST["end_time"] . " ". $_POST["end_date"]);
+		$end_timestamp =  date('Y-m-d H:i:s', $end_time);
+		$endDay = date('l',$end_time);
+		$startDate =  strtotime("2000-01-01" . " ". $_POST["start_time"]);
+		$endDate = strtotime("2000-01-01" . " ". $_POST["end_date"]);
+		$startDateTimestamp = date('Y-m-d H:i:s', $startDate);
+		$endDateTimestamp = date('Y-m-d H:i:s', $endDate);
+		$query = $this->db->get("classess"); 
+        foreach ($query->result() as $class) {
+		$id =$class->class_id;
+		$query = $this->db->query("SELECT * FROM busy_classes WHERE class_id = '".$id."' AND (start_time BETWEEN '".$startDateTimestamp."' AND '".$endDateTimestamp."' OR end_time BETWEEN '".$startDateTimestamp."' AND '".$endDateTimestamp."' ) AND (day = '".$endDay."' OR day = '".$startDay."')");
+			if($query->num_rows() !=0){
+				foreach($query->result() as $busy_class){
+					$desc = $busy_class->added_by;
+					echo "<option value='".$id."'>".$class->class_name.$desc."</option>";	
+				}
+						        
+			}
+
+			}
+		echo "";
+	}
+
+
+
+
+
 	public function index()
 	{
 		$this->session_check();

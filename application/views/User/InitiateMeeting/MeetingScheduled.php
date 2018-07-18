@@ -7,9 +7,18 @@ $end_time =  strtotime($_POST["end_date"] . " ". $_POST["end_time"]);
 $end_timestamp =  date('Y-m-d H:i:s', $end_time);
 
 
+$data = array( 
+      'class_id' => $_POST["selected_class"], 
+    'start_time' =>$start_timestamp,
+    'end_time'  =>$end_timestamp,
+    'description' => $_POST["description"]); 
+    $this->db->insert("exrta_busy_classes", $data);
 
+$query = $this->db->query("SELECT class_name FROM classess WHERE class_id = '".$_POST["selected_class"]."'");
 
-
+foreach ($query->result() as $row) {
+    $class_name = $row->class_name;
+}
 
 echo $_POST["title"];
 echo $_POST["description"];
@@ -26,9 +35,11 @@ $data = array(
 		'committee_id' =>$stringCommettee,
 		'start_time' =>$start_timestamp,
 		'end_time'  =>$end_timestamp,
-		'description' => $_POST["description"]); 
+		'description' => $_POST["description"],
+    'venue'=>$class_name); 
 		$this->db->insert("meeting_logs", $data);
 		$lastIdMeetingLog =  $this->db->insert_id();
+
 
 
 
@@ -150,8 +161,8 @@ foreach ($users as $user) {
                 Guests :  <br>
                 Start time: <?php echo $_POST["start_time"]." ".$_POST["start_date"];?> <br>
                 End time:<?php echo $_POST["end_date"] . " ". $_POST["end_time"];?> <br>
-                Description:<?php echo $_POST["description"]; ?>
-           
+                Description:<?php echo $_POST["description"]; ?> <br>
+                Venue: <?php echo $_POST["selected_class"]; ?>
          
 
          

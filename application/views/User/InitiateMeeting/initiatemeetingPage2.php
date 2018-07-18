@@ -25,6 +25,8 @@ if(isset($_SESSION["endTimeStamp"]) && ($_POST["editCheck"]=="submit")){
                 document.getElementById("txtHint").innerHTML = this.responseText;
                 document.getElementById("ScheduleAnyway").disabled = false;
                 if (this.responseText != "") {document.getElementById("ScheduleAnyway").innerHTML = "Schedule Anyway"; }
+                else { document.getElementById("ScheduleAnyway").innerHTML = "Schedule Meeting"; 
+                    }
               }
         };
         xmlhttp.open("POST", "http://localhost/SmartPlanner/My_Meeting/checkConflict", true);
@@ -39,6 +41,18 @@ if(isset($_SESSION["endTimeStamp"]) && ($_POST["editCheck"]=="submit")){
         };
         xmlhttpForSelect.open("POST", "http://localhost/SmartPlanner/My_Meeting/checkFreeClasses", true);
         xmlhttpForSelect.send(new FormData (oFormElement));
+
+
+        var xmlhttpForBusy = new XMLHttpRequest();
+        xmlhttpForBusy.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                document.getElementById("busy_class").innerHTML = this.responseText;
+              }
+              
+        };
+        xmlhttpForBusy.open("POST", "http://localhost/SmartPlanner/My_Meeting/checkBusyClasses", true);
+        xmlhttpForBusy.send(new FormData (oFormElement));
+
         return false;
 }
 
@@ -101,6 +115,12 @@ function submitClick(){
                                         <select class="form-control" id="sel_class" name="selected_class">
                                           
                                         </select>
+                                        <br>
+                                        <label for="sel2">Busy Venues :</label>
+                                        <select class="form-control" id="busy_class" name="selected_busy_class">
+                                          
+                                        </select>
+
                                  </div>
                                   <script type="text/javascript" src="datepair.js"></script>
                                   <script type="text/javascript" src="jquery.datepair.js"></script>

@@ -6,26 +6,28 @@
       <div id="page-wrapper">
          <div class="row">
             <div class="col-lg-12">
-               <h2 class="page-header">Upcoming Scheduled Meetings Status</h2>
+               <h3 class="page-header">Upcoming Scheduled Meetings</h3>
             </div>
             <!-- /.col-lg-12 -->
             <form action="<?php echo base_url('schduleMeeting/edit')?>" method="post" role="form">
          </div>
-         <table class="table table-bordered" >
+        
+         <table style="font-size: 12px;"class="table table-bordered" >
             
          <thead>
          <tr style="background-color:LightGrey" >
          
          <th scope="col">Meeting Title </th>
-         <th scope="col">Committees Invited</th>
-         <th scope="col">Guests Accepted/Pending Invitation</th>
+         <th scope="col">Committee Invited</th>
+         
+         
          <th scope="col">Initiated Time</th>
          <th scope="col">Start Time</th>
          <th scope="col">End Time</th>
          <th scope="col">Description</th>
          <th scope="col">Edit</th>
          <th scope="col">Cancel</th>
-       
+        <th scope="col">Meeting Details</th>
          </tr>
          </thead>
          <tbody>
@@ -75,21 +77,31 @@
             echo "<tr>";
            // echo "<td>".$row->id."</td>";
             echo "<td width=12%>".$row->title."</td>";            
-            echo "<td width=20%>".$commetteesString."</td>";
-            echo "<td >".$guestString."</td>";
-            echo "<td width=13%>".$initiatedTime."</td>";            
-            echo "<td width=12%>".$startDateTime."</td>";
-            echo "<td width=12%>".$endDateTime."</td>";
+            echo "<td width=12%>".$commetteesString."</td>";
+            //echo "<td >".$guestString."</td>";
+            echo "<td >".$initiatedTime."</td>";            
+            echo "<td>".$startDateTime."</td>";
+            echo "<td >".$endDateTime."</td>";
             echo "<td>".$row->description."</td>";
-            echo "<td><button type='submit' formaction=/SmartPlanner/initiateMeeting/?meeting_id=$row->id class='btn btn-secondary'>Edit</button></td>";
-            echo "<td><button type='submit' formaction=/SmartPlanner/SchduleMeeting/cancel?meeting_id=$row->id class='btn btn-secondary'>Cancel</button></td>";
+            echo "<td><button type='submit' formaction=/SmartPlanner/initiateMeeting/?meeting_id=$row->id class='btn btn-primary'  >Edit</button></td>";
+            echo "<td><button type='submit' formaction=/SmartPlanner/SchduleMeeting/cancel?meeting_id=$row->id class='btn btn-danger'>Cancel</button></td>";
+            echo "<td><button type='submit' formaction=/SmartPlanner/initiateMeeting/meetingDetails/?meeting_id=$row->id class='btn btn-success'>View Details</button></td>";
             echo "</tr>";
             }
           }?>   
          </tbody>
          </table>
+         </font>
          </form>
          <!-- /#page-wrapper -->
       </div>
    </body>
 </html>
+
+<script>
+document.getElementById("myBtn").addEventListener("click", displayDate);
+
+function displayDate() {
+    alert("done");
+}
+</script>
