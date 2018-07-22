@@ -17,9 +17,9 @@
             <!-- /.col-lg-12 -->
             <form action="<?php echo base_url('schduleMeeting/edit')?>" method="post"role="form">
          </div>
-         <table class="table table-bordered">
+         <table style="font-size: 12px;" class="table table-bordered">
          <thead>
-         <tr>
+         <tr style="background-color:LightGrey">
          <th scope="col">Day</th>
          <th scope="col">Description</th>
          <th scope="col">Start time</th>
@@ -52,12 +52,16 @@
                      if($day==$i){
                         $startTime  = date('g:i a', strtotime($row->start_time));
                         $endTime  =   date('g:i a', strtotime($row->end_time));
-                        echo "<tr>";                        
+                        
+                        echo "<tr >";                        
                         echo "<td>".$row->day."</td>";
                         echo "<td>".$row->description."</td>";
                         echo "<td>".$startTime."</td>";
                         echo "<td>".$endTime."</td>";
-                        echo "<td>".$row->engage_type."</td>";
+                        if($row->engage_type=="class"){
+                          echo "<td style=background-color:lightblue  >".$row->engage_type."</td>";}
+                       else{
+                          echo "<td>".$row->engage_type."</td>";}
                         echo "<td><button type='submit' formaction=/SmartPlanner/AddPermenentEngagesUser/?engage_id=$row->id name = 'submit' value = $row->id class='btn btn-primary'>Edit</button>&nbsp&nbsp<button type='submit' formaction=/SmartPlanner/AddPermenentEngagesUser/cancel?engage_id=$row->id name = 'submit' value = $row->id class='btn btn-primary'>Delete</button></td>";
                         echo "</tr>";
                      }

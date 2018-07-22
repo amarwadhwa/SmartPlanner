@@ -14,7 +14,7 @@
 
           <input type="hidden" name="editMode" value="on">
 
-         <table class="table table-bordered" >
+         <table style="font-size: 12px;"  class="table table-bordered" >
             
          <thead>
          <tr style="background-color:LightGrey" >

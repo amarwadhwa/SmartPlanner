@@ -40,8 +40,13 @@ class schduleMeeting extends CI_Controller {
 
 	public function cancel()
 	{
+
+		$this->session_check();
+		$this->load->model('Committee');
+		$data['Committies'] = $this->Committee->view_all();
+
 		$this->load->view('User/Partial/header');
-		$this->load->view('User/SchduleMeeting/cancelmeeting');
+		$this->load->view('User/SchduleMeeting/cancelmeeting',$data);
 		$this->load->view('User/Partial/footer');
 		$this->session_check();
 
@@ -60,7 +65,7 @@ class schduleMeeting extends CI_Controller {
 
 	public function deleteMeeting()
 	{
-		
+		$this->session_check();
 		if(isset($_POST["meeting_id"])){
 
 				//$meeting_id  = "'class'";
@@ -75,7 +80,7 @@ class schduleMeeting extends CI_Controller {
 		$this->load->view('User/Partial/header');
 		$this->load->view('User/SchduleMeeting/schdulemeeting');
 		$this->load->view('User/Partial/footer');
-		$this->session_check();
+		
 
 
 

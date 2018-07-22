@@ -1,53 +1,35 @@
 <?php
-
-
                     if(isset($_GET["meeting_id"]))
-    {                    $meeting_id = $_GET["meeting_id"];      
+    {                    
+                         $meeting_id = $_GET["meeting_id"];      
                          $query = $this->db->query("SELECT * FROM meeting_logs WHERE id = '".$meeting_id."'" );
-                          if($query->num_rows() >0){                          
+                          if($query->num_rows()>0){                          
                           foreach ($query->result() as $row) {                           
-                         
-                          
-                          $title = $row->title;                          
-                          $initiatedTime = $row->time;
-                          $startTimeST = $row->start_time;
-                          $endTimeST = $row->end_time;
+                          $title = $row->title;
+                          $initiated_time = date('M-d-Y g:ia l', strtotime($row->time));
                           $description = $row->description;
-                          
-
-                          $commetteesString = ""; 
+                          $commety  =$row->committee_id;
                           $commArray = explode(',', $row->committee_id);
-                          foreach($commArray as $comm_Array){               
-                          $comQuery = $this->db->query("SELECT name FROM committees WHERE id = '".$comm_Array."'");  
-                          $result = $comQuery->result();
-                            if(isset($result[0]->name)){
-                            $commetteesString .=$result[0]->name."<br>";
-                            }
-                          }          
 
-
-                          $guestString = "";    
-                          $guest = $this->db->query("SELECT user_id FROM temporary_engages WHERE meeting_id = '".$meeting_id."'"); 
-                          $guestresult = $guest->result();               
                           
-                          foreach ($guestresult as $guest_result) {
-                            $guestStringQuery = $this->db->query("SELECT name FROM users WHERE id = '".$guest_result->user_id."'"); 
-                            $guestStringQuery = $guestStringQuery->result();
-                            
-                            if(isset($guestStringQuery[0]->name)){
-                              $guestString .=$guestStringQuery[0]->name."-".$guest_result->user_id."<br>";
-                            }                  
-                            
-                            
+                                    $count = count($Committies["records"]);
+                                    for($i=0; $i <$count; $i++){
+                                 
+                                                foreach ($commArray as $comm_Array) {
+                                                    if($comm_Array==$Committies["records"][$i]->id ){ 
+                                                      $commety = $Committies["records"][$i]->name ; 
+                                                    }
+                                                }
+                                    }
+                          $start_time = date('M-d-Y g:ia l', strtotime($row->start_time));
+                          $end_time = date('M-d-Y g:ia l', strtotime($row->end_time));                        
                           }
+                        }
 
+                       
 
-                          }
-
-         }
     }
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -56,93 +38,128 @@
       <div id="page-wrapper">
          <div class="row">
             <div class="col-lg-12">
-               <h2 class="page-header">Please Confirm </h2>
+               <h2 class="page-header">Meeting Details</h2>
             </div>
+
             <!-- /.col-lg-12 -->
             <form onsubmit="return CancelMsg(this)" action="<?php echo base_url('schduleMeeting/deleteMeeting')?>" method="post" role="form">
+
          </div>
-         <table class="table table-bordered" >
-         <label><h3>Meeting Title: <?php  if (isset($title)){echo $title;} ?></h3></label>
-          <thead>
-          <tr style="background-color:LightGrey" >
-         <th scope="col">Committees Invited</th>
-         <th scope="col">Guests Accepted/Pending Invitation</th>
-         <th scope="col">Initiated Time</th>
-         <th scope="col">Start Time</th>
-         <th scope="col">End Time</th>
-         <th scope="col">Description</th> 
-         </tr>  
-         </thead>
-          <tbody>
+        
+         <table style="font-size: 12px;" class="table table-bordered" >
             
-            <?php
+         <thead>
+         <tr style="background-color:LightGrey" >
+         
+        <th scope="col">Meeting Details</th>
+         </tr>
+         </thead>
+         <tbody>
+         <?php
 
-                   $startDateTime = date('M-d-Y g:ia l', strtotime($startTimeST));
-                   $endDateTime = date('M/d/Y g:ia l', strtotime($endTimeST));
-                    $initiatedTimeNew = date('M-d-Y g:ia l', strtotime($initiatedTime));
-                   if(!isset($startDateTime)){ $startDateTime = "";}
-                   if(!isset($endDateTime)){ $endDateTime = "";}
-                   if(!isset($initiatedTimeNew)){ $initiatedTimeNew = "";}
 
+            echo "<tr>";         
+            echo "<td width=12%  >Title</td>";            
+            echo "<td width=12% >".$title."</td>";
+            echo "</tr>";
+            
+            echo "<tr>";
+            echo "<td width=12%>Committee Invited</td>";            
+            echo "<td width=12% >".$commety."</td>";
+            echo "</tr>";
 
+            echo "<tr>";
+            echo "<td width=12%>Initiated Time</td>";            
+            echo "<td width=12% >".$initiated_time."</td>";
+            echo "</tr>";
 
-                  echo "<tr>";
-                  // echo "<td>".$row->id."</td>";
-                  
-                  if(isset($commetteesString)){echo "<td >".$commetteesString."</td>";}
-                  if(isset($guestString)){echo "<td width=30%>".$guestString."</td>";}
-                  if(isset($initiatedTime)){echo "<td width=12%>".$initiatedTimeNew."</td>";}            
-                  if(isset($startTimeST)){echo "<td width=11%>".$startDateTime."</td>";}
-                  if(isset($endTimeST)){echo "<td width=11%>".$endDateTime."</td>";}
-                  if(isset($description)){echo "<td>".$description."</td>";}
+            echo "<tr>";
+            echo "<td width=12%>Start Time</td>";            
+            echo "<td width=12% >".$start_time."</td>";
+            echo "</tr>";
 
-                  echo "</tr>";
+            echo "<tr>";
+            echo "<td width=12%>End Time</td>";            
+            echo "<td width=12% >".$end_time."</td>";
+            echo "</tr>";
 
-            ?>
+            echo "<tr>";
+            echo "<td width=12%>Description</td>";            
+            echo "<td width=12% >".$description."</td>";
+            echo "</tr>";
 
+            
+            
+          ?>   
          </tbody>
          </table>
-          <input type="hidden" value=<?php if(isset($meeting_id)){ echo "$meeting_id"; } ?> name="meeting_id" />
-         <div>
          
-         
-         <h5>Note: You are about to cancel the Above meeting, Meeting status will be sent to each participant. Confirm?  
-          
-          <p align="right">
-          <input type="submit"  class='btn btn-secondary' name="insert" value="Yes, Cancel " />
-          </p>
-        </h5>
-          </div>
 
+         <table style="font-size: 12px;"class="table table-bordered" >    
           
+          <label>Meeting Participants</label>
+         <thead>
+
+         
+         <tr style="background-color:LightGrey" >       
+         <th scope="col">Name</th>
+         <th scope="col">Invitation Status</th>
+         <th scope="col">Reason</th>
+         </tr>
+         </thead>
+         <tbody>
+         <?php
+                   $query = $this->db->query("SELECT name,status,reason FROM temporary_engages INNER JOIN users ON temporary_engages.user_id = users.id WHERE temporary_engages.meeting_id = '".$meeting_id."'" );
+                        
+                        foreach ($query->result() as $row) {                           
+                          $name = $row->name;
+                          $status = $row->status;
+                          $reason = $row->reason;
+                          echo "<tr>";
+                          echo "<td >".$name."</td>";
+                          echo "<td >".$status."</td>";            
+                          echo "<td>".$reason."</td>";
+                          echo "</tr>";
+                        }
             
+          ?>   
+         </tbody>
+         </table>
+
+         
+          
+
+          <input type="hidden" value=<?php if(isset($meeting_id)){ echo "$meeting_id"; } ?> name="meeting_id" />
+         
+         
+          <label>Note: You are about to cancel the Above meeting, Meeting status will be sent to each participant. Confirm?  
+        </label>
+     <h6>
+     <button float-right type='submit' formaction=/SmartPlanner/SchduleMeeting/ class='btn btn-primary btn pull-left'>Back</button>  
+    <input type="submit"  class='btn btn-danger btn pull-right' name="insert" value="Yes, Cancel " />     
+         </h6>
+          
+        
+          
+<br>
+<br>
+          
+<br>
+<br>      
+<br>
+  
+
+
+
 
          </form>
-
-
-
-
          <!-- /#page-wrapper -->
       </div>
    </body>
 </html>
 
-
 <script type="text/javascript">
-  /*function showHint(oFormElement) {
-        var xmlhttp = new XMLHttpRequest();
-        xmlhttp.onreadystatechange = function() {
-            if (this.readyState == 4 && this.status == 200) {
-                document.getElementById("txtHint").innerHTML = this.responseText;
-                document.getElementById("ScheduleAnyway").disabled = false;
-                if (this.responseText != "") {document.getElementById("ScheduleAnyway").innerHTML = "Schedule Anyway"; }
-              }
-        };
-        xmlhttp.open("POST", "http://localhost/SmartPlanner/My_Meeting/checkConflict", true);
-        xmlhttp.send(new FormData (oFormElement));
-        return false;
-  }*/
-
+  
 function CancelMsg(){
   
   window.alert("Meeting Canceled Successfully");

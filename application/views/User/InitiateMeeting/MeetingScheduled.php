@@ -7,11 +7,21 @@ $end_time =  strtotime($_POST["end_date"] . " ". $_POST["end_time"]);
 $end_timestamp =  date('Y-m-d H:i:s', $end_time);
 
 
+$query = $this->db->query("SELECT name FROM users WHERE id = '".$_SESSION['id']."'");
+
+foreach ($query->result() as $row) {
+    $reserved_by = $row->name;
+}
+
+
+
+
 $data = array( 
       'class_id' => $_POST["selected_class"], 
     'start_time' =>$start_timestamp,
     'end_time'  =>$end_timestamp,
-    'description' => $_POST["description"]); 
+    'description' => $_POST["description"],
+    'reserved_by'=> $reserved_by); 
     $this->db->insert("exrta_busy_classes", $data);
 
 $query = $this->db->query("SELECT class_name FROM classess WHERE class_id = '".$_POST["selected_class"]."'");
@@ -19,9 +29,6 @@ $query = $this->db->query("SELECT class_name FROM classess WHERE class_id = '".$
 foreach ($query->result() as $row) {
     $class_name = $row->class_name;
 }
-
-echo $_POST["title"];
-echo $_POST["description"];
 
 
 $users = $_SESSION["users"];
@@ -153,20 +160,116 @@ foreach ($users as $user) {
                <h2 class="page-header">Meeting scheduled successfully</h2>
             </div>
             <!-- /.col-lg-12 -->
-            
+            <form action="<?php echo base_url('initiateMeeting/index')?>" method="post" role="form">
+
          </div>
-         <div><h4>Meeting Details</h4></div>
-                Meeting Title : <?php echo $_POST["title"]; ?><br>
-                Committees Invited : <?php echo "$stringCommettee" ; ?> <br>
-                Guests :  <br>
-                Start time: <?php echo $_POST["start_time"]." ".$_POST["start_date"];?> <br>
-                End time:<?php echo $_POST["end_date"] . " ". $_POST["end_time"];?> <br>
-                Description:<?php echo $_POST["description"]; ?> <br>
-                Venue: <?php echo $_POST["selected_class"]; ?>
+         
          
 
          
-         <!-- /#page-wrapper -->
+    
+
+      <table style="font-size: 12px;"class="table table-bordered" >
+            
+         <thead>
+         <tr style="background-color:LightGrey" >
+         
+        <th scope="col">Meeting Details</th>
+         </tr>
+         </thead>
+         <tbody>
+         <?php
+                    $count = count($Committies["records"]);
+                                    for($i=0; $i <$count; $i++){
+                                 
+                                                foreach ($_SESSION["commetties"] as $comm_Array) {
+                                                    if($comm_Array==$Committies["records"][$i]->id ){ 
+                                                      $commety= $Committies["records"][$i]->name ; 
+                                                      break;
+                                                    }
+                                                }
+                                    }
+
+
+
+            echo "<tr>";         
+            echo "<td width=12%  >Title</td>";            
+            echo "<td width=12% >".$_POST["title"]."</td>";
+            echo "</tr>";
+            
+
+            echo "<tr>";
+            echo "<td width=12%>Committee Invited</td>";            
+            echo "<td width=12% >".$commety."</td>";
+            echo "</tr>";
+            
+            $start = date('d-M-Y g:ia l', $start_time);
+            $end = date('d-M-Y g:ia l', $end_time);
+            echo "<tr>";
+            echo "<td width=12%>Start Time</td>";            
+            echo "<td width=12% >".$start."</td>";
+            echo "</tr>";
+
+            echo "<tr>";
+            echo "<td width=12%>End Time</td>";            
+            echo "<td width=12% >".$end."</td>";
+            echo "</tr>";
+
+            echo "<tr>";
+            echo "<td width=12%>Description</td>";            
+            echo "<td width=12% >".$_POST["description"]."</td>";
+            echo "</tr>";
+
+            echo "<tr>";
+            echo "<td width=12%>Venue</td>";            
+            echo "<td width=12% >".$class_name."</td>";
+            echo "</tr>";
+            
+          ?>   
+         </tbody>
+         </table>
+         
+
+         <table style="font-size: 12px;"class="table table-bordered" >    
+          
+          <label>Meeting Participants</label>
+         <thead>
+
+         
+         <tr style="background-color:LightGrey" >       
+         <th scope="col">Name</th>
+         <th scope="col">Designation</th>
+         
+         </tr>
+         </thead>
+         <tbody>
+         <?php
+                   
+                        
+                        foreach ($users as $user) {                           
+                          
+                          echo "<tr>";
+                          echo "<td >".$user->name."</td>";
+                          echo "<td >".$user->designation."</td>";
+                          echo "</tr>";
+                        }
+            
+          ?>   
+         </tbody>
+         </table>
+
+         
+          <button float-right type='submit' class='btn btn-primary btn pull-right'>Back</button>
+          <br>
+          <br>
+          <br>
+          <br>
+          <br>
+
+            </form>
+
       </div>
+
+
    </body>
 </html>

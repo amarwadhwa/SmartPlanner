@@ -14,7 +14,7 @@
 
           <input type="hidden" name="editMode" value="on">
 
-         <table class="table table-bordered" >
+         <table style="font-size: 12px;"  class="table table-bordered" >
             
          <thead>
          <tr style="background-color:LightGrey" >
@@ -30,14 +30,30 @@
            
            <?php
            $count = 0;
+           $queryCom = $this->db->query("SELECT * FROM committees" );
+           $all_committess = $queryCom->result();
+
            $query = $this->db->query("SELECT * FROM users " );
            foreach ($query->result() as $row) {
+                $comm_Array = explode(',', $row->commitee_id);
+                $committees = "";     
+                foreach ($comm_Array as $commArray) {
+                    foreach ($all_committess as $comm_name) {
+                      if($comm_name->id==$commArray){
+                          $committees.=$comm_name->name."<br>";
+                          break;  
+                      }
+                    }
+                }
+
+
             echo "<tr>";
             echo "<td>".++$count."</td>";
             echo "<td>".$row->id."</td>";
             echo "<td>".$row->name."</td>";
             echo "<td>".$row->designation."</td>";
-            echo "<td>".$row->commitee_id."</td>";
+            echo "<td>".$committees."</td>";
+
             
             echo "<td><button type='submit' formaction=/SmartPlanner/AddUsers/?user_id=$row->id name = 'submit' value = $row->id class='btn btn-primary'>Edit</button>&nbsp&nbsp<button  type='submit' formaction=/SmartPlanner/ViewUsers/deleteUser?user_id=$row->id name = 'submit' value = $row->id class='btn btn-primary'>Remove</button></td>";
             echo "</tr>"; 

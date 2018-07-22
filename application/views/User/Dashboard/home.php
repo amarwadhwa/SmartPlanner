@@ -175,7 +175,7 @@
                      <div class="row">
                         <div class="col-lg-12">
                            <div class="table-responsive " >
-                              <table  class="table table-bordered table-hover table-striped" >
+                              <table style="font-size: 12px;" class="table table-bordered table-hover table-striped" >
                                  <thead >
                                     <tr>
                                        <th  border = "0" bgcolor="#D5D5D9">Meetups</th>
@@ -241,7 +241,7 @@
                                  </tbody>
                               </table>
 
-                              <table class="table table-bordered table-hover table-striped">
+                              <table style="font-size: 12px;" class="table table-bordered table-hover table-striped">
                                  <thead >
                                     <tr>
                                        <th border = "0" bgcolor="#D5D5D9">Engages/Classes</th>
