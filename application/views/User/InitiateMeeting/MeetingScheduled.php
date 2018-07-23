@@ -49,15 +49,48 @@ $data = array(
 
 
 
+     $count = count($Committies["records"]);
+                                    for($i=0; $i <$count; $i++){
+                                 
+                                                foreach ($_SESSION["commetties"] as $comm_Array) {
+                                                    if($comm_Array==$Committies["records"][$i]->id ){ 
+                                                      $commety= $Committies["records"][$i]->name ; 
+                                                      break;
+                                                    }
+                                                }
+                                    }
+
+$start = date('d-M-Y g:ia l', $start_time);
+$end = date('d-M-Y g:ia l', $end_time);
+
 
 $busyUsers = array();
 $freeUsers[] = array();
 foreach ($users as $user) {
 	$id =$user->id;
-	$query = $this->db->query("SELECT * FROM temporary_engages WHERE user_id = '".$id."' AND (start_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."' OR end_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."' )");
+	$query = $this->db->query("SELECT * FROM temporary_engages WHERE user_id = '".$id."' AND (start_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."' OR end_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."')");
+
+
+  $TableData = "";
+                        foreach ($users as $user) {                           
+                          
+                          $TableData .= '<tr><td >'.$user->name.'</td><td >'.$user->designation.'</td></tr>'; 
+                          
+                        }
+
 
 	if($query->num_rows() >0){
 	$busyUsers[] = $user;	
+        $details ="";
+
+      foreach ($query->result() as $userDetails) {
+            
+
+          $startTime = date('d-M-Y g:ia l', strtotime($userDetails->start_time));
+          $endTime =   date('d-M-Y g:ia l', strtotime($userDetails->end_time));
+          $details.= '<tr><td>'.$userDetails->description.'</td><td>'.$startTime.'</td><td>'.$endTime.'</td></tr>';
+      }
+
 
 		$data = array( 
    		'meeting_id' =>  $lastIdMeetingLog,
@@ -72,6 +105,24 @@ foreach ($users as $user) {
 
 		echo "$acceptLink <br> <br>";
 		echo "$rejectLink <br> <br>";
+
+    //Extra Content Karan
+
+
+
+                        
+
+                            
+
+
+
+
+    //End Extra Content
+
+
+
+
+
 
 
 			// mail for busy users...
@@ -89,8 +140,81 @@ foreach ($users as $user) {
             $mail->addReplyTo('no-reply@SmartPlanner.com', 'No Reply');
             $mail->isHTML(true);                                  // Set email format to HTML
 
-            $mail->Subject = 'Meeting Scheduled';
+            $mail->Subject = 'Meeting Invitation';
+            //$email->header =  "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>";
             $mail->Body    = 'Here is meeting details<b> <h1> Options </h1> <br> <br> <a href="'.$acceptLink.'"> Interested</a> <br> <br> <a href="'. $rejectLink.'">Not Interested </a>';
+
+            $mail->Body = "You are invited for the meeting, Meeting schedule is bieng conflicted with your current schedule.<br>Your scheduled engage: <br><table border='1'>
+        <thead>
+        <tr><th>Conflict Details</th></tr>
+        <tr><th>Description</th><th>Start Time</th><th>End Time</th></tr>
+        </thead>
+        <tbody>".$details."
+         
+        </tbody>
+        </table><br><br>
+            <table style='font-size: 12px'; class='table table-bordered' >
+            
+         <thead>
+         <tr style='background-color:LightGrey'>
+        <th scope='col'>Meeting Details</th>
+         </tr>
+         </thead>
+         <tbody>
+         <tr>         
+            <td width=12% >Title</td>            
+            <td width=12% >".$_POST["title"]."</td>;
+            </tr>;
+            
+
+            <tr>
+            <td width=12%>Committee Invited.</td>            
+            <td width=12% >".$commety."</td>
+            </tr>
+            
+            
+            <tr>
+            <td width=12%>Start Time</td>            
+            <td width=12% >".$start."</td>
+            </tr>
+
+            <tr>
+            <td width=12%>End Time</td>            
+            <td width=12% >".$end."</td>
+            </tr>
+
+            <tr>
+            <td width=12%>Description</td>            
+            <td width=12% >".$_POST['description']."</td>
+            </tr>
+
+            <tr>
+            <td width=12%>Venue</td>            
+            <td width=12% >".$class_name."</td>
+            </tr>
+            
+             
+         </tbody>
+         </table>
+         
+
+         <table style='font-size: 12px;' class='table table-bordered' >    
+          
+          <label>Meeting Participants</label>
+         <thead>
+
+         
+         <tr style='background-color:LightGrey' >       
+         <th scope='col'>Name</th>
+         <th scope='col'>Designation</th>
+         
+         </tr>
+         </thead>
+         <tbody>".$TableData.          
+         "</tbody>
+         </table>";  
+
+
 
             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
@@ -118,6 +242,10 @@ foreach ($users as $user) {
 		echo "$rejectLink <br> <br>";
 
 
+
+
+
+
 		// mail for free users..
 
 
@@ -134,8 +262,71 @@ foreach ($users as $user) {
             $mail->addReplyTo('no-reply@SmartPlanner.com', 'No Reply');
             $mail->isHTML(true);                                  // Set email format to HTML
 
-            $mail->Subject = 'Meeting Scheduled';
+            $mail->Subject = 'Meeting Invitation';
             $mail->Body    = 'Here is meeting details<b> <h1> Options </h1> <br> <br> <a href="'.$acceptLink.'"> Interested</a> <br> <br> <a href="'. $rejectLink.'">Not Interested </a>';
+            
+            $mail->Body = "You are invited for the Meeting, Below are the Meeting Details.<br>
+        </table><br><br>
+            <table style='font-size: 12px'; class='table table-bordered' >
+            
+         <thead>
+         <tr style='background-color:LightGrey'>
+        <th scope='col'>Meeting Details</th>
+         </tr>
+         </thead>
+         <tbody>
+         <tr>         
+            <td width=12% >Title</td>            
+            <td width=12% >".$_POST["title"]."</td>;
+            </tr>;
+            
+
+            <tr>
+            <td width=12%>Committee Invited.</td>            
+            <td width=12% >".$commety."</td>
+            </tr>
+            
+            
+            <tr>
+            <td width=12%>Start Time</td>            
+            <td width=12% >".$start."</td>
+            </tr>
+
+            <tr>
+            <td width=12%>End Time</td>            
+            <td width=12% >".$end."</td>
+            </tr>
+
+            <tr>
+            <td width=12%>Description</td>            
+            <td width=12% >".$_POST['description']."</td>
+            </tr>
+
+            <tr>
+            <td width=12%>Venue</td>            
+            <td width=12% >".$class_name."</td>
+            </tr>
+            
+             
+         </tbody>
+         </table>
+         
+
+         <table style='font-size: 12px;' class='table table-bordered' >    
+          
+          <label>Meeting Participants</label>
+         <thead>
+
+         
+         <tr style='background-color:LightGrey' >       
+         <th scope='col'>Name</th>
+         <th scope='col'>Designation</th>
+         
+         </tr>
+         </thead>
+         <tbody>".$TableData.          
+         "</tbody>
+         </table>"; 
 
             $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
 
