@@ -265,7 +265,11 @@ foreach ($users as $user) {
             $mail->Subject = 'Meeting Invitation';
             $mail->Body    = 'Here is meeting details<b> <h1> Options </h1> <br> <br> <a href="'.$acceptLink.'"> Interested</a> <br> <br> <a href="'. $rejectLink.'">Not Interested </a>';
             
-            $mail->Body = "You are invited for the Meeting, Below are the Meeting Details.<br>
+            $mail->Body = "
+            <head>
+            <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css' integrity='sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B' crossorigin='anonymous'></head>
+
+            You are invited for the Meeting, Below are the Meeting Details.<br>
         </table><br><br>
             <table style='font-size: 12px'; class='table table-bordered' >
             
