@@ -167,7 +167,8 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 
 </style></head>You are invited for the following meeting, Meeting schedule is bieng conflicted with your current schedule. Below ar the Details.<br><br>Meeting scheduled Conflict with: <br><br>
-        <table border='1'>
+        <div style='overflow-x:auto;'>
+        <table>
         <thead>
         <tr><th>Conflict Details</th></tr>
         <tr><th>Description</th><th>Start Time</th><th>End Time</th></tr>
@@ -175,9 +176,11 @@ tr:nth-child(even) {background-color: #f2f2f2;}
         <tbody>".$details."
          
         </tbody>
-        </table><br><br>
-            <table style='font-size: 12px'; class='table table-bordered' >
-            
+
+        </table>
+        </div>
+        <br><br>
+        <table>
          <thead>
          <tr style='background-color:LightGrey'>
         <th scope='col'>Meeting Details</th>
@@ -185,35 +188,33 @@ tr:nth-child(even) {background-color: #f2f2f2;}
          </thead>
          <tbody>
          <tr>         
-            <td width=12% >Title</td>            
-            <td width=12% >".$_POST["title"]."</td>;
-            </tr>;
-            
-
+            <td>Title</td>            
+            <td>".$_POST["title"]."</td>
+            </tr>
             <tr>
-            <td width=12%>Committee Invited.</td>            
-            <td width=12% >".$commety."</td>
+            <td>Committee Invited.</td>            
+            <td>".$commety."</td>
             </tr>
             
             
             <tr>
-            <td width=12%>Start Time</td>            
-            <td width=12% >".$start."</td>
+            <td>Start Time</td>            
+            <td>".$start."</td>
             </tr>
 
             <tr>
-            <td width=12%>End Time</td>            
-            <td width=12% >".$end."</td>
+            <td>End Time</td>            
+            <td>".$end."</td>
             </tr>
 
             <tr>
-            <td width=12%>Description</td>            
-            <td width=12% >".$_POST['description']."</td>
+            <td>Description</td>            
+            <td>".$_POST['description']."</td>
             </tr>
 
             <tr>
-            <td width=12%>Venue</td>            
-            <td width=12% >".$class_name."</td>
+            <td>Venue</td>            
+            <td>".$class_name."</td>
             </tr>
             
              
