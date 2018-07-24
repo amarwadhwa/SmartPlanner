@@ -141,7 +141,15 @@ foreach ($users as $user) {
             $mail->isHTML(true);                                  // Set email format to HTML
 
             $mail->Subject = 'Meeting Invitation';
-            //$email->header =  "<link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css'>";
+            $email->header =  "@import 'bootstrap-sprockets';
+@import 'bootstrap/variables';
+@import 'bootstrap/mixins';
+@import 'bootstrap/scaffolding';
+@import 'bootstrap/type';
+@import 'bootstrap/buttons';
+@import 'bootstrap/alerts';
+@import 'bootstrap/normalize';
+@import 'bootstrap/tables';";
             $mail->Body    = 'Here is meeting details<b> <h1> Options </h1> <br> <br> <a href="'.$acceptLink.'"> Interested</a> <br> <br> <a href="'. $rejectLink.'">Not Interested </a>';
 
             $mail->Body = "You are invited for the meeting, Meeting schedule is bieng conflicted with your current schedule.<br>Your scheduled engage: <br><table border='1'>
