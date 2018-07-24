@@ -153,6 +153,7 @@ table {
 th, td {
     text-align: left;
     padding: 8px;
+
 }
 
 tr:nth-child(even){background-color: #f2f2f2}
@@ -161,6 +162,10 @@ th {
     background-color: #4CAF50;
     color: white;
 }
+tr:hover {background-color: #f5f5f5;}
+tr:nth-child(even) {background-color: #f2f2f2;}
+
+
 </style></head>You are invited for the following meeting, Meeting schedule is bieng conflicted with your current schedule. Below ar the Details.<br><br>Meeting scheduled Conflict with: <br><br>
         <table border='1'>
         <thead>
