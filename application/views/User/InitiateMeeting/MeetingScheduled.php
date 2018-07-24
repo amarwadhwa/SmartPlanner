@@ -161,7 +161,8 @@ th {
     background-color: #4CAF50;
     color: white;
 }
-</style></head>You are invited for the meeting, Meeting schedule is bieng conflicted with your current schedule.<br>Your scheduled engage: <br><table border='1'>
+</style></head>You are invited for the following meeting, Meeting schedule is bieng conflicted with your current schedule. Below ar the Details.<br><br>Meeting scheduled Conflict with: <br><br>
+        <table border='1'>
         <thead>
         <tr><th>Conflict Details</th></tr>
         <tr><th>Description</th><th>Start Time</th><th>End Time</th></tr>
@@ -215,15 +216,15 @@ th {
          </table>
          
 
-         <table style='font-size: 12px;' class='table table-bordered' >    
+         <table>    
           
           <label>Meeting Participants</label>
          <thead>
 
          
-         <tr style='background-color:LightGrey' >       
-         <th scope='col'>Name</th>
-         <th scope='col'>Designation</th>
+         <tr>       
+         <th>Name</th>
+         <th>Designation</th>
          
          </tr>
          </thead>
