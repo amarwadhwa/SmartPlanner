@@ -144,7 +144,24 @@ foreach ($users as $user) {
             //$email->header =  "";
             $mail->Body    = 'Here is meeting details<b> <h1> Options </h1> <br> <br> <a href="'.$acceptLink.'"> Interested</a> <br> <br> <a href="'. $rejectLink.'">Not Interested </a>';
 
-            $mail->Body = "You are invited for the meeting, Meeting schedule is bieng conflicted with your current schedule.<br>Your scheduled engage: <br><table border='1'>
+            $mail->Body = "<head><style>
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+</style></head>You are invited for the meeting, Meeting schedule is bieng conflicted with your current schedule.<br>Your scheduled engage: <br><table border='1'>
         <thead>
         <tr><th>Conflict Details</th></tr>
         <tr><th>Description</th><th>Start Time</th><th>End Time</th></tr>
