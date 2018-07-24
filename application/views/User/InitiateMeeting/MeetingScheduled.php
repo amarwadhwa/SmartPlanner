@@ -267,7 +267,7 @@ iframe {
 }
 
 .table100 .ps__rail-y .ps__thumb-y::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   background-color: #cccccc;
