@@ -159,7 +159,7 @@ th, td {
 tr:nth-child(even){background-color: #f2f2f2}
 
 th {
-    background-color: #4CAF50;
+    background-color: #D3D3D3;
     color: white;
 }
 tr:hover {background-color: #f5f5f5;}
@@ -182,8 +182,8 @@ tr:nth-child(even) {background-color: #f2f2f2;}
         <br><br>
         <table>
          <thead>
-         <tr style='background-color:LightGrey'>
-        <th scope='col'>Meeting Details</th>
+         <tr >
+        <th >Meeting Details</th>
          </tr>
          </thead>
          <tbody>
