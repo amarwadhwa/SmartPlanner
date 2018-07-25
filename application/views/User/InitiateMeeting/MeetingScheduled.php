@@ -145,6 +145,11 @@ foreach ($users as $user) {
             $mail->Body    = 'Here is meeting details<b> <h1> Options </h1> <br> <br> <a href="'.$acceptLink.'"> Interested</a> <br> <br> <a href="'. $rejectLink.'">Not Interested </a>';
 
             $mail->Body = "<head><style>
+
+table, th, td {
+    border: 1px solid black;
+}
+            
 table {
     border-collapse: collapse;
     width: 100%;
@@ -159,8 +164,8 @@ th, td {
 tr:nth-child(even){background-color: #f2f2f2}
 
 th {
-    background-color: #D3D3D3;
-    color: white;
+    background-color: #000000 ;
+    color: black;
 }
 tr:hover {background-color: #f5f5f5;}
 tr:nth-child(even) {background-color: #f2f2f2;}
@@ -169,8 +174,8 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 </style></head>You are invited for the following meeting, Meeting schedule is bieng conflicted with your current schedule. Below ar the Details.<br><br>Meeting scheduled Conflict with: <br><br>
         <div style='overflow-x:auto;'>
         <table>
-        <thead>
-        <tr><th>Conflict Details</th></tr>
+        <label>Conflict Details</label>
+        <thead>  
         <tr><th>Description</th><th>Start Time</th><th>End Time</th></tr>
         </thead>
         <tbody>".$details."
@@ -180,11 +185,9 @@ tr:nth-child(even) {background-color: #f2f2f2;}
         </table>
         </div>
         <br><br>
+        <label>Meeting Details</label>
         <table>
          <thead>
-         <tr >
-        <th >Meeting Details</th>
-         </tr>
          </thead>
          <tbody>
          <tr>         
@@ -220,11 +223,9 @@ tr:nth-child(even) {background-color: #f2f2f2;}
              
          </tbody>
          </table>
-         
-
-         <table>    
-          
-          <label>Meeting Participants</label>
+         <br><br>
+         <label>Meeting Participants</label>
+         <table>     
          <thead>
 
          
@@ -298,41 +299,41 @@ tr:nth-child(even) {background-color: #f2f2f2;}
             <table style='font-size: 12px'; class='table table-bordered' >
             
          <thead>
-         <tr style='background-color:LightGrey'>
-        <th scope='col'>Meeting Details</th>
+         <tr>
+        <th >Meeting Details</th>
          </tr>
          </thead>
          <tbody>
          <tr>         
-            <td width=12% >Title</td>            
-            <td width=12% >".$_POST["title"]."</td>;
+            <td >Title</td>            
+            <td >".$_POST["title"]."</td>;
             </tr>;
             
 
             <tr>
-            <td width=12%>Committee Invited.</td>            
-            <td width=12% >".$commety."</td>
+            <td >Committee Invited.</td>            
+            <td >".$commety."</td>
             </tr>
             
             
             <tr>
-            <td width=12%>Start Time</td>            
-            <td width=12% >".$start."</td>
+            <td >Start Time</td>            
+            <td >".$start."</td>
             </tr>
 
             <tr>
-            <td width=12%>End Time</td>            
-            <td width=12% >".$end."</td>
+            <td >End Time</td>            
+            <td >".$end."</td>
             </tr>
 
             <tr>
-            <td width=12%>Description</td>            
-            <td width=12% >".$_POST['description']."</td>
+            <td>Description</td>            
+            <td>".$_POST['description']."</td>
             </tr>
 
             <tr>
-            <td width=12%>Venue</td>            
-            <td width=12% >".$class_name."</td>
+            <td>Venue</td>            
+            <td>".$class_name."</td>
             </tr>
             
              
@@ -340,15 +341,15 @@ tr:nth-child(even) {background-color: #f2f2f2;}
          </table>
          
 
-         <table style='font-size: 12px;' class='table table-bordered' >    
+         <table>    
           
           <label>Meeting Participants</label>
          <thead>
 
          
-         <tr style='background-color:LightGrey' >       
-         <th scope='col'>Name</th>
-         <th scope='col'>Designation</th>
+         <tr >       
+         <th >Name</th>
+         <th >Designation</th>
          
          </tr>
          </thead>
