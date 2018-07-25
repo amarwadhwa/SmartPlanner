@@ -173,27 +173,23 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 </style></head>You are invited for the following meeting, Meeting schedule is bieng conflicted with your current schedule. Below ar the Details.<br><br>Meeting scheduled Conflict with: <br><br>
         <div style='overflow-x:auto;'>
-        <label>Conflict Details</label>
+        <h4>Conflict Details</h4>
         <table>
         
         <thead>  
         <tr><th>Description</th><th>Start Time</th><th>End Time</th></tr>
         </thead>
-        <tbody>".$details."
-         
-        </tbody>
-
+        <tbody>".$details."</tbody>
         </table>
-        </div>
         <br><br>
-        <label>Meeting Details</label>
+        <h4>Meeting Details</h4>
         <table>
          <thead>
          </thead>
          <tbody>
          <tr>         
             <td>Title</td>            
-            <td>".$_POST["title"]."</td>
+            <td>".$_POST['title']."</td>
             </tr>
             <tr>
             <td>Committee Invited.</td>            
@@ -225,7 +221,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
          </tbody>
          </table>
          <br><br>
-         <label>Meeting Participants</label>
+         <h4>Meeting Participants</h4>
          <table>     
          <thead>
 
@@ -238,7 +234,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
          </thead>
          <tbody>".$TableData.          
          "</tbody>
-         </table>";  
+         </table></div>";  
 
 
 
