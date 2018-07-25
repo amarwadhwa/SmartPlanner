@@ -149,7 +149,7 @@ foreach ($users as $user) {
 table, th, td {
     border: 1px solid black;
 }
-            
+
 table {
     border-collapse: collapse;
     width: 100%;
@@ -165,7 +165,7 @@ tr:nth-child(even){background-color: #f2f2f2}
 
 th {
     background-color: #000000 ;
-    color: black;
+    color: white;
 }
 tr:hover {background-color: #f5f5f5;}
 tr:nth-child(even) {background-color: #f2f2f2;}
@@ -173,8 +173,9 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 </style></head>You are invited for the following meeting, Meeting schedule is bieng conflicted with your current schedule. Below ar the Details.<br><br>Meeting scheduled Conflict with: <br><br>
         <div style='overflow-x:auto;'>
-        <table>
         <label>Conflict Details</label>
+        <table>
+        
         <thead>  
         <tr><th>Description</th><th>Start Time</th><th>End Time</th></tr>
         </thead>
