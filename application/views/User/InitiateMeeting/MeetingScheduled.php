@@ -151,7 +151,7 @@ table, th, td {
 
 table {
     border-collapse: collapse;
-    width: 50%;
+    width: 100%;
 }
 
 th, td {
@@ -187,32 +187,32 @@ tr:nth-child(even) {background-color: #f2f2f2;}
          </thead>
          <tbody>
          <tr>         
-            <td background-color: #0000CD;>Title</td>            
+            <td 'background-color: #0000CD;'>Title</td>            
             <td>".$_POST['title']."</td>
             </tr>
             <tr>
-            <td background-color: #0000CD; >Committee Invited.</td>            
+            <td 'background-color: #0000CD;' >Committee Invited.</td>            
             <td>".$commety."</td>
             </tr>
             
             
             <tr>
-            <td background-color: #0000CD; >Start Time</td>            
+            <td 'background-color: #0000CD;' >Start Time</td>            
             <td>".$start."</td>
             </tr>
 
             <tr>
-            <td background-color: #0000CD; >End Time</td>            
+            <td 'background-color: #0000CD;' >End Time</td>            
             <td>".$end."</td>
             </tr>
 
             <tr>
-            <td background-color: #0000CD;>Description</td>            
+            <td 'background-color: #0000CD;'>Description</td>            
             <td>".$_POST['description']."</td>
             </tr>
 
             <tr>
-            <td background-color: #0000CD;>Venue</td>            
+            <td 'background-color: #0000CD;'>Venue</td>            
             <td>".$class_name."</td>
             </tr>
             
@@ -489,3 +489,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
    </body>
 </html>
+
+<?php
+print_r($users);
+?>
