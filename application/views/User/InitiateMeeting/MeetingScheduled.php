@@ -145,14 +145,13 @@ foreach ($users as $user) {
             $mail->Body    = 'Here is meeting details<b> <h1> Options </h1> <br> <br> <a href="'.$acceptLink.'"> Interested</a> <br> <br> <a href="'. $rejectLink.'">Not Interested </a>';
 
             $mail->Body = "<head><style>
-
 table, th, td {
     border: 1px solid black;
 }
 
 table {
     border-collapse: collapse;
-    width: 100%;
+    width: 50%;
 }
 
 th, td {
@@ -173,7 +172,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
 </style></head>You are invited for the following meeting, Meeting schedule is bieng conflicted with your current schedule. Below ar the Details.<br><br>Meeting scheduled Conflict with: <br><br>
         <div style='overflow-x:auto;'>
-        <h4>Conflict Details</h4>
+        <h2>Conflict Details</h2>
         <table>
         
         <thead>  
@@ -182,38 +181,38 @@ tr:nth-child(even) {background-color: #f2f2f2;}
         <tbody>".$details."</tbody>
         </table>
         <br><br>
-        <h4>Meeting Details</h4>
+        <h2>Meeting Details</h2>
         <table>
          <thead>
          </thead>
          <tbody>
          <tr>         
-            <td>Title</td>            
+            <td background-color: #0000CD;>Title</td>            
             <td>".$_POST['title']."</td>
             </tr>
             <tr>
-            <td>Committee Invited.</td>            
+            <td background-color: #0000CD; >Committee Invited.</td>            
             <td>".$commety."</td>
             </tr>
             
             
             <tr>
-            <td>Start Time</td>            
+            <td background-color: #0000CD; >Start Time</td>            
             <td>".$start."</td>
             </tr>
 
             <tr>
-            <td>End Time</td>            
+            <td background-color: #0000CD; >End Time</td>            
             <td>".$end."</td>
             </tr>
 
             <tr>
-            <td>Description</td>            
+            <td background-color: #0000CD;>Description</td>            
             <td>".$_POST['description']."</td>
             </tr>
 
             <tr>
-            <td>Venue</td>            
+            <td background-color: #0000CD;>Venue</td>            
             <td>".$class_name."</td>
             </tr>
             
@@ -221,7 +220,7 @@ tr:nth-child(even) {background-color: #f2f2f2;}
          </tbody>
          </table>
          <br><br>
-         <h4>Meeting Participants</h4>
+         <h2>Meeting Participants</h2>
          <table>     
          <thead>
 
