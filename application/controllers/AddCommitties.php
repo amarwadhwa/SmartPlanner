@@ -28,7 +28,7 @@ class AddCommitties extends CI_Controller {
 	{
 		
 		$this->load->view('Admin/Partial/header');
-		$this->load->view('Admin/Committies/committies');
+		$this->load->view('Admin/Committies/Committies');
 		$this->load->view('Admin/Partial/footer');
 		$this->session_check();
 	}
@@ -53,7 +53,13 @@ class AddCommitties extends CI_Controller {
 
 				$this->load->model("Committee");
 				$this ->Committee->insert_data($data);
-				echo "Commeety Created Successfuly";
+				
+		echo "<script>alert('Committee Created Successfully')</script>";		
+		$this->load->view('Admin/Partial/header');
+		$this->load->view('Admin/Committies/Committies');
+		$this->load->view('Admin/Partial/footer');			
+
+
 		
 		
 		//}			

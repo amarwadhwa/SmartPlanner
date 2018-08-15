@@ -1,6 +1,16 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
+
+<script type='text/javascript' src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script type='text/javascript' src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+<script type='text/javascript' src="https://cdn.datatables.net/1.10.19/js/dataTables.bootstrap.min.js"></script>
+<link  href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<link href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
+  
    </head>
    <body>
       <div id="page-wrapper">
@@ -44,7 +54,7 @@
            $t=time()+(60*60*3);
            $currentTime =  date("Y-m-d H:i:s",$t); 
            
-           $query = $this->db->query("SELECT * from exrta_busy_classes INNER JOIN classess ON exrta_busy_classes.class_id=classess.class_id  WHERE exrta_busy_classes.end_time < '".$currentTime."'");
+           $query = $this->db->query("SELECT * from exrta_busy_classes INNER JOIN classess ON exrta_busy_classes.class_id=classess.class_id  WHERE exrta_busy_classes.end_time > '".$currentTime."'");
                  
           //$query = $this->db->query("SELECT * from exrta_busy_classes WHERE end_time >'".$currentTime."'");
             
@@ -81,7 +91,7 @@
          </tbody>
          </table>
          <br><br>
-         <table style="font-size: 12px;" class="table table-bordered" >
+         <table id="example" style="font-size: 12px;" class="table table-striped table-bordered" >
 
               <h4>Reserved for Classes</h4>
          <thead>
@@ -92,8 +102,7 @@
          <th scope="col">Start Time</th>
          <th scope="col">End Time</th>
          <th scope="col">Added By</th>
-         <th scope="col">Description</th>
-
+         <th scope="col">Instructor Name</th>
          </tr>
          </thead>
          <tbody>
@@ -103,7 +112,8 @@
            <?php
            $count = 0;
 
-           $query = $this->db->query("SELECT * from busy_classes INNER JOIN classess ON busy_classes.class_id=classess.class_id");
+           $query = $this->db->query("SELECT * from busy_classes INNER JOIN classess ON busy_classes.class_id=classess.class_id
+            INNER JOIN users ON busy_classes.description=users.id");
            foreach ($query->result() as $row) {
             $start_time = date('g:i a ', strtotime($row->start_time));
             $end_time = date('g:i a ', strtotime($row->end_time));
@@ -115,7 +125,7 @@
             echo "<td>".$start_time."</td>";
             echo "<td>".$end_time."</td>";
             echo "<td>".$row->added_by."</td>";
-            echo "<td>".$row->description."</td>";
+            echo "<td>".$row->name."</td>";
             
             echo "</tr>"; 
 
@@ -137,3 +147,10 @@
       </div>
    </body>
 </html>
+<script>
+
+$(document).ready(function() {
+    $('#example').DataTable();
+} );
+
+</script>

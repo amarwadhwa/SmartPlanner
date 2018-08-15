@@ -111,7 +111,7 @@ class AddPermenentEngagesUser extends CI_Controller {
     				$this->db->insert("permanent_engages", $data);
 
 
-			echo "<script> alert('P Engage added successfully'); </script>";
+			echo "<script> alert('Engage added successfully'); </script>";
 			}
 			else if($_POST["day"]=="mon-sat"){
 					if(isset($_POST["editCheck"]) && ($_POST["editCheck"]=="edited") ){
@@ -181,7 +181,7 @@ class AddPermenentEngagesUser extends CI_Controller {
     				$this->db->insert("permanent_engages", $data);
 
 
-			echo "<script> alert('P Engage added successfully'); </script>";
+			echo "<script> alert('Engage added successfully'); </script>";
 			}
 
 			else if($_POST["day"]=="selectDay"){

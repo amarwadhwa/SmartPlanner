@@ -42,17 +42,18 @@ class ViewUsers extends CI_Controller {
 
 		if(isset($_POST["user_id"])){
 
+
+
 				//$meeting_id  = "'class'";
 				$id = $_POST["user_id"];   
 				//$this->db->delete("users", "id = ".$id);
 				$this->db->where('id', $id);
-				$this->db->delete("users");
+				$check = $this->db->delete("users");
 				//$this->db->delete("temporary_engages", "meeting_id = ".$meeting_id);
+
 				unset($_POST["user_id"]);
 
-		$this->load->view('Admin/Partial/header');
-		$this->load->view('Admin/ViewUsers/ViewUsers');
-		$this->load->view('Admin/Partial/footer');
+				redirect("ViewUsers");
 
 			
 		}

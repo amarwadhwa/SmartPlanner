@@ -127,7 +127,7 @@
          </table>
 
          
-          <button float-right type='submit' formaction=/SmartPlanner/SchduleMeeting/ class='btn btn-primary btn pull-right'>Back</button>
+          <button float-right type='submit' formaction=/SchduleMeeting/ class='btn btn-primary btn pull-right'>Back</button>
 
 
 

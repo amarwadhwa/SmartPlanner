@@ -2,15 +2,15 @@
   if(($_POST["editCheck"]=="submit") && isset($_SESSION["startTimeStamp"]) ){
   $startDate = date('m/d/Y',strtotime($_SESSION["startTimeStamp"]));
   $startTime = date('g:ia',strtotime($_SESSION["startTimeStamp"]));
-  echo "Data is Posted";
-  
+  $editCheck2 = true;
   
 }
 
 if(isset($_SESSION["endTimeStamp"]) && ($_POST["editCheck"]=="submit")){
   $endDate = date('m/d/Y',strtotime($_SESSION["endTimeStamp"]));
   $endTime = date('g:ia',strtotime($_SESSION["endTimeStamp"]));  
-  echo "Data is Posted";}
+  $editCheck2 = true;
+  }
 
 ?>
 
@@ -29,7 +29,7 @@ if(isset($_SESSION["endTimeStamp"]) && ($_POST["editCheck"]=="submit")){
                     }
               }
         };
-        xmlhttp.open("POST", "http://localhost/SmartPlanner/My_Meeting/checkConflict", true);
+        xmlhttp.open("POST", "http://sibasmartplanner.com/My_Meeting/checkConflict", true);
         xmlhttp.send(new FormData (oFormElement));
        
         var xmlhttpForSelect = new XMLHttpRequest();
@@ -39,7 +39,7 @@ if(isset($_SESSION["endTimeStamp"]) && ($_POST["editCheck"]=="submit")){
               }
               
         };
-        xmlhttpForSelect.open("POST", "http://localhost/SmartPlanner/My_Meeting/checkFreeClasses", true);
+        xmlhttpForSelect.open("POST", "http://sibasmartplanner.com/My_Meeting/checkFreeClasses", true);
         xmlhttpForSelect.send(new FormData (oFormElement));
 
 
@@ -50,7 +50,7 @@ if(isset($_SESSION["endTimeStamp"]) && ($_POST["editCheck"]=="submit")){
               }
               
         };
-        xmlhttpForBusy.open("POST", "http://localhost/SmartPlanner/My_Meeting/checkBusyClasses", true);
+        xmlhttpForBusy.open("POST", "http://sibasmartplanner.com/My_Meeting/checkBusyClasses", true);
         xmlhttpForBusy.send(new FormData (oFormElement));
 
         return false;
@@ -104,21 +104,22 @@ function submitClick(){
                                        <input type="hidden" value="<?php if(isset($_POST["title"])){echo $_POST["title"];}?>" name="title" />
                                        <input type="hidden" value="<?php if(isset($_POST["faculty"])){echo $_POST["faculty"];} ?>" name="faculty" />
                                        <input type="hidden" value="<?php if(isset($_POST["description"])){echo $_POST["description"];} ?>" name="description" />
-                                       
+
+                                <input type="hidden" value="<?php if(isset($editCheck2)){ echo "editEmail"; } ?>" name="editCheck2" />
                                        
                                        <input type="submit" value="Check Availabilty" class="btn btn-default"/>
                                         </form>
                                         <button onclick="submitClick()" value="Schedule Anyway" id="ScheduleAnyway" class="btn btn-default" disabled>Schedule Meeting</button>
                                        
-                                      </p>
-                                        <label for="sel1">Select Venue :</label>
-                                        <select class="form-control" id="sel_class" name="selected_class">
-                                          
+                                    </p>
+                                      <label for="sel1">Free Venue:</label>
+                                      <select class="form-control" id="sel_class" name="selected_class" onchange="changeFuncFree();" >
+                                         <option value="free_venue">Select Venue</option>
                                         </select>
                                         <br>
-                                        <label for="sel2">Busy Venues :</label>
-                                        <select class="form-control" id="busy_class" name="selected_busy_class">
-                                          
+                                        <label for="sel2">Busy Venues:</label>
+                                <select class="form-control" id="busy_class" name="selected_busy_class" onchange="changeFuncBusy();">
+                                          <option value="busy_venue">Select Venue</option>
                                         </select>
 
                                  </div>
@@ -176,7 +177,7 @@ function submitClick(){
                                           <thead> 
                                              <tr style="background-color:LightGrey">
                                                 <th>Meeting Tittle</th>
-                                                <th>Committees Invited</th>
+                                                <th>Committee Invited</th>
                                                 <th>Guests</th>
                                                 <th>Descrition</th>
                                              </tr>
@@ -209,18 +210,22 @@ function submitClick(){
                                                    }
                                                   ?></td>
                                        <td>          <?php 
-                                              
-                                              foreach ($commetties as $commettie) {
+                                              if(isset($commetties)){
+                                                foreach ($commetties as $commettie) {
                                                   foreach ($users["records"] as $user) {
                                                        $user_commetties = explode(",",$user->commitee_id);    
                                                       foreach ($user_commetties as $user_commettie) {
                                                          if ($commettie == $user_commettie) {
                                                              $invited_Users[] = $user;
-                                                             echo $user->name.":".$user->id. "<br>";
+                                                             echo $user->name."<br>";
                                                          }
                                                       }
 
                                                   }
+                                                }
+                                              }else{
+                                                 echo "No Meeting Participants";  
+
                                               } ?>
       </td>
                                             <td> <?php if(isset($_POST["description"])){echo $_POST["description"];} ?></td>
@@ -251,6 +256,23 @@ function submitClick(){
       <!-- /#wrapper -->
    </body>
 </html>
+  
+  <script type="text/javascript">
+
+   function changeFuncFree() {
+    //alert("Free");
+    document.getElementById('busy_class').selectedIndex = 0;
+   }
+
+   function changeFuncBusy() {
+     document.getElementById('sel_class').selectedIndex = 0;
+   }
+
+
+  </script>
+
+
+
 <?php
 
        if(empty($_POST['Committee'])) 
@@ -303,7 +325,7 @@ if(isset($_POST["start_time"])) {
 
 //echo "<br>";
 //echo "<br>";
-
+        if(isset($commetties)){
         foreach ($commetties as $commettie) {
             foreach ($users["records"] as $user) {
                  $user_commetties = explode(",",$user->commitee_id);    
@@ -314,6 +336,9 @@ if(isset($_POST["start_time"])) {
                 }
 
             }
+          }
+        }else{
+
         }
         
        // echo "<br>";
@@ -330,7 +355,13 @@ if(isset($_POST["start_time"])) {
 
 
         $_SESSION["users"] = array_map("unserialize", array_unique(array_map("serialize", $invited_Users)));
-        $_SESSION["commetties"] = $commetties;
+        
+        if(isset($commetties)){
+          $_SESSION["commetties"] = $commetties;
+        }
+        
+        
 
    
    ?>
+

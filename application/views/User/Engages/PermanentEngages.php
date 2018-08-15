@@ -62,7 +62,7 @@
                           echo "<td style=background-color:lightblue  >".$row->engage_type."</td>";}
                        else{
                           echo "<td>".$row->engage_type."</td>";}
-                        echo "<td><button type='submit' formaction=/SmartPlanner/AddPermenentEngagesUser/?engage_id=$row->id name = 'submit' value = $row->id class='btn btn-primary'>Edit</button>&nbsp&nbsp<button type='submit' formaction=/SmartPlanner/AddPermenentEngagesUser/cancel?engage_id=$row->id name = 'submit' value = $row->id class='btn btn-primary'>Delete</button></td>";
+                        echo "<td><button type='submit' formaction=/AddPermenentEngagesUser/?engage_id=$row->id name = 'submit' value = $row->id class='btn btn-primary'>Edit</button>&nbsp&nbsp<button type='submit' formaction=/AddPermenentEngagesUser/cancel?engage_id=$row->id name = 'submit' value = $row->id class='btn btn-primary'>Delete</button></td>";
                         echo "</tr>";
                      }
 

@@ -34,8 +34,8 @@
             <!-- /.col-lg-12 -->
             <form onsubmit="return RemoveMsg(this)" action="<?php echo base_url('AddPermenentEngagesUser/removeEngage')?>" method="post" role="form">
          </div>
-         <table class="table table-bordered" >
-         <label><h3>Engage Description: <?php  if (isset($description)){echo $description;} ?></h3></label>
+         <table style="font-size: 12px;" class="table table-bordered" >
+         <label><h4>Engage Description: <?php  if (isset($description)){echo $description;} ?></h4></label>
           <thead>
           <tr style="background-color:LightGrey" >
          <th scope="col">Day</th>
@@ -72,10 +72,10 @@
          <div>
          <input type="hidden" value=<?php if(isset($engage_id)){ echo "$engage_id"; } ?> name="engage_id" />
          
-         <h5>Note: You are about to remove the Above engage. Confirm?  
+         <h5>Note: You are about to delete an Above engage. Confirm?  
           
           <p align="right">
-          <input type="submit"  class='btn btn-secondary' name="insert" value="Yes, Remove " />
+          <input type="submit"  class='btn btn-primary' name="insert" value="Yes, Delete " />
           </p>
         </h5>
           </div>

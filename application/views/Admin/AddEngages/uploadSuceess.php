@@ -14,7 +14,7 @@ $type  = "'class'";
 $this->db->delete("permanent_engages", "engage_type = ".$type);
 $value = "'program_officer'";
 $this->db->delete("classess", "added_by = ".$value);
-$this->db->delete("busy_classes","added_by = ".$value);
+$this->db->delete("busy_classes", "added_by = ".$value);
 
 $classesParsed = array();
 foreach ($classes->children() as $class) {
@@ -57,6 +57,24 @@ foreach ($subjects->children() as $subject) {
    $subjectsParsed["$id"] = $subject["name"];
 }
 
+foreach ($teachers->children() as $teacher) {
+
+//$teacher["mobile"];
+//$teacher["name"];
+   if ($teacher["mobile"] != "") {
+       $query = $this->db->query("SELECT * FROM users WHERE id = '".$teacher["mobile"]."'");
+            if($query->num_rows() ==0){
+                  $data = array(
+                     'id'=>$teacher["mobile"],
+                     'password'=>$teacher["mobile"],
+                     'name'=>$teacher["name"]);
+                     $this->db->set($data); 
+            $this->db->insert("users", $data);
+            }
+   }
+}
+
+
 $lessonsForTeachers = array();
 $lessonsForSubjects = array();
 foreach ($lessons->children() as $lesson) {
@@ -89,7 +107,6 @@ foreach ($cards->children() as $card) {
    $endtime = $periodsParsed["$periodId"]["endtime"];
    $starttime = $periodsParsed["$periodId"]["starttime"];
        //start_time and end_time are timestamps..Remember 
-
       $engage_type = "class";
       $start_time =  strtotime("01/01/2000 ". $starttime);
       $start_timestamp =  date('Y-m-d H:i:s', $start_time);
@@ -111,10 +128,10 @@ foreach ($cards->children() as $card) {
        'day'=>"$day",
        'start_time'=>"$start_timestamp",
        'end_time'=>"$end_timestamp",
-       'added_by'=>"'program_officer'");
+       'added_by'=>"program_officer",
+      'description'=> "$teacherId");
        $this->db->set($data); 
        $this->db->insert("busy_classes", $data);
-    
    }
 }
 ?>

@@ -83,9 +83,9 @@
             echo "<td>".$startDateTime."</td>";
             echo "<td >".$endDateTime."</td>";
             echo "<td>".$row->description."</td>";
-            echo "<td><button type='submit' formaction=/SmartPlanner/initiateMeeting/?meeting_id=$row->id class='btn btn-primary'  >Edit</button></td>";
-            echo "<td><button type='submit' formaction=/SmartPlanner/SchduleMeeting/cancel?meeting_id=$row->id class='btn btn-danger'>Cancel</button></td>";
-            echo "<td><button type='submit' formaction=/SmartPlanner/initiateMeeting/meetingDetails/?meeting_id=$row->id class='btn btn-success'>View Details</button></td>";
+            echo "<td><button type='submit' formaction=/initiateMeeting/?meeting_id=$row->id class='btn btn-primary'  >Edit</button></td>";
+            echo "<td><button type='submit' formaction=/SchduleMeeting/cancel?meeting_id=$row->id class='btn btn-danger'>Cancel</button></td>";
+            echo "<td><button type='submit' formaction=/initiateMeeting/meetingDetails/?meeting_id=$row->id class='btn btn-success'>View Details</button></td>";
             echo "</tr>";
             }
           }?>   

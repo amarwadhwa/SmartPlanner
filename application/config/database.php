@@ -72,7 +72,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 */
 $active_group = 'smart_planner';
 $query_builder = TRUE;
-
+/*
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
@@ -94,6 +94,7 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+*/
 $db['smart_planner'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
@@ -104,7 +105,7 @@ $db['smart_planner'] = array(
 	'dbprefix' => '',
 	'pconnect' => FALSE,
 	'db_debug' => (ENVIRONMENT !== 'production'),
-	'cache_on' => FALSE,
+	'cache_on' => TRUE,
 	'cachedir' => '',
 	'char_set' => 'utf8',
 	'dbcollat' => 'utf8_general_ci',
@@ -115,8 +116,3 @@ $db['smart_planner'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
-
-
-
-
-

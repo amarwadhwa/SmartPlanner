@@ -30,7 +30,7 @@ class User extends CI_Controller {
 		$this->session_check();
 		$data['ShowMeetings'] = $s;
 		$this->load->view('User/Partial/header');
-		$this->load->view('User/DashBoard/home',$data);
+		$this->load->view('User/Dashboard/home',$data);
 		$this->load->view('User/Partial/footer');
 		
 

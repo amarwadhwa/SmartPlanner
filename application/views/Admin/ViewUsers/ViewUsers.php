@@ -14,15 +14,16 @@
 
           <input type="hidden" name="editMode" value="on">
 
-         <table style="font-size: 12px;"  class="table table-bordered" >
+         <table style="font-size: 12px;" class="table table-striped table-bordered">
             
          <thead>
          <tr style="background-color:LightGrey" >
          <th scope="col">ID</th>
-         <th scope="col">CMS ID </th>
+         <th scope="col">INS-ID </th>
          <th scope="col">Name</th>
          <th scope="col">Designation</th>
-         <th scope="col">Member of following Committees </th>
+         <th scope="col">Email Address</th>
+         <th scope="col">Member of Committee(s)</th>
          <th scope="col">Update/Remove</th>                   
          </tr>
          </thead>
@@ -52,10 +53,20 @@
             echo "<td>".$row->id."</td>";
             echo "<td>".$row->name."</td>";
             echo "<td>".$row->designation."</td>";
+            echo "<td>".$row->email."</td>";
             echo "<td>".$committees."</td>";
 
+            if($row->id=="admin"){
+              echo "<td><button type='submit' formaction=/AddUsers/?user_id=$row->id name = 'submit' value = $row->id class='btn btn-primary'>Edit</button>&nbsp&nbsp<button  type='submit' formaction=/ViewUsers/deleteUser?user_id=$row->id name = 'submit' value = $row->id class='btn btn-primary' disabled>Remove</button></td>";
+  
+            }
+            else{
+              echo "<td><button type='submit' formaction=/AddUsers/?user_id=$row->id name = 'submit' value = $row->id class='btn btn-primary'>Edit</button>&nbsp&nbsp<button  type='submit' formaction=/ViewUsers/deleteUser?user_id=$row->id name = 'submit' value = $row->id class='btn btn-primary'>Remove</button></td>";
+
+            }
+
             
-            echo "<td><button type='submit' formaction=/SmartPlanner/AddUsers/?user_id=$row->id name = 'submit' value = $row->id class='btn btn-primary'>Edit</button>&nbsp&nbsp<button  type='submit' formaction=/SmartPlanner/ViewUsers/deleteUser?user_id=$row->id name = 'submit' value = $row->id class='btn btn-primary'>Remove</button></td>";
+
             echo "</tr>"; 
 
           }

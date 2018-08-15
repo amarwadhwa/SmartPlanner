@@ -50,6 +50,8 @@ class Login extends CI_Controller {
 
 	        	if($row->id=="admin"){
 	        		 $_SESSION["user-type"] = "admin";
+	        		 $_SESSION["id"] = $row->id;
+	        		 $_SESSION["password"] = $row->password;
             		 redirect("Admin");
             		 break;
 

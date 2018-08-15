@@ -30,7 +30,7 @@
                         <form role="form" action="<?php echo base_url('Login/check')?>" method="post">
                             <fieldset>
                                 <div class="form-group">
-                                    <input class="form-control" placeholder="CMS ID" name="email" autofocus required>
+                                    <input class="form-control" placeholder="INS ID" name="email" autofocus required>
                                 </div>
                                 <div class="form-group">
                                     <input class="form-control" placeholder="Password" name="password" type="password" required>

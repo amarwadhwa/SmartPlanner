@@ -9,7 +9,7 @@ if ($oldPass == $userOldPass) {
    unset($_POST['submit']);   
       $data = array('password' => "$newPass");      
          $this->db->set($data); 
-         $this->db->where("id",$userId); 
+         $this->db->where("id",$_SESSION['id']); 
          $this->db->update("users", $data);
         $_SESSION["passwordChange"] = "set";
          redirect("Login");
@@ -64,7 +64,7 @@ else {
                                  <input class="form-control" id = "confirm_password" name = "NewTwo" type="password" required >
                               </div>
                                   
-                              <button type="submit"  name="submit" value = "set" class="btn btn-primary">Submit Button</button>
+                              <button type="submit"  name="submit" value = "set" class="btn btn-primary">Change Password</button>
                               
                            </form> 
                            

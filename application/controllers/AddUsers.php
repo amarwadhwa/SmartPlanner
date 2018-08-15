@@ -66,7 +66,7 @@ class AddUsers extends CI_Controller {
 						             $designation = $this->input->post("designation");
 						             $password    = $this->input->post("password");
 						             $Committee    = $this->input->post("Committee");
-						             $Committee = implode (",", $Committee);									            
+						             if(is_array($Committee)){ $Committee = implode (",", $Committee); }		           
 						             $this ->User->save($name,$email,$id,$Committee,$designation,$password);
 									 echo "<script>alert('User Added Succesfully');</script>";
 									 

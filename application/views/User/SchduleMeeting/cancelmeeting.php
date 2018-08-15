@@ -42,7 +42,7 @@
             </div>
 
             <!-- /.col-lg-12 -->
-            <form onsubmit="return CancelMsg(this)" action="<?php echo base_url('schduleMeeting/deleteMeeting')?>" method="post" role="form">
+            <form action="<?php echo base_url('schduleMeeting/deleteMeeting')?>" method="post" role="form">
 
          </div>
         
@@ -135,8 +135,8 @@
           <label>Note: You are about to cancel the Above meeting, Meeting status will be sent to each participant. Confirm?  
         </label>
      <h6>
-     <button float-right type='submit' formaction=/SmartPlanner/SchduleMeeting/ class='btn btn-primary btn pull-left'>Back</button>  
-    <input type="submit"  class='btn btn-danger btn pull-right' name="insert" value="Yes, Cancel " />     
+     <button float-right type='submit' formaction=/SchduleMeeting/ class='btn btn-primary btn pull-left'>Back</button>  
+    <input type="submit" class='btn btn-danger btn pull-right' name="insert" value="Yes, Cancel " />     
          </h6>
           
         

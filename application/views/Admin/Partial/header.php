@@ -81,31 +81,28 @@
                     <!-- <a href="<?php echo base_url('Admin/index')?>"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>-->
                   </li>
                   <li>
-                     <a href="<?php echo base_url('AddUsers/index')?>"><i class="fa fa-dashboard fa-fw"></i> Users</a>
+                     <a href="<?php echo base_url('AddUsers/index')?>"><i class="fa fa-dashboard fa-fw"></i> Add User</a>
                   </li>
                   <li>
-                     <a href="<?php echo base_url('AddCommitties/index')?>"><i class="fa fa-table fa-fw"></i> Committies</a>
+                     <a href="<?php echo base_url('AddCommitties/index')?>"><i class="fa fa-table fa-fw"></i> Add Committee</a>
                   </li>
                   <li>
-                     <a href="<?php echo base_url('AddEngages/index')?>"><i class="fa fa-table fa-fw"></i> Add Engages</a>
+                     <a href="<?php echo base_url('ViewUsers/index')?>"><i class="fa fa-edit fa-fw"></i> View Users</a>
                   </li>
-                     
                   <li>
-                     <a href="<?php echo base_url('BusyRooms/index')?>"><i class="fa fa-table fa-fw"></i>Busy Rooms</a>
+                     <a href="<?php echo base_url('BusyRooms/index')?>"><i class="fa fa-table fa-fw"></i> View Busy Rooms</a>
+                  </li>
+                  <li>
+                     <a href="<?php echo base_url('Rooms/index')?>"><i class="fa fa-edit fa-fw"></i> Available Rooms</a>
                   </li>
 
                   <li>
                      <a href="<?php echo base_url('AddRoom/index')?>"><i class="fa fa-edit fa-fw"></i> Add Room</a>
                   </li>
                   <li>
-                     <a href="<?php echo base_url('Rooms/index')?>"><i class="fa fa-edit fa-fw"></i>View Rooms</a>
+                     <a href="<?php echo base_url('AddEngages/index')?>"><i class="fa fa-table fa-fw"></i> Add Engages</a>
                   </li>
-                  
-                  <li>
-                     <a href="<?php echo base_url('ViewUsers/index')?>"><i class="fa fa-edit fa-fw"></i>View Members</a>
-                  </li>
-
-
+               
                   <li>
                      <a href="<?php echo base_url('AdminSettings/index')?>"><i class="fa fa-edit fa-fw"></i> Settings</a>
                   </li>

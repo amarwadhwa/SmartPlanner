@@ -12,6 +12,7 @@
                           $_SESSION["startTimeStamp"] = $row->start_time;
                           $_SESSION["endTimeStamp"] = $row->end_time;
                           $editCheck = true;
+                          $_SESSION['deleteMeetingId'] = $_GET["meeting_id"];
                           }
 
          }
@@ -59,7 +60,7 @@
 
                                  <div class="checkbox" >
                                     <label>
-                                    <input  <?php 
+                                    <input required <?php 
                                                 if(isset($commArray)){
                                                 foreach ($commArray as $comm_Array) {
                                                  if($comm_Array==$Committies["records"][$i]->id ){ echo 'checked="checked"'; 

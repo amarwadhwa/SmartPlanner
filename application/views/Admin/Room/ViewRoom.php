@@ -9,7 +9,7 @@
                <h2 class="page-header">Available Rooms</h2>
             </div>
             <!-- /.col-lg-12 -->
-            <form action="" method="post" role="form">
+            <form onsubmit="return RemoveMsg();" action="" method="post" role="form">
          </div>
 
           <input type="hidden" name="editMode" value="on">
@@ -37,7 +37,7 @@
             echo "<td>".$row->class_id."</td>";
             echo "<td>".$row->class_name."</td>";
             
-            echo "<td width='10%'><button  type='submit' formaction=/SmartPlanner/Rooms/delete?room_id=$row->class_name name = 'submit' value = $row->id class='btn btn-primary'>Remove</button></td>";
+            echo "<td width='10%'><button  type='submit' formaction=/Rooms/delete?room_id=$row->class_name name = 'submit' value = $row->id class='btn btn-primary'>Remove</button></td>";
             echo "</tr>"; 
 
           }
@@ -58,3 +58,16 @@
       </div>
    </body>
 </html>
+<script type="text/javascript">
+function RemoveMsg() {
+    
+    var r = confirm("Confirm Removal?");
+    if (r == true) {
+        return true;
+    } else {
+        return false;
+    }
+    
+}
+</script>
+

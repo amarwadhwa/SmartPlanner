@@ -1,370 +1,31 @@
 <?php
-require 'application_resources/PHPMailer/PHPMailerAutoload.php';
-$mail = new PHPMailer;
-$start_time =  strtotime($_POST["start_date"] . " ". $_POST["start_time"]);
-$start_timestamp =  date('Y-m-d H:i:s', $start_time);
-$end_time =  strtotime($_POST["end_date"] . " ". $_POST["end_time"]);
-$end_timestamp =  date('Y-m-d H:i:s', $end_time);
 
-
-$query = $this->db->query("SELECT name FROM users WHERE id = '".$_SESSION['id']."'");
-
-foreach ($query->result() as $row) {
-    $reserved_by = $row->name;
-}
-
-
-
-
-$data = array( 
-      'class_id' => $_POST["selected_class"], 
-    'start_time' =>$start_timestamp,
-    'end_time'  =>$end_timestamp,
-    'description' => $_POST["description"],
-    'reserved_by'=> $reserved_by); 
-    $this->db->insert("exrta_busy_classes", $data);
-
-$query = $this->db->query("SELECT class_name FROM classess WHERE class_id = '".$_POST["selected_class"]."'");
-
-foreach ($query->result() as $row) {
-    $class_name = $row->class_name;
-}
-
-
-$users = $_SESSION["users"];
-
-$stringCommettee = implode(",",$_SESSION["commetties"]);
-
-$data = array( 
-   		'title' => $_POST["title"], 
-        'status' => "scheduled",
-        'initiater_id' => $_SESSION['id'], 
-		'committee_id' =>$stringCommettee,
-		'start_time' =>$start_timestamp,
-		'end_time'  =>$end_timestamp,
-		'description' => $_POST["description"],
-    'venue'=>$class_name); 
-		$this->db->insert("meeting_logs", $data);
-		$lastIdMeetingLog =  $this->db->insert_id();
-
-
-
-     $count = count($Committies["records"]);
-                                    for($i=0; $i <$count; $i++){
-                                 
-                                                foreach ($_SESSION["commetties"] as $comm_Array) {
-                                                    if($comm_Array==$Committies["records"][$i]->id ){ 
-                                                      $commety= $Committies["records"][$i]->name ; 
-                                                      break;
-                                                    }
-                                                }
-                                    }
-
-$start = date('d-M-Y g:ia l', $start_time);
-$end = date('d-M-Y g:ia l', $end_time);
-
-
-$busyUsers = array();
-$freeUsers[] = array();
-foreach ($users as $user) {
-	$id =$user->id;
-	$query = $this->db->query("SELECT * FROM temporary_engages WHERE user_id = '".$id."' AND (start_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."' OR end_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."')");
-
-
-  $TableData = "";
-                        foreach ($users as $user) {                           
-                          
-                          $TableData .= '<tr><td >'.$user->name.'</td><td >'.$user->designation.'</td></tr>'; 
-                          
-                        }
-
-
-	if($query->num_rows() >0){
-	$busyUsers[] = $user;	
-        $details ="";
-
-      foreach ($query->result() as $userDetails) {
-            
-
-          $startTime = date('d-M-Y g:ia l', strtotime($userDetails->start_time));
-          $endTime =   date('d-M-Y g:ia l', strtotime($userDetails->end_time));
-          $details.= '<tr><td>'.$userDetails->description.'</td><td>'.$startTime.'</td><td>'.$endTime.'</td></tr>';
+//echo "<br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br><br>";
+//require 'application_resources/PHPMailer/PHPMailerAutoload.php';
+//$mail            = new PHPMailer();
+$start_time      = strtotime($_POST["start_date"] . " " . $_POST["start_time"]);
+$start_timestamp = date('Y-m-d H:i:s', $start_time);
+$end_time        = strtotime($_POST["end_date"] . " " . $_POST["end_time"]);
+$end_timestamp   = date('Y-m-d H:i:s', $end_time);
+$startDay = date('l', $start_time);
+$endDay = date('l',$end_time);
+$startDate =  strtotime("2000-01-01" . " ". $_POST["start_time"]);
+$endDate = strtotime("2000-01-01" . " ". $_POST["end_date"]);
+$startDateTimestamp = date('Y-m-d H:i:s', $startDate);
+$endDateTimestamp = date('Y-m-d H:i:s', $endDate);
+//$_SESSION['id'] 
+  if(isset($MeetingUpdated)){
+      if($MeetingUpdated=="MeetingUpdated"){
+      $Msg = "Meeting Updated successfully";
       }
 
-
-		$data = array( 
-   		'meeting_id' =>  $lastIdMeetingLog,
-   		'user_id' => $user->id,
-   		'description' => $_POST["description"], 
-		'start_time' =>$start_timestamp,
-		'end_time'  =>$end_timestamp,);
-		$this->db->insert("temporary_engages", $data);
-
-		$acceptLink =  "http://localhost/SmartPlanner/schduleMeeting/setStatus/".$this->db->insert_id()."/accept";
-		$rejectLink =  "http://localhost/SmartPlanner/schduleMeeting/setStatus/".$this->db->insert_id()."/Not Interested";
-
-		echo "$acceptLink <br> <br>";
-		echo "$rejectLink <br> <br>";
-
-    //Extra Content Karan
+  }else{
+      $Msg = "Meeting scheduled successfully";
+  }
 
 
-
-                        
-
-                            
-
-
-
-
-    //End Extra Content
-
-
-
-
-
-
-
-			// mail for busy users...
-		
-            $mail->isSMTP();                                      // Set mailer to use SMTP
-            $mail->Host = 'ssl://smtp.gmail.com';  // Specify main and backup SMTP servers
-            $mail->SMTPAuth = true;                               // Enable SMTP authentication
-            $mail->Username = 'localhostlocal4';                 // SMTP username
-            $mail->Password = '4localhostlocal';                           // SMTP password
-            $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
-            $mail->Port = 465;                                    // TCP port to connect to
-
-            $mail->setFrom('localhostlocal4gmail.com', 'Meeting Scheduled');
-            $mail->addAddress($user->email, $user->name);     // Add a recipient
-            $mail->addReplyTo('no-reply@SmartPlanner.com', 'No Reply');
-            $mail->isHTML(true);                                  // Set email format to HTML
-
-            $mail->Subject = 'Meeting Invitation';
-            //$email->header =  "";
-            $mail->Body    = 'Here is meeting details<b> <h1> Options </h1> <br> <br> <a href="'.$acceptLink.'"> Interested</a> <br> <br> <a href="'. $rejectLink.'">Not Interested </a>';
-
-            $mail->Body = "<head><style>
-table, th, td {
-    border: 1px solid black;
-}
-
-table {
-    border-collapse: collapse;
-    width: 100%;
-}
-
-th, td {
-    text-align: left;
-    padding: 8px;
-
-}
-
-tr:nth-child(even){background-color: #f2f2f2}
-
-th {
-    background-color: #000000 ;
-    color: white;
-}
-tr:hover {background-color: #f5f5f5;}
-tr:nth-child(even) {background-color: #f2f2f2;}
-
-
-</style></head>You are invited for the following meeting, Meeting schedule is bieng conflicted with your current schedule. Below ar the Details.<br><br>Meeting scheduled Conflict with: <br><br>
-        <div style='overflow-x:auto;'>
-        <h2>Conflict Details</h2>
-        <table>
-        
-        <thead>  
-        <tr><th>Description</th><th>Start Time</th><th>End Time</th></tr>
-        </thead>
-        <tbody>".$details."</tbody>
-        </table>
-        <br><br>
-        <h2>Meeting Details</h2>
-        <table>
-         <thead>
-         </thead>
-         <tbody>
-         <tr>         
-            <td 'background-color: #0000CD;'>Title</td>            
-            <td>".$_POST['title']."</td>
-            </tr>
-            <tr>
-            <td 'background-color: #0000CD;' >Committee Invited.</td>            
-            <td>".$commety."</td>
-            </tr>
-            
-            
-            <tr>
-            <td 'background-color: #0000CD;' >Start Time</td>            
-            <td>".$start."</td>
-            </tr>
-
-            <tr>
-            <td 'background-color: #0000CD;' >End Time</td>            
-            <td>".$end."</td>
-            </tr>
-
-            <tr>
-            <td 'background-color: #0000CD;'>Description</td>            
-            <td>".$_POST['description']."</td>
-            </tr>
-
-            <tr>
-            <td 'background-color: #0000CD;'>Venue</td>            
-            <td>".$class_name."</td>
-            </tr>
-            
-             
-         </tbody>
-         </table>
-         <br><br>
-         <h2>Meeting Participants</h2>
-         <table>     
-         <thead>
-
-         
-         <tr>       
-         <th>Name</th>
-         <th>Designation</th>
-         
-         </tr>
-         </thead>
-         <tbody>".$TableData.          
-         "</tbody>
-         </table></div>";  
-
-
-
-            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-            if(!$mail->send()) {
-                echo 'Message could not be sent.';
-                echo 'Mailer Error: ' . $mail->ErrorInfo;
-            } 
-
-	}
-	else {
-		$freeUsers[] = $user;
-
-		$data = array( 
-   		'meeting_id' =>  $lastIdMeetingLog,
-   		'user_id' => $user->id,
-   		'description' => $_POST["description"], 
-		'start_time' =>$start_timestamp,
-		'end_time'  =>$end_timestamp,);
-		$this->db->insert("temporary_engages", $data);
-
-		$acceptLink =  "http://localhost/SmartPlanner/schduleMeeting/setStatus/".$this->db->insert_id()."/accept";
-		$rejectLink =  "http://localhost/SmartPlanner/schduleMeeting/setStatus/".$this->db->insert_id()."/Not Interested";
-
-		echo "$acceptLink <br> <br>";
-		echo "$rejectLink <br> <br>";
-
-
-
-
-
-
-		// mail for free users..
-
-
-            $mail->isSMTP();                                      // Set mailer to use SMTP
-            $mail->Host = 'ssl://smtp.gmail.com';  // Specify main and backup SMTP servers
-            $mail->SMTPAuth = true;                               // Enable SMTP authentication
-            $mail->Username = 'localhostlocal4';                 // SMTP username
-            $mail->Password = '4localhostlocal';                           // SMTP password
-            $mail->SMTPSecure = 'ssl';                            // Enable TLS encryption, `ssl` also accepted
-            $mail->Port = 465;                                    // TCP port to connect to
-
-            $mail->setFrom('localhostlocal4gmail.com', 'Meeting Scheduled');
-            $mail->addAddress($user->email, $user->name);     // Add a recipient
-            $mail->addReplyTo('no-reply@SmartPlanner.com', 'No Reply');
-            $mail->isHTML(true);                                  // Set email format to HTML
-
-            $mail->Subject = 'Meeting Invitation';
-            $mail->Body    = 'Here is meeting details<b> <h1> Options </h1> <br> <br> <a href="'.$acceptLink.'"> Interested</a> <br> <br> <a href="'. $rejectLink.'">Not Interested </a>';
-            
-            $mail->Body = "
-            <head>
-            <link rel='stylesheet' href='https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css' integrity='sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B' crossorigin='anonymous'></head>
-
-            You are invited for the Meeting, Below are the Meeting Details.<br>
-        </table><br><br>
-            <table style='font-size: 12px'; class='table table-bordered' >
-            
-         <thead>
-         <tr>
-        <th >Meeting Details</th>
-         </tr>
-         </thead>
-         <tbody>
-         <tr>         
-            <td >Title</td>            
-            <td >".$_POST["title"]."</td>;
-            </tr>;
-            
-
-            <tr>
-            <td >Committee Invited.</td>            
-            <td >".$commety."</td>
-            </tr>
-            
-            
-            <tr>
-            <td >Start Time</td>            
-            <td >".$start."</td>
-            </tr>
-
-            <tr>
-            <td >End Time</td>            
-            <td >".$end."</td>
-            </tr>
-
-            <tr>
-            <td>Description</td>            
-            <td>".$_POST['description']."</td>
-            </tr>
-
-            <tr>
-            <td>Venue</td>            
-            <td>".$class_name."</td>
-            </tr>
-            
-             
-         </tbody>
-         </table>
-         
-
-         <table>    
-          
-          <label>Meeting Participants</label>
-         <thead>
-
-         
-         <tr >       
-         <th >Name</th>
-         <th >Designation</th>
-         
-         </tr>
-         </thead>
-         <tbody>".$TableData.          
-         "</tbody>
-         </table>"; 
-
-            $mail->AltBody = 'This is the body in plain text for non-HTML mail clients';
-
-            if(!$mail->send()) {
-                echo 'Message could not be sent.';
-                echo 'Mailer Error: ' . $mail->ErrorInfo;
-            } 
-
-
-
-	}
-}
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -373,18 +34,14 @@ tr:nth-child(even) {background-color: #f2f2f2;}
       <div id="page-wrapper">
          <div class="row">
             <div class="col-lg-12">
-               <h2 class="page-header">Meeting scheduled successfully</h2>
+               <h2 class="page-header"><?php echo $Msg; ?></h2>
             </div>
             <!-- /.col-lg-12 -->
-            <form action="<?php echo base_url('initiateMeeting/index')?>" method="post" role="form">
+            <form action="<?php
+echo base_url('initiateMeeting/index');
+?>" method="post" role="form">
 
          </div>
-         
-         
-
-         
-    
-
       <table style="font-size: 12px;"class="table table-bordered" >
             
          <thead>
@@ -394,54 +51,54 @@ tr:nth-child(even) {background-color: #f2f2f2;}
          </tr>
          </thead>
          <tbody>
-         <?php
-                    $count = count($Committies["records"]);
-                                    for($i=0; $i <$count; $i++){
-                                 
-                                                foreach ($_SESSION["commetties"] as $comm_Array) {
-                                                    if($comm_Array==$Committies["records"][$i]->id ){ 
-                                                      $commety= $Committies["records"][$i]->name ; 
-                                                      break;
-                                                    }
-                                                }
-                                    }
+<?php
+$count = count($Committies["records"]);
+for ($i = 0; $i < $count; $i++) {
+    
+    foreach ($_SESSION["commetties"] as $comm_Array) {
+        if ($comm_Array == $Committies["records"][$i]->id) {
+            $commety = $Committies["records"][$i]->name;
+            break;
+        }
+    }
+}
 
 
 
-            echo "<tr>";         
-            echo "<td width=12%  >Title</td>";            
-            echo "<td width=12% >".$_POST["title"]."</td>";
-            echo "</tr>";
-            
+echo "<tr>";
+echo "<td width=12%  >Title</td>";
+echo "<td width=12% >" . $_POST["title"] . "</td>";
+echo "</tr>";
 
-            echo "<tr>";
-            echo "<td width=12%>Committee Invited</td>";            
-            echo "<td width=12% >".$commety."</td>";
-            echo "</tr>";
-            
-            $start = date('d-M-Y g:ia l', $start_time);
-            $end = date('d-M-Y g:ia l', $end_time);
-            echo "<tr>";
-            echo "<td width=12%>Start Time</td>";            
-            echo "<td width=12% >".$start."</td>";
-            echo "</tr>";
 
-            echo "<tr>";
-            echo "<td width=12%>End Time</td>";            
-            echo "<td width=12% >".$end."</td>";
-            echo "</tr>";
+echo "<tr>";
+echo "<td width=12%>Committee Invited</td>";
+echo "<td width=12% >" . $commety . "</td>";
+echo "</tr>";
 
-            echo "<tr>";
-            echo "<td width=12%>Description</td>";            
-            echo "<td width=12% >".$_POST["description"]."</td>";
-            echo "</tr>";
+$start = date('d-M-Y g:ia l', $start_time);
+$end   = date('d-M-Y g:ia l', $end_time);
+echo "<tr>";
+echo "<td width=12%>Start Time</td>";
+echo "<td width=12% >" . $start . "</td>";
+echo "</tr>";
 
-            echo "<tr>";
-            echo "<td width=12%>Venue</td>";            
-            echo "<td width=12% >".$class_name."</td>";
-            echo "</tr>";
-            
-          ?>   
+echo "<tr>";
+echo "<td width=12%>End Time</td>";
+echo "<td width=12% >" . $end . "</td>";
+echo "</tr>";
+
+echo "<tr>";
+echo "<td width=12%>Description</td>";
+echo "<td width=12% >" . $_POST["description"] . "</td>";
+echo "</tr>";
+
+echo "<tr>";
+echo "<td width=12%>Venue</td>";
+echo "<td width=12% >" . $class_name . "</td>";
+echo "</tr>";
+
+?>   
          </tbody>
          </table>
          
@@ -460,17 +117,17 @@ tr:nth-child(even) {background-color: #f2f2f2;}
          </thead>
          <tbody>
          <?php
-                   
-                        
-                        foreach ($users as $user) {                           
-                          
-                          echo "<tr>";
-                          echo "<td >".$user->name."</td>";
-                          echo "<td >".$user->designation."</td>";
-                          echo "</tr>";
-                        }
-            
-          ?>   
+
+$users = $_SESSION["users"];
+foreach ($users as $user) {
+    
+    echo "<tr>";
+    echo "<td >" . $user->name . "</td>";
+    echo "<td >" . $user->designation . "</td>";
+    echo "</tr>";
+}
+
+?>   
          </tbody>
          </table>
 
@@ -489,7 +146,3 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 
    </body>
 </html>
-
-<?php
-print_r($users);
-?>

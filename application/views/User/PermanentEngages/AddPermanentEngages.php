@@ -62,7 +62,7 @@
                             </div>
                       
 
-                      <form action="<?php echo base_url('AddPermenentEngagesUser/index')?>" method="post" role="form">
+                      <form id="myForm" action="<?php echo base_url('AddPermenentEngagesUser/index')?>" method="post" role="form">
 
                             
                             <div>
@@ -73,11 +73,11 @@
                                     <p id="datepairExample"><br>
                                       <label>Time</label> <br>
                                     From
-                                    <input type="text" class="time start" placeholder="Time" name="start_timePerm"  value="<?php
+                                    <input id="s_time" type="text" class="time start" placeholder="Time" name="start_timePerm"  value="<?php
                                       if(isset($startTimePerm)){echo "$startTimePerm";}
 
                                        ?>"  required /> to  
-                                       <input type="text" class="time end" placeholder="Time"   name="end_timePerm" value="<?php
+                                       <input id="e_time" type="text" class="time end" placeholder="Time"   name="end_timePerm" value="<?php
                                       if(isset($endTimeperm)){echo "$endTimeperm";}
 
                                        ?>" required />
@@ -86,7 +86,7 @@
                                         </p>
                                        <div class="form-group">
                                         <br><label>Description</label> 
-                                        <input required class="form-control" value="<?php if(isset($descriptionPerm)){ 
+                                        <input id="desc" required class="form-control" value="<?php if(isset($descriptionPerm)){ 
                                           echo "$descriptionPerm"; }?>" 
                                         name="descriptionPerm"/>
                                  <!-- <p class="help-block">Example block-level help text here.</p> -->
@@ -97,15 +97,15 @@
                                        <label>Day</label><br>
 
                                        <label  class="radio-inline">
-                                          <input required type="radio" name="day" value="daily"  onclick="hide();">Daily
+                                          <input id="radio_id" required type="radio" name="day" value="daily"  onclick="hide();">Daily
                                         </label>
                                         
-                                        <label class="radio-inline">
-                                          <input type="radio" name="day" value="mon-sat" onclick="hide();">Monday-Saturday
+                                        <label  class="radio-inline">
+                                          <input id="radio_id2" type="radio" name="day" value="mon-sat" onclick="hide();">Monday-Saturday
                                         </label>
                                        
                                         <label class="radio-inline">
-                                          <input type="radio" name="day" <?php if(isset($editCheck)){ echo "checked" ; } ?> 
+                                          <input id="radio_id3" type="radio" name="day" <?php if(isset($editCheck)){ echo "checked" ; } ?> 
                                           value="selectDay" onclick="show();">Select Day
                                         </label>
                                       
@@ -130,7 +130,7 @@
                                 <input type="hidden" value="<?php if(isset($editCheck)){ echo "edited"; } ?>" name="editCheck" />
                                 <input type="hidden" value="<?php if(isset($engage_id)){ echo "$engage_id"; } ?>" name="Engage_Id"/>
                                    <input type="submit" name="addPermEng" value="Add Permanent Engage" class="btn btn-primary"/>
-                                  <button type="reset" class="btn btn-primary">Reset Page</button>       
+                                  <button  onclick="myResetFunction()" class="btn btn-primary">Reset Page</button>       
 
                                 </div>
                                   
@@ -146,7 +146,7 @@
                                 </form>
                               </div>
                               <div>
-                           <form action="<?php echo base_url('AddPermenentEngagesUser/index')?>" method="post" role="form">
+                          <form id="myForm2" action="<?php echo base_url('AddPermenentEngagesUser/index')?>" method="post" role="form">
 
                                 <div class="demo"  id="TempEng" style="display: none;" >
                                     <div class="form-group">
@@ -154,16 +154,16 @@
                                     
                                     <p id="datepairExample"><br>
                                       <label>Date and Time</label> <br>
-                                      <input type="text" class="date start" placeholder="Date"  name="start_dateTemp" autocomplete="off" value="<?php
+                                      <input id="d_start" type="text" class="date start" placeholder="Date"  name="start_dateTemp" autocomplete="off" value="<?php
                                       if(isset($startDateTemp)){echo "$startDateTemp";}
 
                                        ?>" required />
                                     From
-                                    <input type="text" class="time start" placeholder="Time" name="start_timeTemp"  value="<?php
+                                    <input id="t_start" type="text" class="time start" placeholder="Time" name="start_timeTemp"  value="<?php
                                       if(isset($startTimeTemp)){echo "$startTime";}
 
                                        ?>"  required /> to  
-                                       <input type="text" class="time end" placeholder="Time"   name="end_timeTemp" value="<?php
+                                       <input id="t_end" type="text" class="time end" placeholder="Time"   name="end_timeTemp" value="<?php
                                       if(isset($endTimeTemp)){echo "$endTime";}
 
                                        ?>" required />
@@ -172,13 +172,13 @@
                                     </p>
                                        <div class="form-group">
                                         <br><label>Description</label> 
-                                        <input required class="form-control" value="<?php if(isset($descriptionTemp)){ echo "$descriptionTemp"; }?>" name="descriptionTemp">
+                                        <input id="desc2"  required class="form-control" value="<?php if(isset($descriptionTemp)){ echo "$descriptionTemp"; }?>" name="descriptionTemp">
                                  <!-- <p class="help-block">Example block-level help text here.</p> -->
                                         </div>
 
                                         <br>
                                        <input type="submit" name="addTempEng" value="Add Temporary Engage" class="btn btn-primary"/>
-                                <button type="reset" class="btn btn-primary">Reset Page</button>
+                                <button onclick="myResetFunction2()" class="btn btn-primary">Reset Page</button>
 
 
                                 </div>
@@ -234,6 +234,27 @@
           document.getElementById('permanentEng').style.display = 'none';
           document.getElementById('TempEng').style.display = 'block'; 
         }
+
+
+function myResetFunction() {
+    document.getElementById("s_time").value = "";
+    document.getElementById("e_time").value = "";
+    document.getElementById("desc").value = "";
+    document.getElementById("radio_id").checked = false;
+    document.getElementById("radio_id2").checked = false;
+    document.getElementById("radio_id3").checked = false;
+}
+
+function myResetFunction2() {
+    document.getElementById("d_start").value = "";
+    document.getElementById("t_start").value = "";
+    document.getElementById("t_end").value = "";
+    document.getElementById("desc2").value = "";
+
+}
+
+
+
 
       </script>
       

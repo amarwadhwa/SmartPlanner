@@ -48,7 +48,7 @@ class Rooms extends CI_Controller {
 				$this->db->where('class_name', $id);
 				$this->db->delete("classess");
 				//$this->db->delete("temporary_engages", "meeting_id = ".$meeting_id);
-				unset($_POST["room_id"]);
+				unset($_GET["room_id"]);
 
 				
 

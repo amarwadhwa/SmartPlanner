@@ -1,3 +1,28 @@
+<?php
+if (isset($_POST['submit']) && $_POST['submit'] == "set") {
+$oldPass = $_SESSION["password"];
+$userOldPass = $_POST["oldPass"];
+$newPass = $_POST["newOne"];
+
+if ($oldPass == $userOldPass) {
+   $_POST['submit'] = "Not Set" ;
+   unset($_POST['submit']);   
+      $data = array('password' => "$newPass");      
+         $this->db->set($data); 
+         $this->db->where("id",$_SESSION['id']); 
+         $this->db->update("users", $data);
+         $_SESSION["passwordChange"] = "set";
+         redirect("Login");
+
+
+}
+else {
+   $_POST['submit'] = "Not Set" ;
+   unset($_POST['submit']); 
+   $error = false;
+   }   
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -20,21 +45,26 @@
                   <div class="panel-body">
                      <div class="row">
                         <div class="col-lg-6">
-                           <form >
+                           <form onSubmit="return validatePassword(this);"  method="post" >
+                              <?php if (isset($error)) {
+                                echo '<font color="RED"> <h5>Invalid Old Password</h5></font>';
+                                 unset($error);                                                                
+                              } ?>
+
                               <div class="form-group">
-                                 <label>Old Password</label>
-                                 <input class="form-control" >
+                                 <label>Enter Old Password</label>
+                                 <input class="form-control" name="oldPass"  type="password" required >
                               </div>
                               <div class="form-group">
-                                 <label>New Password</label>
-                                 <input class="form-control" >
+                                 <label>Enter New Password</label>
+                                 <input class="form-control"  id = "password" name = "newOne"  type="password" required >
                               </div>
                               <div class="form-group">
-                                 <label>Retype New Password</label>
-                                 <input class="form-control" >
+                                 <label>Re-Enter New Password</label>
+                                 <input class="form-control" id = "confirm_password" name = "NewTwo" type="password" required  >
                               </div>
                               <br>
-                              <button type="submit" name="submit" value="meeting "class="btn btn-default">Submit Button</button>
+                              <button type="submit" name="submit" value = "set" class="btn btn-primary">Change Password</button>
                            </form>
                         </div>
                         <!-- /.row (nested) -->
@@ -52,3 +82,28 @@
       <!-- /#wrapper -->
    </body>
 </html>
+<script type="text/javascript">
+
+  var password = document.getElementById("password"),confirm_password = document.getElementById("confirm_password");
+
+function validatePassword(){
+  if(password.value != confirm_password.value) {
+   window.alert("Password does not Matched");   
+    
+    return false;
+  } else {
+   
+    
+    return true;
+  }
+}
+
+</script>
+
+
+
+
+
+
+
+

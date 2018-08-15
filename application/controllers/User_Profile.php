@@ -33,6 +33,28 @@ class user_profile extends CI_Controller {
 
 	}
 
+		public function updateProfile()
+	{
+		
+		$this->db->where("id", $_SESSION['id']);
+    			
+    			$data = array(
+    				'name' =>$_POST['Uname'],
+   					'designation' => $_POST['designation'],
+   					'email' => $_POST['email']
+				);
+
+
+
+    	$this->db->update("users", $data);		
+    	echo "<script>alert('Profile Updated Successfully')</script>";
+		$this->load->view('User/Partial/header');
+		$this->load->view('User/User_profile/user_profile');
+		$this->load->view('User/Partial/footer');
+
+	}
+
+
 
 
 	public function edit()

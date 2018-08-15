@@ -1,4 +1,3 @@
-<?php?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -183,10 +182,13 @@
                                     </tr>
                                     <tr>
                                        <th>Meeting Title</th>
-                                       <th>Initiater Name</th>
-                                       <th>Time</th>
                                        <th>Description</th>
-                                       <th>Status</th>
+                                       <th>Time</th>
+                                       <th>Date</th>
+                                       <th>Initiater Name</th>
+                                       <th>Invitation Status</th>
+                                       <th>Reason</th>
+                                       <th>Action/Decline</th>
                                        
                                     </tr>
                                  </thead>
@@ -215,26 +217,50 @@
                                  $query = $this->db->query("SELECT * FROM temporary_engages WHERE user_id = '".$_SESSION["id"]."' AND (start_time >= '".$start."' AND start_time <= '".$end."')");
                                  
 
-                                 foreach ($query->result() as $row) {                 
-               
-                                       
+                                 foreach ($query->result() as $row) {
 
                                        if($row->meeting_id!=-1){
+
+                                          $link = "";
+                                          $Text = "";
+                                       if($row->status!="Rejected"){
+                                          $link = "http://sibasmartplanner.com/schduleMeeting/setStatus/" . $row->id . "/";
+                                          //$link = "http://localhost/SmartPlanner/schduleMeeting/setStatus/" . $row->id . "/";
+                                          $Text = "Decline";
+                                          }else if($row->status!="Accepted"){
+                                        $link = "http://sibasmartplanner.com/schduleMeeting/setStatus/".$row->id ."/Accepted";
+                                        //$link = "http://localhost/SmartPlanner/schduleMeeting/setStatus/".$row->id ."/Accepted";        
+                                          $Text = "Accept";      
+                                          }
+
+
+
 
                                           $query2 = $this->db->query("SELECT * FROM meeting_logs WHERE id = '".$row->meeting_id."'" );
                                           foreach ($query2->result() as $row2) {      
                                           $query3 = $this->db->query("SELECT name FROM users WHERE id = '".$row2->initiater_id."'" );
                                           foreach ($query3->result() as $row3) {
+                                             $colour = "";
+                                             if($Text=="Accept"){
+                                                $colour ="'btn btn-primary'";
+                                             }
+                                             else{
+                                                $colour ="'btn btn-danger'";   
+                                             }               
+
+
                                              $startT = date('g:i a', strtotime($row->start_time));
                                              $endT = date('g:i a', strtotime($row->end_time));
-                                              echo "<tr><td>".$row2->title."</td><td>".$row3->name."</td><td>".$startT." To ".$endT."</td><td>".$row->description."</td><td>".$row->status."</td></tr>";
+                                             $dateST = date('d M D', strtotime($row->start_time));
+                                              echo "<tr><td>".$row2->title."</td><td>".$row->description."</td><td width='13%'>".$startT." To ".$endT."</td><td width='10%'>".$dateST."</td><td>".$row3->name."</td><td>".$row->status."</td><td>".$row->reason."</td><td><a class= ".$colour." href=".$link.">".$Text."</a></td></tr>";
                                            }
                                           }
                                         } 
                                         else{
                                           $startT = date('g:i a', strtotime($row->start_time));
                                           $endT = date('g:i a', strtotime($row->end_time));
-                                          echo "<tr><td>Busy</td><td>Self</td><td>".$startT." To ".$endT."</td><td>".$row->description."</td><td>".$row->status."</td></tr>";
+                                          $dateST = date('d M D', strtotime($row->start_time));
+                                          echo "<tr><td>Personal Engage</td><td>".$row->description."</td><td width='13%'>".$startT." To ".$endT."</td><td width='10%'>".$dateST."</td><td>Self</td><td></td><td></td><td></td></tr>";
                                         }  
                                     }                 
                                     ?>
