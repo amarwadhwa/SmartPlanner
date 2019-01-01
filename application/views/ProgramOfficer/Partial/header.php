@@ -42,6 +42,9 @@
   
 
    </style>
+
+
+
    <body>
       <div id="wrapper">
       <!-- Navigation -->
@@ -53,7 +56,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand test" href="<?php echo base_url('Admin/index')?>">Smart Meeting Planner</a>
+            <a class="navbar-brand test" href="<?php echo base_url('ProgramOfficer/index')?>">Smart Meeting Planner</a>
          </div>
          <!-- /.navbar-header -->
          <ul class="nav navbar-top-links navbar-right">
@@ -64,10 +67,10 @@
             </li>
             <!-- /.dropdown -->
             
-            <!-- /.dropdown --><!--
+            <!-- /.dropdown -->
             <li class="dropdown">
                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-               <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+               <i class="fa fa-bell fa-fw" style="color: white"  ></i> <i class="fa fa-caret-down" style="color: white" ></i>
                </a>
                <ul class="dropdown-menu dropdown-alerts">
                   
@@ -79,15 +82,15 @@
                      </a>
                   </li>
                </ul>
-               -- /.dropdown-alerts --
-            </li>-->
+               <!-- /.dropdown-alerts -->
+            </li>
             <!-- /.dropdown -->
             <li class="dropdown">
                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-               <i class="fa fa-user fa-fw" style="color: white" ></i> <i class="fa fa-caret-down" style="color: white" ></i>
+               <i class="fa fa-user fa-fw" style="color: white"   ></i> <i class="fa fa-caret-down" style="color: white"   ></i>
                </a>
                <ul class="dropdown-menu dropdown-user">
-                  <li><a href="<?php echo base_url('AdminSettings')?>"><i class="fa fa-cog fa-fw"></i> Settings</a>
+                  <li><a href="#"><i class="fa fa-user fa-fw" ></i> User Profile</a>
                   </li>
                   <!--  <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
                      </li> -->
@@ -107,31 +110,24 @@
                   <li>
                     <!-- <a href="<?php echo base_url('Admin/index')?>"><i class="fa fa-dashboard fa-fw"></i>Dashboard</a>-->
                   </li>
+               
+
                   <li>
-                  <a class="test"  href="<?php echo base_url('AddUsers/index')?>"><i class="fa fa-dashboard fa-fw"></i> Add User</a>
+                     <a class="test" href="<?php echo base_url('BusyRooms/ProgramOfficer')?>"><i class="fa fa-table fa-fw"></i> View Busy Rooms</a>
                   </li>
                   <li>
-                     <a class="test" href="<?php echo base_url('AddCommitties/index')?>"><i class="fa fa-table fa-fw"></i> Add Committee</a>
+                     <a class="test" href="<?php echo base_url('AddEngages/ProgramOfficer')?>"><i class="fa fa-table fa-fw"></i> Add Engages</a>
                   </li>
                   <li>
-                     <a class="test" href="<?php echo base_url('ViewUsers/index')?>"><i class="fa fa-edit fa-fw"></i> View Users</a>
-                  </li>
-                  <li>
-                     <a class="test" href="<?php echo base_url('BusyRooms/index')?>"><i class="fa fa-table fa-fw"></i> View Busy Rooms</a>
-                  </li>
-                  <li>
-                     <a class="test" href="<?php echo base_url('Rooms/index')?>"><i class="fa fa-edit fa-fw"></i> Available Rooms</a>
+                     <a class="test" href="<?php echo base_url('AddRoom/ProgramOfficer')?>"><i class="fa fa-edit fa-fw"></i> Add Room</a>
                   </li>
 
                   <li>
-                     <a class="test" href="<?php echo base_url('AddRoom/index')?>"><i class="fa fa-edit fa-fw"></i> Add Room</a>
+                     <a class="test" href="<?php echo base_url('Rooms/ProgramOfficer')?>"><i class="fa fa-edit fa-fw"></i> Available Rooms</a>
                   </li>
+
                   <li>
-                  <!--   <a href="<?php //echo base_url('AddEngages/index')?>"><i class="fa fa-table fa-fw"></i> Add Engages</a>
-                  </li>-->
-               
-                  <li>
-                     <a class="test" href="<?php echo base_url('AdminSettings/index')?>"><i class="fa fa-edit fa-fw"></i> Settings</a>
+                     <a class="test" href="<?php echo base_url('AdminSettings/ProgramOfficer')?>"><i class="fa fa-edit fa-fw"></i> Settings</a>
                   </li>
                   <li>
                      <a class="test" href="<?php echo base_url('Login/logout')?>"><i class="fa fa-edit fa-fw"></i> Logout</a>

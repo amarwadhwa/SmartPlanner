@@ -654,7 +654,12 @@ public function meetingScheduled(){
 		$freeUsers[] = array();
 	foreach ($users as $user) {
     		$id    = $user->id;
-    		$query = $this->db->query("SELECT * FROM temporary_engages WHERE user_id = '" . $id . "' AND (start_time BETWEEN '" . $start_timestamp . "' AND '" . $end_timestamp . "' OR end_time BETWEEN '" . $start_timestamp . "' AND '" . $end_timestamp . "')");
+    		$query = $this->db->query("SELECT * FROM temporary_engages WHERE user_id = '" . $id . "' AND (start_time BETWEEN '" . $start_timestamp . "' AND '" . $end_timestamp . "' OR end_time BETWEEN '" . $start_timestamp . "' AND '" . $end_timestamp . "') AND status!='Rejected'");
+            
+            /*
+            $query = $this->db->query("SELECT * FROM temporary_engages WHERE user_id = '" . $id . "' AND (start_time BETWEEN '" . $start_timestamp . "' AND '" . $end_timestamp . "' OR end_time BETWEEN '" . $start_timestamp . "' AND '" . $end_timestamp . "')");
+            */
+
     $query2 = $this->db->query("SELECT * FROM permanent_engages WHERE user_id = '".$id."' AND (start_time BETWEEN '".$startDateTimestamp."' AND '".$endDateTimestamp."' OR end_time BETWEEN '".$startDate."' AND '".$endDate."' ) AND (day = '".$endDay."' OR day = '".$startDay."')");
 
     /*
@@ -676,8 +681,11 @@ public function meetingScheduled(){
         }
         if ($query2->num_rows() > 0) {
             foreach ($query2->result() as $userDetails) {
-            $startTime = date('g:ia l', strtotime($userDetails->start_time));
-            $endTime   = date('g:ia l', strtotime($userDetails->end_time));
+            //previous
+            //$startTime = date('g:ia l', strtotime($userDetails->start_time));
+            //$endTime   = date('g:ia l', strtotime($userDetails->end_time));
+            $startTime = date('g:ia ', strtotime($userDetails->start_time));
+            $endTime   = date('g:ia ', strtotime($userDetails->end_time));
             $details .= '<tr><td>' . $userDetails->description . '</td><td>' . $startTime . '</td><td>' . $endTime . '</td></tr>';
             }
         
@@ -935,6 +943,13 @@ tr:nth-child(even) {background-color: #f2f2f2;}
             <td 'background-color: #0000CD;'>Title</td>            
             <td>" . $_POST['title'] . "</td>
             </tr>
+
+            <tr>
+            <td 'background-color: #0000CD;' >Initiator Name</td>            
+            <td>" . $_SESSION["user-name"]  . "</td>
+            </tr>
+
+
             <tr>
             <td 'background-color: #0000CD;' >Committee Invited.</td>            
             <td>" . $commety . "</td>

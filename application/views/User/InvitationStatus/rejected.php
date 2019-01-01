@@ -2,6 +2,9 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 body {font-family: Arial, Helvetica, sans-serif;}
 
@@ -63,7 +66,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 .modal-header {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #00aff0;
     color: white;
 }
 
@@ -71,7 +74,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 .modal-footer {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #00aff0;
     color: white;
 }
 </style>
@@ -85,27 +88,47 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <!-- Modal content -->
 
 <div class="modal-content">
-    <form id="role-form" action="<?php echo base_url('schduleMeeting/setStatus/'.$rowId.'/Rejected/');?> method="post">
+    <form id="role-form" action="<?php echo base_url('schduleMeeting/setStatus/'.$rowId.'/Rejected');?> method="post">
         <div class="modal-header">
             <button type="button" class="close" data-dismiss="modal">&times;</button>
 
-            <h4 class="modal-title">Abc</h4>
+            <h2>Sukkur IBA University</h2>
         </div>
         <div class="modal-body">
 
+            <h3>Please Specify the Reason</h3>
             <div class="form-group col-md-12">
+                
+                
+                 <br> 
+                 <!--<input type="text" placeholder="Not Specified"  name="reason">-->
 
-                <h3>Please Specify the Reason</h3>
-                  
-                 Reason: <input type="text" placeholder="Not Specified"  name="reason">
+                 <textarea rows="4" style="width: 100%;" placeholder="Not Specified"  name="reason"></textarea>
 
             </div>
-          
-            <div class="clearfix"></div>
+        
+
+            <div class="clearfix">
+                <div class="row">
+                <div class="form-group col-md-12">
+                 
+                 <button type="submit"
+                formaction="http://sibasmartplanner.com/schduleMeeting/setStatus/<?php echo $rowId;?>/Rejected/" 
+                class="btn btn-primary" style="float: left" >Submit</button>       
+                
+                </div>
+
+        </div> 
+
+            </div>
+        
+            
         </div>
+
+
         <div class="modal-footer">
 
-            <button type="submit" class="btn btn-primary" >button</button>      
+           <h4>sibasmartplanner.com</h4>
             
 
         </div>

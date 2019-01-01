@@ -31,13 +31,13 @@
                            ?>
 
                            </div>
-                           <div>Initiated Meetings</div>
+                           <div >Created Meetings</div>
                         </div>
                      </div>
                   </div>
                   <a href="<?php echo base_url('initiateMeeting/index')?>">
                      <div class="panel-footer">
-                        <span class="pull-left">View Details</span>
+                        <span class="pull-left" title="Click here to create new meeting">Create Meeting</span>
                         <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
                         <div class="clearfix"></div>
                      </div>
@@ -57,7 +57,7 @@
 
                                  $t=time()+(60*60*3);
                                  $currentTime =  date("Y-m-d H:i:s",$t);
-                              $query = $this->db->query("SELECT * FROM temporary_engages WHERE user_id = '".$_SESSION["id"]."' AND start_time > '".$currentTime."'");
+                              $query = $this->db->query("SELECT * FROM temporary_engages WHERE user_id = '".$_SESSION["id"]."' AND start_time > '".$currentTime."' AND status!='Rejected'");
                                    $num = $query->num_rows();
                                     echo $num;?></div>
                            <div>View Meetings</div>
@@ -149,7 +149,7 @@
                   <div class="panel-heading">
                      <i class="fa fa-bar-chart-o fa-fw"></i>Todays Meetings/Personal Engages
                      <div class="pull-right">
-                        <div class="btn-group">
+                        <div class="btn-group" title="View Todays,Weekly and Monthly Meetings">
                            <button type="button" class="btn btn-default btn-xs dropdown-toggle" data-toggle="dropdown">
                            Actions
                            <span class="caret"></span>
@@ -194,9 +194,10 @@
                                  </thead>
                                  <tbody>
                                  <?php
-                                 $t=time()+(60*60*3);                                 
+                                 $t=time()+(60*60*5);                                
                                  $today =  date("Y-m-d",$t);
-                                 $start = $today." 00:00:00"; 
+                                 $start = $today." 00:00:00";
+                                 
                                 
                                  if($ShowMeetings=='today'){
                                     $end=$today." 23:59:59";  
@@ -225,10 +226,14 @@
                                           $Text = "";
                                        if($row->status!="Rejected"){
                                           $link = "http://sibasmartplanner.com/schduleMeeting/setStatus/" . $row->id . "/";
+                                          $linkR = "http://sibasmartplanner.com/schduleMeeting/setStatus/" . $row->id . "/";
+                                          $linkA = "http://sibasmartplanner.com/schduleMeeting/setStatus/".$row->id ."/Accepted";
                                           //$link = "http://localhost/SmartPlanner/schduleMeeting/setStatus/" . $row->id . "/";
                                           $Text = "Decline";
                                           }else if($row->status!="Accepted"){
                                         $link = "http://sibasmartplanner.com/schduleMeeting/setStatus/".$row->id ."/Accepted";
+                                        $linkR = "http://sibasmartplanner.com/schduleMeeting/setStatus/" . $row->id . "/";
+                                        $linkA = "http://sibasmartplanner.com/schduleMeeting/setStatus/".$row->id ."/Accepted";
                                         //$link = "http://localhost/SmartPlanner/schduleMeeting/setStatus/".$row->id ."/Accepted";        
                                           $Text = "Accept";      
                                           }
@@ -251,8 +256,10 @@
 
                                              $startT = date('g:i a', strtotime($row->start_time));
                                              $endT = date('g:i a', strtotime($row->end_time));
-                                             $dateST = date('d M D', strtotime($row->start_time));
-                                              echo "<tr><td>".$row2->title."</td><td>".$row->description."</td><td width='13%'>".$startT." To ".$endT."</td><td width='10%'>".$dateST."</td><td>".$row3->name."</td><td>".$row->status."</td><td>".$row->reason."</td><td><a class= ".$colour." href=".$link.">".$Text."</a></td></tr>";
+                                             $dateST = date('d-M D', strtotime($row->start_time));
+                                              echo "<tr><td>".$row2->title."</td><td>".$row->description."</td><td width='14%'>".$startT." To ".$endT."</td><td width='10%'>".$dateST."</td><td>".$row3->name."</td><td>".$row->status."</td><td>".$row->reason."</td><td width='17%'><a class='btn btn-primary' href=".$linkA.">"."Accept"."</a>&nbsp;&nbsp;<a class= 'btn btn-danger' href=".$linkR.">"."Decline"."</a></td></tr>";
+
+                                             //<td><a class= ".$colour." href=".$link.">".$Text."</a></td></tr>";
                                            }
                                           }
                                         } 

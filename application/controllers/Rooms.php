@@ -35,6 +35,16 @@ class Rooms extends CI_Controller {
 		
 	}		
 	
+	public function ProgramOfficer()
+	{
+		
+		$this->session_check();
+		$this->load->view('ProgramOfficer/Partial/header');
+		$this->load->view('Admin/Room/ViewRoom');
+		$this->load->view('ProgramOfficer/Partial/footer');
+		
+	}
+
 
 	public function delete()
 	{	
@@ -56,10 +66,19 @@ class Rooms extends CI_Controller {
 		}
 		
 
+		if($_SESSION["user-type"] == "program_officer"){
+        		$this->load->view('ProgramOfficer/Partial/header');
+				$this->load->view('Admin/Room/ViewRoom');
+				$this->load->view('ProgramOfficer/Partial/footer');
+		}
+		else{
+				$this->load->view('Admin/Partial/header');
+				$this->load->view('Admin/Room/ViewRoom');
+				$this->load->view('Admin/Partial/footer');
+		}
 
-		$this->load->view('Admin/Partial/header');
-		$this->load->view('Admin/Room/ViewRoom');
-		$this->load->view('Admin/Partial/footer');
+
+
 
 		
 		

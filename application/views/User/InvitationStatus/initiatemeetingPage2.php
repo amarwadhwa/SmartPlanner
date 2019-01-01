@@ -86,7 +86,7 @@ function submitClick(){
                                  <div class="demo">
                                     <h2>Date and Time </h2>
                                     <p id="datepairExample">
-                                       <input type="text" onchange="dST()" id='dst' class="date start" placeholder="Date"  name="start_date" autocomplete="off" value="<?php
+                                       <input type="text" class="date start" placeholder="Date"  name="start_date" autocomplete="off" value="<?php
                                       if(isset($startDate)){echo "$startDate";}
 
                                        ?>" required />
@@ -98,7 +98,7 @@ function submitClick(){
                                       if(isset($endTime)){echo "$endTime";}
 
                                        ?>" required />
-                                       <input type="text" onchange="dEND()" id="dend" class="date end" placeholder="Date" name="end_time"
+                                       <input type="text" class="date end" placeholder="Date" name="end_time"
                                          autocomplete="off" value="<?php if(isset($endDate)){echo "$endDate";
                                         } ?>" required />
                                        <input type="hidden" value="<?php if(isset($_POST["title"])){echo $_POST["title"];}?>" name="title" />
@@ -268,18 +268,6 @@ function submitClick(){
      document.getElementById('sel_class').selectedIndex = 0;
    }
 
-  function dST() {
-    
-      document.getElementById('dend').value = document.getElementById('dst').value;
-    
-  }
-  
-  function dEND() {
-  
-      document.getElementById('dst').value = document.getElementById('dend').value;
-  }
-
-
 
   </script>
 
@@ -362,17 +350,7 @@ if(isset($_POST["start_time"])) {
 
         //echo "<br>";
         //echo "<br>";
-        
 
-        //my new code
-        //print_r($_SESSION["own-conflict"]);
-        //echo "<br>";
-        //echo "<br>";
-        $invited_Users = array_merge($_SESSION["own-conflict"],$invited_Users) ; 
-        //print_r($invited_Users);
-        //echo "<br>";
-        //echo "<br>";
-        //till here
         //print_r(array_map("unserialize", array_unique(array_map("serialize", $invited_Users))));
 
 

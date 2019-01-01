@@ -63,7 +63,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 .modal-header {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #00aff0;
     color: white;
 }
 
@@ -71,7 +71,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 
 .modal-footer {
     padding: 2px 16px;
-    background-color: #5cb85c;
+    background-color: #00aff0;
     color: white;
 }
 </style>
@@ -86,7 +86,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
   <div class="modal-content">
     <div class="modal-header">
       <span class="close">&times;</span>
-      <h2>Sukkur Institute of Bussiness Administration</h2>
+      <h2>Sukkur IBA University</h2>
     </div>
     <div class="modal-body">
       <p>Meeting Invitation Accepted</p>
@@ -102,6 +102,7 @@ body {font-family: Arial, Helvetica, sans-serif;}
 <script>
 // Get the modal
 var modal = document.getElementById('myModal');
+
 
 // Get the button that opens the modal
 
@@ -120,13 +121,20 @@ span.onclick = function() {
 
 }
 
+
+
+
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
     if (event.target == modal) {
+        
         history.back();
+
 
     }
 }
+
+
 </script>
 
 </body>

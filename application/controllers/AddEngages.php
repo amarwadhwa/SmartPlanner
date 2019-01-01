@@ -12,10 +12,11 @@ class AddEngages extends CI_Controller {
 	}
 	public function index()
 	{	
+		$this->session_check();
 		$this->load->view('Admin/Partial/header');
 		$this->load->view('Admin/AddEngages/addEngages',array('error' => ' ' ));
 		$this->load->view('Admin/Partial/footer');
-		$this->session_check();
+		
 	}
 
 	public function uploadxml(){
@@ -27,22 +28,43 @@ class AddEngages extends CI_Controller {
                 if ( ! $this->upload->do_upload('userfile'))
                 {
                         $error = array('error' => $this->upload->display_errors());
-                        $this->load->view('Admin/Partial/header');
-                        $this->load->view('Admin/AddEngages/addEngages', $error);
-                        $this->load->view('Admin/Partial/footer');
-
+                        
+                        if($_SESSION["user-type"] == "program_officer"){
+                        	$this->load->view('ProgramOfficer/Partial/header');
+                        	$this->load->view('Admin/AddEngages/addEngages', $error);
+                        	$this->load->view('ProgramOfficer/Partial/footer');	
+                        }
+                        else{
+                        	$this->load->view('Admin/Partial/header');
+                        	$this->load->view('Admin/AddEngages/addEngages', $error);
+                        	$this->load->view('Admin/Partial/footer');
+                    	}
                 }
                 else
                 {
                         $data = array('upload_data' => $this->upload->data());
-						$this->load->view('Admin/Partial/header');
-                        $this->load->view('Admin/AddEngages/uploadSuceess', $data);
-                        $this->load->view('Admin/Partial/footer');
+						if($_SESSION["user-type"] == "program_officer"){
+							$this->load->view('ProgramOfficer/Partial/header');
+                        	$this->load->view('Admin/AddEngages/uploadSuceess', $data);
+                        	$this->load->view('ProgramOfficer/Partial/footer');
+						}
+						else{
+							$this->load->view('Admin/Partial/header');
+                        	$this->load->view('Admin/AddEngages/uploadSuceess', $data);
+                        	$this->load->view('Admin/Partial/footer');
+                		}
                 }
 
  	 }
 	
-	
+	public function ProgramOfficer()
+	{	
+		$this->session_check();
+		$this->load->view('ProgramOfficer/Partial/header');
+		$this->load->view('Admin/AddEngages/addEngages',array('error' => ' ' ));
+		$this->load->view('ProgramOfficer/Partial/footer');
+		
+	}
 	
 }
 ?>

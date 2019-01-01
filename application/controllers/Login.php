@@ -55,8 +55,17 @@ class Login extends CI_Controller {
             		 redirect("Admin");
             		 break;
 
+	        	}elseif($row->id=="program_officer"){
+	        		 $_SESSION["user-type"] = "program_officer";
+	        		 $_SESSION["id"] = $row->id;
+	        		 $_SESSION["password"] = $row->password;
+            		 redirect("ProgramOfficer");
+            		 break;
+
 	        	}
 	        	else{	
+	        	$_SESSION["own-conflict"] = $query->result();
+	        	
             	$_SESSION["user-type"] = "user";
             	$_SESSION["user-name"]= $row->name;
             	$_SESSION["gmail"]= $row->email;

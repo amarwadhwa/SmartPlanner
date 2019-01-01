@@ -41,7 +41,9 @@ class My_Meeting extends CI_Controller {
 		
 		foreach ($users as $user) {
 		$id =$user->id;
-		$query = $this->db->query("SELECT * FROM temporary_engages WHERE user_id = '".$id."' AND (start_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."' OR end_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."' )");
+		$query = $this->db->query("SELECT * FROM temporary_engages WHERE user_id = '".$id."' AND (start_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."' OR end_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."') AND status!='Rejected'");
+		/*$query = $this->db->query("SELECT * FROM temporary_engages WHERE user_id = '".$id."' AND (start_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."' OR end_time BETWEEN '".$start_timestamp."' AND '".$end_timestamp."' )");
+		*/
 			if($query->num_rows() >0){
 				// busy users..
 				if ($first) {
@@ -54,7 +56,8 @@ class My_Meeting extends CI_Controller {
 				{
 				$startTime = date('g:ia', strtotime($row->start_time));				
 				$endTime = date('g:ia', strtotime($row->end_time));	
-        		echo "<h6>". $row->description."---<i>".$startTime."  To  ".$endTime. "</i><h6>";
+        		//echo "<h6>". $row->description."---<i>".$startTime."  To  ".$endTime. "</i><h6>";
+        		echo "<h6>"." Not Available"."---<i>From ".$startTime."  to  ".$endTime. "</i><h6>";
         		}
         	}
 				$query = $this->db->query("SELECT * FROM permanent_engages WHERE user_id = '".$id."' AND (start_time BETWEEN '".$startDateTimestamp."' AND '".$endDateTimestamp."' OR end_time BETWEEN '".$startDate."' AND '".$endDate."' ) AND (day = '".$endDay."' OR day = '".$startDay."')");
@@ -64,13 +67,15 @@ class My_Meeting extends CI_Controller {
 				echo "<h2> Busy Users:</h2>";
 				echo "<h4> Description  and Time <h4>";
 				$first = false; }
-				echo "<bold> <u>$user->name </u></bold>";				
+				//echo "<bold> <u>$user->name </u></bold>";
+				echo "<h5 style='color:red'>$user->name</h5>";				
 		        $row = $query->result();		        
 				foreach ($query->result() as $row)
 				{
 				$startTime = date('g:ia', strtotime($row->start_time));				
 				$endTime = date('g:ia', strtotime($row->end_time));	
-        		echo "<h6>". $row->description."---<i>".$startTime."  To  ".$endTime. "</i><h6>";
+        		//echo "<h6>". $row->description."---<i>From ".$startTime."  to  ".$endTime. "</i><h6>";
+        		echo "<h6>"." Not Available"."---<i>From ".$startTime."  to  ".$endTime. "</i><h6>";
         		}
 
 			}

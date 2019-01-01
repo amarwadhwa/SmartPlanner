@@ -35,6 +35,22 @@ class BusyRooms extends CI_Controller {
 		
 	}		
 	
+		
+
+
+	public function ProgramOfficer()
+	{
+		
+		$this->session_check();
+		$this->load->view('ProgramOfficer/Partial/header');
+		$this->load->view('Admin/Room/busyRooms');
+		$this->load->view('ProgramOfficer/Partial/footer');
+		
+	}	
+
+
+
+
 
 	
 	

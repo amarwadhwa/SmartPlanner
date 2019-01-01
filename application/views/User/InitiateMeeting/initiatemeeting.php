@@ -22,7 +22,7 @@
 <!DOCTYPE html>
 <html lang="en">
    <head>
-      
+
    </head>
    <body>
       <div id="page-wrapper">
@@ -99,6 +99,9 @@
                                  <label>Faculty</label>
                                  <input class="form-control"  name="faculty">
                               </div>-->
+                            
+
+
                               <button type="submit" name="submit" value="meeting"class="btn btn-primary">Next</button>
                                  <button type="reset" class="btn btn-primary">Reset</button>
 
@@ -131,4 +134,6 @@
       </div>
       <!-- /#wrapper -->
    </body>
+
+
 </html>

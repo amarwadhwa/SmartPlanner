@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Admin extends CI_Controller {
+class ProgramOfficer extends CI_Controller {
 
 	/**
 	 * Index Page for this controller.
@@ -20,19 +20,22 @@ class Admin extends CI_Controller {
 
 	public function session_check(){
 
-	if(!isset($_SESSION["user-type"]) && $_SESSION["user-type"] != "admin"){
+		if(!isset($_SESSION["user-type"]) && $_SESSION["user-type"] != "program_officer"){
 		redirect("Login");
+		}
 	}
-	}
+
+
+
+
 	public function index()
 	{
-		
+
 		$this->session_check();
-		$this->load->view('Admin/Partial/header');
-		//$this->load->view('Admin/DashBoard/home');
-		//$this->load->view('Admin/Users/Users',$data);
-		$this->load->view('Admin/Partial/footer');
-		redirect('AddUsers');
+		$this->load->view('ProgramOfficer/Partial/header');
+		$this->load->view('Admin/Room/busyRooms');
+		$this->load->view('ProgramOfficer/Partial/footer');
+		
 	}
 
 	

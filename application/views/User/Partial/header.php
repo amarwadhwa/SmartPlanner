@@ -67,6 +67,33 @@
          */
          #no-more-tables td:before { content: attr(data-title); }
          }
+
+         .navbar-default2 {
+            background-color:    #011C39;
+            border-color: #ffffff;
+         }
+
+
+
+         .navbar-default {
+            
+            background-color:   #011C39 ;
+            border-color: #ffffff;
+
+         }
+
+
+         .test {
+            color: #ffffff;
+            
+            
+         }
+  
+        
+       
+         
+
+
       </style>
       <!-- Jquery Token Input -->
       <link rel="stylesheet" href="<?php echo base_url(); ?>application_resources/tokenInput/styles/token-input.css" type="text/css" />
@@ -82,7 +109,17 @@
    <body>
       <div id="wrapper">
       <!-- Navigation -->
-      <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+      <nav   class="navbar navbar-default2 navbar-static-top " role="navigation"  style="margin-bottom: 0" >
+
+
+
+
+
+
+
+
+
+
          <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
             <span class="sr-only">Toggle navigation</span>
@@ -90,22 +127,30 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="<?php echo base_url('User/index')?>">Sukkur IBA University</a>
+
+
+            <a class="navbar-brand test" href="<?php echo base_url('User/index')?>">Smart Meeting Planner</a>
+            
          </div>
          <!-- /.navbar-header -->
-         <ul class="nav navbar-top-links navbar-right">
+         <ul class="nav navbar-top-links navbar-right" >
+
             <!-- /.dropdown -->
             <!-- /.dropdown -->
             <li class="dropdown">
+               
                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-               <i class="fa fa-bell fa-fw"></i> <i class="fa fa-caret-down"></i>
+                   
+               <i class="fa fa-bell fa-fw" style="color: white"></i> <i class="fa fa-caret-down" style="color: white"></i>
                </a>
                <ul class="dropdown-menu dropdown-alerts">
-                  
+                  <li><a href="<?php echo base_url('My_Meeting')?>"><i class="fa fa-list-ul "></i> My Meetings</a>
+                  </li> 
+
                   <li class="divider"></li>
                   <li>
-                     <a class="text-center" href="#">
-                     <strong>See All Alerts</strong>
+                     <a class="text-left  fa fa-calendar-check-o" href="<?php echo base_url('Engages')?>">
+                     My Engages
                      <i class="fa fa-angle-right"></i>
                      </a>
                   </li>
@@ -115,13 +160,16 @@
             <!-- /.dropdown -->
             <li class="dropdown">
                <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-               <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
+               <i class="fa fa-user fa-fw" style="color: white"></i>
+               <i class="fa fa-caret-down" style="color: white"></i>
+
                </a>
+
+
                <ul class="dropdown-menu dropdown-user">
-                  <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
+                  <li><a href="<?php echo base_url('User_Profile')?>"><i class="fa fa-user fa-fw"></i> User Profile</a>
                   </li>
-                  <!--  <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                     </li> -->
+                  
                   <li class="divider"></li>
                   <li><a href="<?php echo base_url('Login/logout')?>"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                   </li>
@@ -131,39 +179,39 @@
             <!-- /.dropdown -->
          </ul>
          <!-- /.navbar-top-links -->
-         <div class="navbar-default sidebar" role="navigation">
-            <div class="sidebar-nav navbar-collapse">
+         <div class="navbar-default sidebar " role="navigation" >
+            <div class="sidebar-nav navbar-collapse" > 
                <ul class="nav" id="side-menu">
                   
                   <li>
-                     <a href="<?php echo base_url('User/index')?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
+                     <a class="test" href="<?php echo base_url('User/index')?>"><i class="fa fa-dashboard fa-fw"></i> Dashboard</a>
                   </li>
                   <li>
-                     <a href="<?php echo base_url('My_Meeting/index')?>"><i class="fa fa-edit fa-fw"></i> My Meetings</a>
+                     <a class="test" href="<?php echo base_url('My_Meeting/index')?>"><i class="fa fa-edit fa-fw"></i> My Meetings</a>
                   </li>
                   
                   <li>
-                     <a href="<?php echo base_url('Engages/index')?>"><i class="fa fa-table fa-fw"></i> My Engages</a>
+                     <a class="test" href="<?php echo base_url('Engages/index')?>"><i class="fa fa-table fa-fw"></i> My Engages</a>
                   </li>
 
                   <li>
-                     <a href="<?php echo base_url('AddPermenentEngagesUser/index')?>"><i class="fa fa-table fa-fw"></i> Add Engage</a>
+                     <a class="test"  href="<?php echo base_url('AddPermenentEngagesUser/index')?>"><i class="fa fa-table fa-fw"></i> Add Engage</a>
                   </li>
                   
 
                   <li>
-                     <a href="<?php echo base_url('InitiateMeeting/index')?>"><i class="fa fa-table fa-fw"></i> Initiate Meeting</a>
+                     <a class="test" href="<?php echo base_url('InitiateMeeting/index')?>"><i class="fa fa-table fa-fw"></i> Initiate Meeting</a>
                   </li>
                  <!--"<?php //echo base_url('initiateMeeting/index')?>"-->
 
                   <li>
-                     <a href="<?php echo base_url('SchduleMeeting/index')?>"><i class="fa fa-table fa-fw"></i> Scheduled Meetings</a>
+                     <a class="test" href="<?php echo base_url('SchduleMeeting/index')?>"><i class="fa fa-table fa-fw"></i> Scheduled Meetings</a>
                   </li>
                   <li>
-                     <a href="<?php echo base_url('User_Profile/index')?>"><i class="fa fa-table fa-fw"></i> Profile</a>
+                     <a class="test" href="<?php echo base_url('User_Profile/index')?>"><i class="fa fa-table fa-fw"></i> Profile</a>
                   </li>
                   <li>
-                     <a href="<?php echo base_url('Login/logout')?>"><i class="fa fa-table fa-fw"></i> Logout</a>
+                     <a class="test" href="<?php echo base_url('Login/logout')?>"><i class="fa fa-table fa-fw"></i> Logout</a>
                   </li>
                </ul>
             </div>

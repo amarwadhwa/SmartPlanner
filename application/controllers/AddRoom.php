@@ -34,6 +34,18 @@ class AddRoom extends CI_Controller {
 		
 	}
 
+	public function ProgramOfficer()
+	{
+		$this->session_check();
+		$this->load->view('ProgramOfficer/Partial/header');
+		$this->load->view('Admin/Room/addRoom');
+		$this->load->view('ProgramOfficer/Partial/footer');
+		
+	}
+
+
+
+
 	public function add_room()
 	{
 		$this->session_check();
@@ -52,9 +64,20 @@ class AddRoom extends CI_Controller {
 						 			$added_by = "admin";								
 									$this ->Classess->save($class_id,$class_name,$added_by);
 									 echo "<script>alert('Room Added Succesfully');</script>";
-										 $this->load->view('Admin/Partial/header');
-										 $this->load->view('Admin/Room/addRoom');
-										 $this->load->view('Admin/Partial/footer');
+										 
+									 if($_SESSION["user-type"] == "program_officer"){
+											$this->load->view('ProgramOfficer/Partial/header');
+										 	$this->load->view('Admin/Room/addRoom');
+										 	$this->load->view('ProgramOfficer/Partial/footer');
+									 }
+									 else{
+											$this->load->view('Admin/Partial/header');
+										 	$this->load->view('Admin/Room/addRoom');
+										 	$this->load->view('Admin/Partial/footer');
+									}
+
+
+										 
 
 									 
 		
@@ -66,18 +89,34 @@ class AddRoom extends CI_Controller {
 		$formData["room_description"] = $this->input->post("room_description");
 		$data["error"] = "Room already exists!";
 		$data["formData"]= $formData;
-		$this->load->view('Admin/Partial/header');
-		$this->load->view('Admin/Room/addRoom',$data);
-		$this->load->view('Admin/Partial/footer');
+
+			if($_SESSION["user-type"] == "program_officer"){
+				$this->load->view('ProgramOfficer/Partial/header');
+				$this->load->view('Admin/Room/addRoom',$data);
+				$this->load->view('ProgramOfficer/Partial/footer');
+			}
+			else{
+				$this->load->view('Admin/Partial/header');
+				$this->load->view('Admin/Room/addRoom',$data);
+				$this->load->view('Admin/Partial/footer');
+
+			}
+		
 
 		
         } 
         else{ 
       	
-		$this->load->view('Admin/Partial/header');
-		$this->load->view('Admin/Room/addRoom');
-		$this->load->view('Admin/Partial/footer');
-
+        		if($_SESSION["user-type"] == "program_officer"){
+        		$this->load->view('ProgramOfficer/Partial/header');
+				$this->load->view('Admin/Room/addRoom');
+				$this->load->view('ProgramOfficer/Partial/footer');
+				}
+				else{
+				$this->load->view('Admin/Partial/header');
+				$this->load->view('Admin/Room/addRoom');
+				$this->load->view('Admin/Partial/footer');
+				}
 		}
 
 

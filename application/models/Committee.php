@@ -34,8 +34,29 @@
 	
 	 public function view_all()
 	{
-		$query = $this->db->get("committees"); 
-        $data['records'] = $query->result(); 
+		/*
+		//$query1 = "SELECT commitee_id FROM users";
+		$this->db->select('commitee_id');
+    	$this->db->from('users');
+    	$this->db->where('users.commitee_id !=', ""); 
+    	$query1 = $this->db->get();   
+		$data2 =  $query1->result();
+		//print_r($data2[2]);
+		//$data2 = implode(",",$data2);
+		//print($data2);
+
+		//$query = $this->db->get("committees"); 
+		$count = 0 ;
+		for($i=1; $i<=3; $i++){
+        $query = $this->db->get_where("committees",array('id =' => $i)); 
+        $dataTest[] = $query->result(); 
+      	}
+      	$data['records'] = $dataTest[];
+      	print_r($data['records']);
+      	*/
+      	
+      	$query = $this->db->get("committees"); 
+      	$data['records'] = $query->result(); 
       	return $data;
 
         

@@ -308,26 +308,29 @@ tr:nth-child(even) {background-color: #f2f2f2;}
 			
 			}
 			else if($status=="Rejected"){
-							if($_POST['reason']==""){ $_POST['reason'] = "Not Specified";}
+							if($_GET['reason']==""){ $_GET['reason'] 	= "Not Specified";}
 
 				$this->db->where("id", "$rowId");
     			$data = array( 
    					'status' => "$status",
-   					'reason' => $_POST['reason']
+   					'reason' => $_GET['reason']
 				);
     			$this->db->update("temporary_engages", $data);
-    			$this->load->view('User');
     			
+
+    			//redirect('User/index/monthly');
+    			echo "<script>window.history.go(-2);</script>";
+
 
 			}
 			else{
-				$this->db->where("id", "$rowId");
+				/*$this->db->where("id", "$rowId");
     			$data = array( 
    					'status' => "Rejected",
    					'reason' => "$reason"
 				);
     			$this->db->update("temporary_engages", $data);
-				
+				*/
 
 				$row_id['rowId'] = $rowId;
 				$this->load->view('User/InvitationStatus/rejected',$row_id);	

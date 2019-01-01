@@ -28,6 +28,15 @@ class AdminSettings extends CI_Controller {
 	
 	}
 
+public function ProgramOfficer()
+	{
+		$this->load->view('ProgramOfficer/Partial/header');
+		$this->load->view('Admin/Settings/Settings');
+		$this->load->view('ProgramOfficer/Partial/footer');
+	
+	}
+
+
 
 public function custom_mail(){
 			$to = "karansachrani.cs14@iba-suk.edu.pk";

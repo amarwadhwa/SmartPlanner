@@ -1,5 +1,5 @@
 <?php 
-   Class Meetings extends CI_Model {
+   Class MobileAppMobel extends CI_Model {
 	
       Public function __construct() { 
          parent::__construct(); 
